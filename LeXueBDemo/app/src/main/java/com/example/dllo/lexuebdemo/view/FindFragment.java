@@ -63,7 +63,7 @@ public class FindFragment extends BaseFragment implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        
+
     }
 
     @Override

@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity implements MainView{
     @Override
     public void onAddFragment(Fragment fragment) {
         transaction=manager.beginTransaction();
-        transaction.add(R.id.frame_main,fragment);
+        transaction.replace(R.id.frame_main,fragment);
         transaction.commit();
     }
 
