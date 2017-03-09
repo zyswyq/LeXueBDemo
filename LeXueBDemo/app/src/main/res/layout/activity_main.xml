@@ -7,8 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.dllo.lexuebdemo.view.MainActivity">
     <!--最外层框架-->
-    <FrameLayout
-        android:id="@+id/frame_main"
+    <com.example.dllo.lexuebdemo.view.NoMoveViewPager
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

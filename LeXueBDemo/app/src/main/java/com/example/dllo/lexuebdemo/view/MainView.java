@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 
 public interface MainView {
 
-    void onAddFragment(Fragment fragment);
-    void onRadiuGroupCheckChange(int Id);
+    void selectFragment(int i);
 
 }
