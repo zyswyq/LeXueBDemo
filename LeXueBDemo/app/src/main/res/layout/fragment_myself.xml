@@ -17,7 +17,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:text="分享"
-            android:textColor="@color/write" />
+            android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/iv_fg_myself_head_portrait"
@@ -35,7 +35,7 @@
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/iv_fg_myself_head_portrait"
             android:text="dasda"
-            android:textColor="@color/write" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tv_fg_myself_number"
@@ -45,7 +45,7 @@
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/iv_fg_myself_head_portrait"
             android:text="asdasda"
-            android:textColor="@color/write" />
+            android:textColor="@color/white" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/write"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -68,7 +68,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:layout_toLeftOf="@id/ll_fg_myself_left"
+
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
                 android:src="@mipmap/my_lexuebi_icon" />
 
             <LinearLayout
-                android:id="@+id/ll_fg_myself_left"
+
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_toLeftOf="@id/ll_fg_myself_right"
+
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
                     android:src="@mipmap/mine_balance_icon" />
 
                 <LinearLayout
-                    android:id="@+id/ll_fg_myself_right"
+
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,7 +192,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -215,7 +215,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -238,7 +238,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -261,7 +261,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -285,7 +285,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -308,7 +308,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -332,7 +332,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -355,7 +355,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -378,7 +378,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/write">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
