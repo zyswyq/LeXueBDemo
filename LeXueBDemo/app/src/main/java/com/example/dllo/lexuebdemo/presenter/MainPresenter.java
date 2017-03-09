@@ -16,23 +16,19 @@ public class MainPresenter {
         this.mainView = mainView;
     }
 
-    public void addView(int Id){
+    public void selectPage(int Id){
         switch (Id){
             case R.id.radiobtn_main:
-//                mainView.onAddFragment();
-                mainView.onRadiuGroupCheckChange(Id);
+                mainView.selectFragment(0);
                 break;
             case R.id.radiobtn_teacher:
-                mainView.onAddFragment(new TeacherFragment());
-                mainView.onRadiuGroupCheckChange(Id);
+                mainView.selectFragment(1);
                 break;
             case R.id.radiobtn_find:
-                mainView.onAddFragment(new FindFragment());
-                mainView.onRadiuGroupCheckChange(Id);
+                mainView.selectFragment(2);
                 break;
             case R.id.radiobtn_my:
-//                mainView.onAddFragment();
-                mainView.onRadiuGroupCheckChange(Id);
+                mainView.selectFragment(3);
                 break;
 
         }

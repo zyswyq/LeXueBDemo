@@ -3,13 +3,18 @@ package com.example.dllo.lexuebdemo.view;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.dllo.lexuebdemo.R;
+import com.example.dllo.lexuebdemo.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.presenter.MainPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * by 王宇琦
@@ -18,11 +23,12 @@ import com.example.dllo.lexuebdemo.presenter.MainPresenter;
 
 public class MainActivity extends BaseActivity implements MainView{
 
-    private RadioButton mainPage,teacherPage,findPage,MyPage;
+    private RadioButton mainPage,teacherPage,findPage,myPage;
     private RadioGroup mainRagioGroup;
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
     private MainPresenter presenter;
+    private NoMoveViewPager mainVP;
+    private List<Fragment> fragments;
+    private MainVPAdapter adapter;
 
     @Override
     protected int getLayout() {
@@ -32,20 +38,28 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     protected void initView() {
+        fragments=new ArrayList<>();
         mainPage = bindView(R.id.radiobtn_main);
         teacherPage = bindView(R.id.radiobtn_teacher);
         findPage = bindView(R.id.radiobtn_find);
-        MyPage = bindView(R.id.radiobtn_my);
+        myPage = bindView(R.id.radiobtn_my);
         mainRagioGroup=bindView(R.id.radiogroup_main);
-        manager=getSupportFragmentManager();
+        mainVP=bindView(R.id.vp_main);
         presenter=new MainPresenter(this);
         mainPage.setChecked(true);
+        adapter=new MainVPAdapter(getSupportFragmentManager());
     }
 
 
     @Override
     protected void initData() {
-
+        fragments.add(new TeacherFragment());
+        fragments.add(new TeacherFragment());
+        fragments.add(new TeacherFragment());
+        fragments.add(new FindFragment());
+        adapter.setFragments(fragments);
+        mainVP.setAdapter(adapter);
+        mainVP.setOffscreenPageLimit(4);
     }
 
 
@@ -54,25 +68,16 @@ public class MainActivity extends BaseActivity implements MainView{
         mainRagioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-               presenter.addView(i);
+               presenter.selectPage(i);
             }
         });
     }
 
 
     @Override
-    public void onAddFragment(Fragment fragment) {
-        transaction=manager.beginTransaction();
-        transaction.replace(R.id.frame_main,fragment);
-        transaction.commit();
+    public void selectFragment(int i) {
+        mainVP.setCurrentItem(i);
     }
-
-
-    @Override
-    public void onRadiuGroupCheckChange(int Id) {
-
-    }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -84,5 +89,6 @@ public class MainActivity extends BaseActivity implements MainView{
     public void onBackPressed() {
         super.onBackPressed();
     }
+
 
 }
