@@ -3,6 +3,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--发现主界面`-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/every_tool_height"
+        android:orientation="horizontal"
+        android:background="@color/mainblue">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="乐学名师"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20"
+            android:gravity="center"
+            />
+    </LinearLayout>
     <!--顶部bar,由一个tablayout和一个小下拉按钮组成-->
     <LinearLayout
         android:layout_width="match_parent"
