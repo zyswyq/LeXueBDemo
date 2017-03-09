@@ -39,10 +39,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/item_teacher_rv_headimg"
             android:layout_centerHorizontal="true"
-            android:drawableEnd="@mipmap/sex_man"
             android:text="teacherName"
             android:textColor="#fff" />
-
+        <!--名师性别-->
+        <ImageView
+            android:id="@+id/item_teacher_rv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_teacher_rv_name"
+            android:padding="3dp"
+            android:layout_toEndOf="@id/item_teacher_rv_name"
+            android:src="@mipmap/sex_man"
+            />
+        <!--名师信息-->
         <LinearLayout
             android:id="@+id/item_teacher_rv_info"
             android:layout_width="match_parent"
@@ -133,7 +142,7 @@
                     android:textSize="12dp" />
             </LinearLayout>
         </LinearLayout>
-
+        <!--视频展示-->
         <LinearLayout
             android:id="@+id/item_teacher_rv_movie"
             android:layout_width="match_parent"
@@ -141,7 +150,7 @@
             android:layout_below="@id/item_teacher_rv_info"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp">
-
+            <!--左边视频-->
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="130dp"
@@ -193,7 +202,7 @@
                     android:text="2875"
                     android:textSize="12dp"/>
             </RelativeLayout>
-
+            <!--右边视频-->
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="130dp"
@@ -246,7 +255,7 @@
                     android:textSize="12dp"/>
             </RelativeLayout>
         </LinearLayout>
-
+        <!--更多视频-->
         <TextView
             android:id="@+id/item_teacher_rv_movie_more"
             android:layout_width="wrap_content"

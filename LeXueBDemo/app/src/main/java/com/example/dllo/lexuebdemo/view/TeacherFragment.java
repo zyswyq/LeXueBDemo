@@ -1,10 +1,11 @@
 package com.example.dllo.lexuebdemo.view;
 
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewPager;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.TeacherRecyclerViewAdapter;
+import com.example.dllo.lexuebdemo.adapter.TeacherViewPagerAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ import java.util.List;
     desc 描述
 */
 public class TeacherFragment extends BaseFragment {
-    private RecyclerView recyclerView;
+    private ViewPager viewPager;
     private TabLayout tabLayout;
-    private TeacherRecyclerViewAdapter adapter;
+    private TeacherViewPagerAdapter adapter;
 
     private List<String> tagList;
 
@@ -29,7 +30,7 @@ public class TeacherFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        recyclerView = bindView(R.id.rv_teacher);
+        viewPager = bindView(R.id.vp_teacher);
         tabLayout = bindView(R.id.tablayout_teacher);
     }
 
@@ -39,9 +40,13 @@ public class TeacherFragment extends BaseFragment {
         for(int i = 1; i <= 15; i++){
             tagList.add("课程"+i);
         }
-        adapter = new TeacherRecyclerViewAdapter();
-        adapter.setContext(context);
-
+        adapter = new TeacherViewPagerAdapter(getChildFragmentManager(), context);
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+        for(int i = 0; i < tabLayout.getTabCount(); i++){
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setText(tagList.get(i));
+        }
     }
 
     @Override

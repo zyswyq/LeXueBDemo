@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--顶部bar,由一个tablayout和一个小下拉按钮组成-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,11 +21,11 @@
             android:padding="15dp"
             android:layout_gravity="center"/>
     </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_teacher"
+    <!--body使用ViewPager-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_teacher"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </android.support.v4.view.ViewPager>
 </LinearLayout>
