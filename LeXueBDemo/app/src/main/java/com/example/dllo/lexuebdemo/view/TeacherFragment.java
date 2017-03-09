@@ -42,6 +42,7 @@ public class TeacherFragment extends BaseFragment {
         }
         adapter = new TeacherViewPagerAdapter(getChildFragmentManager(), context);
         viewPager.setAdapter(adapter);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
         for(int i = 0; i < tabLayout.getTabCount(); i++){
             TabLayout.Tab tab = tabLayout.getTabAt(i);
