@@ -4,11 +4,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.adapter.TeacherRecyclerViewAdapter;
 import com.example.dllo.lexuebdemo.adapter.TeacherViewPagerAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.presenter.TeacherPresenter;
+import com.example.dllo.lexuebdemo.view.TeacherView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -16,12 +16,13 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public class TeacherFragment extends BaseFragment {
+public class TeacherFragment extends BaseFragment implements TeacherView{
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TeacherViewPagerAdapter adapter;
 
-    private List<String> tagList;
+    private TeacherPresenter teacherPresenter;
+
 
     @Override
     protected int getLayout() {
@@ -32,16 +33,28 @@ public class TeacherFragment extends BaseFragment {
     protected void initView() {
         viewPager = bindView(R.id.vp_teacher);
         tabLayout = bindView(R.id.tablayout_teacher);
+        teacherPresenter = new TeacherPresenter(this);
     }
 
     @Override
     protected void initData() {
-        tagList = new ArrayList<>();
-        for(int i = 1; i <= 15; i++){
-            tagList.add("课程"+i);
-        }
+        teacherPresenter.setAdapter();
+        teacherPresenter.setTabLayout();
+    }
+
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    public void setAdapter() {
         adapter = new TeacherViewPagerAdapter(getChildFragmentManager(), context);
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void setTabLayout(List<String> tagList) {
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
         for(int i = 0; i < tabLayout.getTabCount(); i++){
@@ -50,8 +63,4 @@ public class TeacherFragment extends BaseFragment {
         }
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 }

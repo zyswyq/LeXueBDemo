@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.customview;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
