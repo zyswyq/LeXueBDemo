@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
@@ -18,6 +19,7 @@ import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 public class FindFragment extends BaseFragment{
 
+    private ListView findLV;
 
     @Override
     protected int getLayout() {
@@ -26,7 +28,7 @@ public class FindFragment extends BaseFragment{
 
     @Override
     protected void initView() {
-
+        findLV=bindView(R.id.listview_findmain);
     }
 
     @Override

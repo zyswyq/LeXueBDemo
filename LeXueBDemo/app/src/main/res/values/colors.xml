@@ -7,4 +7,7 @@
     <color name="mainblue">#10a9f1</color>
     <!--白色-->
     <color name="white">#fff</color>
+    <!--底部灰色字体-->
+    <color name="grayText">#bab4b4</color>
+
 </resources>
