@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.view.fragment;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;

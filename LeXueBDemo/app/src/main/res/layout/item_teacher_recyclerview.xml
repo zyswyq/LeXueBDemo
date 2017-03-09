@@ -290,7 +290,7 @@
             android:drawableEnd="@mipmap/more_movie_arrow"
             android:text="更多视频 "
             android:padding="10dp"
-            android:textColor="#17c4d1" />
+            android:textColor="#1790d1" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

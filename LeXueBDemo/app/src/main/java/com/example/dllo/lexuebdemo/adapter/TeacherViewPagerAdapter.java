@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.dllo.lexuebdemo.view.TheacherSubjectFragment;
+import com.example.dllo.lexuebdemo.view.fragment.TeacherSubjectFragment;
 
 /*
     by Mr.L
@@ -22,7 +22,7 @@ public class TeacherViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return TheacherSubjectFragment.instanceFragment();
+        return TeacherSubjectFragment.instanceFragment();
     }
 
     @Override

@@ -1,9 +1,6 @@
 package com.example.dllo.lexuebdemo.view;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -12,6 +9,7 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.presenter.MainPresenter;
+import com.example.dllo.lexuebdemo.view.fragment.TeacherFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.view.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +13,7 @@ import com.example.dllo.lexuebdemo.base.BaseFragment;
     data 2017-03-09
     desc 描述
 */
-public class TheacherSubjectFragment extends BaseFragment {
+public class TeacherSubjectFragment extends BaseFragment {
     private RecyclerView recyclerView;
     private TeacherRecyclerViewAdapter adapter;
 
@@ -41,7 +41,7 @@ public class TheacherSubjectFragment extends BaseFragment {
     }
 
     public static Fragment instanceFragment(){
-        Fragment fragment = new TheacherSubjectFragment();
+        Fragment fragment = new TeacherSubjectFragment();
         return fragment;
     }
 }
