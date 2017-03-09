@@ -7,6 +7,25 @@
     <dimen name="main_tab_height">50dp</dimen>
     <!--//每个一级界面上方蓝条的高度-->
     <dimen name="every_tool_height">40dp</dimen>
+    <!--发现界面listview  item高度-->
+    <dimen name="find_lv_item_height">70dp</dimen>
+
+    <!--一些常用数据-->
+    <dimen name="margin5">5dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin25">25dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <!--一些常用的文字大小-->
+    <dimen name="tvsize5">5sp</dimen>
+    <dimen name="tvsize7">7sp</dimen>
+    <dimen name="tvsize10">10sp</dimen>
+    <dimen name="tvsize13">13sp</dimen>
+    <dimen name="tvsize15">15sp</dimen>
+    <dimen name="tvsize20">20sp</dimen>
+    <dimen name="tvsize23">23sp</dimen>
+    <dimen name="tvsize25">25sp</dimen>
 
 
 </resources>

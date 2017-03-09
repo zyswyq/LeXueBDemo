@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#f2f2bc">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--名师背景图-->
+        <ImageView
+            android:id="@+id/item_teacher_rv_bg"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+        <!--名师头像-->
+        <ImageView
+            android:id="@+id/item_teacher_rv_headimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="#9abaec" />
+        <!--名师头像右下角图标-->
+        <ImageView
+            android:id="@+id/item_teacher_rv_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/item_teacher_rv_headimg"
+            android:layout_alignEnd="@id/item_teacher_rv_headimg"
+            android:background="#ecb6f5" />
+        <!--名师名字-->
+        <TextView
+            android:id="@+id/item_teacher_rv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_teacher_rv_headimg"
+            android:layout_centerHorizontal="true"
+            android:text="teacherName"
+            android:textColor="#fff" />
+        <!--名师性别-->
+        <ImageView
+            android:id="@+id/item_teacher_rv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_teacher_rv_name"
+            android:padding="3dp"
+            android:layout_toEndOf="@id/item_teacher_rv_name"
+            android:src="@mipmap/sex_man"
+            />
+        <!--名师信息-->
+        <LinearLayout
+            android:id="@+id/item_teacher_rv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_teacher_rv_bg">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_video_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="89"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="视频"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_video_play_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="347万"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="播放"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_fans_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5万"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="粉丝"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_popularity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2345万"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人气"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--视频展示-->
+        <LinearLayout
+            android:id="@+id/item_teacher_rv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_teacher_rv_info"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+            <!--左边视频-->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:paddingEnd="3dp">
+
+                <ImageView
+                    android:id="@+id/item_teacher_rv_movie_left_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#8be7d5" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_left_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_left_bg"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="百题狂练之化学与生活"
+                    android:textColor="#000"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_left_price_free"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_left_title"
+                    android:text="免费"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_left_price"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_left_title"
+                    android:drawableStart="@mipmap/money_icon"
+                    android:text="30"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_left_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_left_title"
+                    android:layout_marginStart="40dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@mipmap/home_play_icon"
+                    android:text="2875"
+                    android:textSize="12dp"/>
+            </RelativeLayout>
+            <!--右边视频-->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:paddingStart="3dp">
+
+                <ImageView
+                    android:id="@+id/item_teacher_rv_movie_right_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#93e78b" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_right_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_right_bg"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="百题狂练之化学与生活"
+                    android:textColor="#000"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_right_price_free"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_right_title"
+                    android:text="免费"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_right_price"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_right_title"
+                    android:drawableStart="@mipmap/money_icon"
+                    android:text="30"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/item_teacher_rv_movie_right_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_teacher_rv_movie_right_title"
+                    android:layout_marginStart="40dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@mipmap/home_play_icon"
+                    android:text="2875"
+                    android:textSize="12dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <!--更多视频-->
+        <TextView
+            android:id="@+id/item_teacher_rv_movie_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_teacher_rv_movie"
+            android:layout_centerHorizontal="true"
+            android:drawableEnd="@mipmap/more_movie_arrow"
+            android:text="更多视频 "
+            android:padding="10dp"
+            android:textColor="#17c4d1" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

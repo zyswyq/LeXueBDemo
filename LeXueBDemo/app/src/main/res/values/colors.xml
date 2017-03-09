@@ -5,6 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <!--本项目的主要色调-->
     <color name="mainblue">#10a9f1</color>
-    <color name="write">#FFFFFF</color>
+    <!--白色-->
+    <color name="white">#fff</color>
+    <!--底部灰色字体-->
+    <color name="grayText">#bab4b4</color>
+    <!--黑色-->
+    <color name="black">#3b3737</color>
+>>>>>>> 63f61bc36835550fb3f9129a6921bb7907e80583
 
 </resources>
