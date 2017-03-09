@@ -86,7 +86,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     public BaseViewHolder setImg(int id,int resouce){
         ImageView imageView=getView(id);
-        imageView.setImageResource(resouce);
+        Glide.with(context).load(resouce).into(imageView);
         return this;
     }
 

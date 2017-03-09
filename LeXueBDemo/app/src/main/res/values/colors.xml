@@ -9,5 +9,7 @@
     <color name="white">#fff</color>
     <!--底部灰色字体-->
     <color name="grayText">#bab4b4</color>
+    <!--黑色-->
+    <color name="black">#3b3737</color>
 
 </resources>
