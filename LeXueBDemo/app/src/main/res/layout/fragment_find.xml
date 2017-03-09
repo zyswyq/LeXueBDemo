@@ -14,6 +14,7 @@
             android:layout_height="match_parent"
             android:text="发现"
             android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20"
             android:gravity="center"
             />
     </LinearLayout>
@@ -21,6 +22,7 @@
     <ListView
         android:id="@+id/listview_findmain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>

@@ -13,6 +13,10 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grayText"/>
     <RadioGroup
         android:id="@+id/radiogroup_main"
         android:layout_width="match_parent"
@@ -22,23 +26,28 @@
         <RadioButton
             android:id="@+id/radiobtn_main"
             style="@style/main_radiobutton"
+            android:drawableTop="@drawable/home_radiobtn"
+            android:text="首页"
             />
 
         <RadioButton
             android:id="@+id/radiobtn_teacher"
-            style="@style/main_radiobutton" />
+            style="@style/main_radiobutton"
+            android:drawableTop="@drawable/teacher_radiobtn"
+            android:text="名师"
+            />
 
         <RadioButton
             android:id="@+id/radiobtn_find"
-            style="@style/main_radiobutton" />
-
-        <RadioButton style="@style/main_radiobutton"
-            android:id="@+id/radioButton" />
-
+            style="@style/main_radiobutton"
+            android:drawableTop="@drawable/find_radiobtn"
+            android:text="发现"/>
 
         <RadioButton
             android:id="@+id/radiobtn_my"
-            style="@style/main_radiobutton" />
+            style="@style/main_radiobutton"
+            android:drawableTop="@drawable/my_radiobtn"
+            android:text="我的"/>
 
     </RadioGroup>
 
