@@ -73,10 +73,10 @@ public class TeacherRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHol
         boolean isFreeLeft = true;
         TextView priceFreeLeft = holder.getView(R.id.item_teacher_rv_movie_left_price_free);
         TextView priceLeft = holder.getView(R.id.item_teacher_rv_movie_left_price);
-        if(isFreeLeft){
+        if (isFreeLeft) {
             priceFreeLeft.setVisibility(View.VISIBLE);
             priceLeft.setVisibility(View.GONE);
-        }else{
+        } else {
             priceFreeLeft.setVisibility(View.GONE);
             priceLeft.setVisibility(View.VISIBLE);
             priceLeft.setText("90");
@@ -93,10 +93,10 @@ public class TeacherRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHol
         boolean isFreeRight = false;
         TextView priceFreeRight = holder.getView(R.id.item_teacher_rv_movie_right_price_free);
         TextView priceRight = holder.getView(R.id.item_teacher_rv_movie_right_price);
-        if(isFreeRight){
+        if (isFreeRight) {
             priceFreeRight.setVisibility(View.VISIBLE);
             priceRight.setVisibility(View.GONE);
-        }else{
+        } else {
             priceFreeRight.setVisibility(View.GONE);
             priceRight.setVisibility(View.VISIBLE);
             priceRight.setText("30");

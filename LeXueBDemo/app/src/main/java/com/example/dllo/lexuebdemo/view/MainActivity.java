@@ -53,9 +53,9 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     protected void initData() {
+        fragments.add(new HomeTabFragment());
         fragments.add(new TeacherFragment());
-        fragments.add(new TeacherFragment());
-        fragments.add(new TeacherFragment());
+        fragments.add(new FindFragment());
         fragments.add(new FindFragment());
         adapter.setFragments(fragments);
         mainVP.setAdapter(adapter);
