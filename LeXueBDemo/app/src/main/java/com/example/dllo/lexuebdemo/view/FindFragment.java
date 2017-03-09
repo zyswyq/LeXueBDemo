@@ -7,20 +7,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.dllo.lexuebdemo.R;
+import com.example.dllo.lexuebdemo.base.BaseFragment;
+
 /**
  * Created by dllo on 17/3/9.
+ * by 王宇琦
+ * 发现主界面
  */
 
-public class FindFragment extends Fragment{
+public class FindFragment extends BaseFragment{
+
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayout() {
+        return R.layout.fragment_find;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initListener() {
 
     }
 }
