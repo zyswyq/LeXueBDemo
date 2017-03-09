@@ -32,6 +32,10 @@
             android:id="@+id/radiobtn_find"
             style="@style/main_radiobutton" />
 
+        <RadioButton style="@style/main_radiobutton"
+            android:id="@+id/radioButton" />
+
+
         <RadioButton
             android:id="@+id/radiobtn_my"
             style="@style/main_radiobutton" />
