@@ -12,6 +12,7 @@ import com.example.dllo.lexuebdemo.home.HomeTabFragment;
 import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
+import com.example.dllo.lexuebdemo.myself.MyselfFragment;
 import com.example.dllo.lexuebdemo.teacher.TeacherFragment;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity implements MainView {
         fragments.add(new HomeTabFragment());
         fragments.add(new TeacherFragment());
         fragments.add(new FindFragment());
-        fragments.add(new FindFragment());
+        fragments.add(new MyselfFragment());
         adapter.setFragments(fragments);
         mainVP.setAdapter(adapter);
         mainVP.setOffscreenPageLimit(4);

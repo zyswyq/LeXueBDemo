@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/every_tool_height"
+        android:background="@color/mainblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="账号注册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_logon_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@mipmap/register_phonenumber_icon"
+        android:drawablePadding="10dp"
+        android:hint="手机号" />
+
+    <View
+        android:id="@+id/view_logon_number"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_number"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+    <EditText
+        android:id="@+id/et_logon_pwd"
+        android:layout_width="match_parent"
+        android:layout_below="@id/view_logon_number"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@mipmap/register_phonenumber_icon"
+        android:drawablePadding="10dp"
+        android:hint="密码由6-18个字符组成" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_pwd"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/login_banner" />
+
+</RelativeLayout>
