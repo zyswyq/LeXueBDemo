@@ -1,9 +1,15 @@
 package com.example.dllo.lexuebdemo.find.findview;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
@@ -67,6 +73,11 @@ public class FindDetilVideoActivity extends BaseActivity implements FindVideoVie
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_findvideo_chose:
+                View pop=LayoutInflater.from(this).inflate(R.layout.pop_findvideo,null);
+                PopupWindow popupWindow=new PopupWindow(pop, ActionBar.LayoutParams.WRAP_CONTENT,ActionBar.LayoutParams.MATCH_PARENT,true);
+                View view1= LayoutInflater.from(this).inflate(R.layout.activity_find_video,null);
+                popupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+                popupWindow.showAtLocation(view1, Gravity.RIGHT,0,0);
 
                 break;
         }
