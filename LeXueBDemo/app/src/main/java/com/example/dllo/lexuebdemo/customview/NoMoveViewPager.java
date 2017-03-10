@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 /**
  * Created by dllo on 17/3/9.
+ * 王宇琦
  */
 
 public class NoMoveViewPager extends ViewPager {
