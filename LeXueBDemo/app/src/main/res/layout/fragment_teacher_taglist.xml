@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alpWhite">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin30"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/tv_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/finish"
+            android:textColor="@color/mainblue"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"/>
+        <ImageView
+            android:id="@+id/iv_teacher_taglist_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/home_navigation_arrow_up"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/padding10"
+            android:paddingEnd="@dimen/padding10"/>
+    </RelativeLayout>
+
+    <com.example.dllo.lexuebdemo.teacher.customview.DragGridView
+        android:id="@+id/drag_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:listSelector="@android:color/transparent"
+        android:background="@color/grayWhite"
+        android:paddingBottom="@dimen/padding10"
+        android:paddingTop="@dimen/padding10">
+
+    </com.example.dllo.lexuebdemo.teacher.customview.DragGridView>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"/>-->
+</LinearLayout>

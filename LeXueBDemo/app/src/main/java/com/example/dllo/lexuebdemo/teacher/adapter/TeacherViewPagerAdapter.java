@@ -1,11 +1,11 @@
-package com.example.dllo.lexuebdemo.teacher;
+package com.example.dllo.lexuebdemo.teacher.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.dllo.lexuebdemo.teacher.TeacherSubjectFragment;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectFragment;
 
 /*
     by Mr.L

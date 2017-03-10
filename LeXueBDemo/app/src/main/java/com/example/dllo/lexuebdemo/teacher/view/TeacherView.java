@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.teacher;
+package com.example.dllo.lexuebdemo.teacher.view;
 
 import android.view.View;
 import android.widget.PopupWindow;
@@ -13,5 +13,6 @@ import java.util.List;
 public interface TeacherView {
     void setAdapter();
     void setTabLayout(List<String> tagList);
-    void popTagList(PopupWindow popupWindow, View btn);
+    void popTagList(PopupWindow popupWindow, View btn, int xoff, int yoff);
+    void onShow();
 }

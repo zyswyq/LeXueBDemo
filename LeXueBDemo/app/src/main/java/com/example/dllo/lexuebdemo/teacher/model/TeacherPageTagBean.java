@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.teacher;
+package com.example.dllo.lexuebdemo.teacher.model;
 
 import java.util.List;
 

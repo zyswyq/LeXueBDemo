@@ -1,4 +1,4 @@
-
+package com.example.dllo.lexuebdemo.teacher.presenter;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,9 +15,10 @@ import android.widget.PopupWindow;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.TeacherTagListRecycleViewAdapter;
-import com.example.dllo.lexuebdemo.model.TeacherPageTagBean;
-import com.example.dllo.lexuebdemo.view.TeacherView;
-package com.example.dllo.lexuebdemo.teacher;
+import com.example.dllo.lexuebdemo.teacher.adapter.MyDragGridViewAdapter;
+import com.example.dllo.lexuebdemo.teacher.customview.DragGridView;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherView;
+import com.example.dllo.lexuebdemo.teacher.model.TeacherPageTagBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,17 +56,26 @@ public class TeacherPresenter {
         teacherView.setTabLayout(bean.getTags());
     }
 
+    public void onShow(){
+        teacherView.onShow();
+    }
+/**
     public void popTagList(View btn) {
-        View popView = LayoutInflater.from(context).inflate(R.layout.pop_window_teacher_taglist, null);
-        RecyclerView recyclerView = (RecyclerView) popView.findViewById(R.id.rv_pop_teacher_taglist);
-        recyclerView.setLayoutManager(new GridLayoutManager(context, 3, LinearLayoutManager.VERTICAL, false));
-        TeacherTagListRecycleViewAdapter adapter = new TeacherTagListRecycleViewAdapter();
-        adapter.setContext(context);
-        recyclerView.setAdapter(adapter);
+        View popView = LayoutInflater.from(context).inflate(R.layout.fragment_teacher_taglist, null);
+        DragGridView dragGridView = (DragGridView) popView.findViewById(R.id.drag_gridview);
 
+        MyDragGridViewAdapter adapter = new MyDragGridViewAdapter(bean.getTags());
+        adapter.setContext(context);
+        dragGridView.setAdapter(adapter);
+
+
+        initPopWindow(btn, popView);
+    }
+
+    private void initPopWindow(View btn, View popView) {
         PopupWindow popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT, true);
-        popupWindow.setTouchable(true);
+                ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setTouchable(false);
         popupWindow.setTouchInterceptor(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -77,10 +87,9 @@ public class TeacherPresenter {
         popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
-        int xpos = manager.getDefaultDisplay().getWidth();
-        int ypos = manager.getDefaultDisplay().getHeight();
-        popupWindow.showAsDropDown(btn, 0, -60);
-        Log.e(TAG, "popTagList: init finished");
-//        teacherView.popTagList(popupWindow, btn);
+//        int xpos = manager.getDefaultDisplay().getWidth();
+//        int ypos = manager.getDefaultDisplay().getHeight();
+        teacherView.popTagList(popupWindow, btn, 0, -60);
     }
+ */
 }

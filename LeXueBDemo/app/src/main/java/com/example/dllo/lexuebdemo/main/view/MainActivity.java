@@ -12,7 +12,7 @@ import com.example.dllo.lexuebdemo.home.HomeTabFragment;
 import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
-import com.example.dllo.lexuebdemo.teacher.TeacherFragment;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
 
 import java.util.ArrayList;
 import java.util.List;
