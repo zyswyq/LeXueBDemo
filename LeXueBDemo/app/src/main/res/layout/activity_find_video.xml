@@ -19,7 +19,16 @@
             android:textColor="@color/white"
             android:gravity="center"/>
         <ImageView
+            android:id="@+id/img_findvideo_chose"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            android:src="@drawable/find_video_chose"/>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview_findvideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="@dimen/margin5"  />
 </LinearLayout>

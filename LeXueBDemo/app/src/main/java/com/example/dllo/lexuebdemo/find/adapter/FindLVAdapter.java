@@ -62,7 +62,7 @@ public class FindLVAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        BaseViewHolder baseViewHolder=BaseViewHolder.createListViewHolder(context,view,viewGroup, R.layout.item_listview_find);
+        BaseViewHolder baseViewHolder=BaseViewHolder.createListViewHolder(context,view,viewGroup, R.layout.item_find_listview);
         baseViewHolder.setText(R.id.tv_find_lvitem_title,title.get(i));
         baseViewHolder.setText(R.id.tv_find_lvitem_content,content.get(i));
         baseViewHolder.setCircleImg(R.id.image_find_lvitem,a[i]);
