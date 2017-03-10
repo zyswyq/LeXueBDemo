@@ -1,9 +1,6 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.view.activity;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -12,6 +9,11 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.presenter.MainPresenter;
+import com.example.dllo.lexuebdemo.view.FindFragment;
+import com.example.dllo.lexuebdemo.view.HomeTabFragment;
+import com.example.dllo.lexuebdemo.view.MainView;
+import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
+import com.example.dllo.lexuebdemo.view.fragment.TeacherFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
  * 主界面
  */
 
-public class MainActivity extends BaseActivity implements MainView{
+public class MainActivity extends BaseActivity implements MainView {
 
     private RadioButton mainPage,teacherPage,findPage,myPage;
     private RadioGroup mainRagioGroup;

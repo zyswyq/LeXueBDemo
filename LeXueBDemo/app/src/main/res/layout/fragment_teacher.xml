@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--顶部bar,由一个tablayout和一个小下拉按钮组成-->
+    <!--发现主界面`-->
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tablayout_teacher"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-
-        </android.support.design.widget.TabLayout>
+        android:layout_height="@dimen/every_tool_height"
+        android:orientation="horizontal"
+        android:background="@color/mainblue">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="乐学名师"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <!--顶部bar,由一个tablayout和一个小下拉按钮组成-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
         <ImageView
+            android:id="@+id/iv_teacher_taglist"
+            android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/home_navigation_arrow_down"
-            android:padding="15dp"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+            android:layout_centerVertical="true"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout_teacher"
+            android:layout_toStartOf="@id/iv_teacher_taglist"
+            android:layout_width="match_parent"
+            app:tabIndicatorColor="@null"
+            app:tabSelectedTextColor="#1790d1"
+            android:layout_height="wrap_content">
+
+        </android.support.design.widget.TabLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ccc"
+            android:layout_toStartOf="@id/iv_teacher_taglist"
+            android:layout_alignBottom="@id/tablayout_teacher"/>
+
+    </RelativeLayout>
     <!--body使用ViewPager-->
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_teacher"
