@@ -1,5 +1,4 @@
-<<<<<<< HEAD:LeXueBDemo/app/src/main/java/com/example/dllo/lexuebdemo/presenter/TeacherPresenter.java
-package com.example.dllo.lexuebdemo.presenter;
+
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,9 +17,7 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.TeacherTagListRecycleViewAdapter;
 import com.example.dllo.lexuebdemo.model.TeacherPageTagBean;
 import com.example.dllo.lexuebdemo.view.TeacherView;
-=======
 package com.example.dllo.lexuebdemo.teacher;
->>>>>>> 7d4f4be033d6d8b6aa3b3ba91c34a67d30e0a514:LeXueBDemo/app/src/main/java/com/example/dllo/lexuebdemo/teacher/TeacherPresenter.java
 
 import java.util.ArrayList;
 import java.util.List;
