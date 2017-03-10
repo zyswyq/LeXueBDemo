@@ -28,9 +28,8 @@
             android:id="@+id/iv_teacher_taglist"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@mipmap/home_navigation_arrow_down"
-            android:layout_centerVertical="true"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"/>
         <android.support.design.widget.TabLayout
