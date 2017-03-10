@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/every_tool_height"
+        android:background="@color/mainblue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="账号注册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize20" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_logon_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:drawableLeft="@mipmap/register_phonenumber_icon"
+        android:drawablePadding="10dp"
+        android:hint="手机号"
+        android:textColorHint="@color/grayText" />
+
+    <View
+        android:id="@+id/view_logon_number"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_number"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+
+    <EditText
+        android:id="@+id/et_logon_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_logon_number"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@mipmap/register_password_icon"
+        android:drawablePadding="10dp"
+        android:hint="密码由6-18个字符组成"
+        android:textColorHint="@color/grayText" />
+
+    <View
+        android:id="@+id/view_logon_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_pwd"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+
+    <EditText
+        android:id="@+id/et_logon_captcha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_logon_pwd"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@mipmap/register_identifyingcode_icon"
+        android:drawablePadding="10dp"
+        android:hint="验证码"
+        android:textColorHint="@color/grayText" />
+
+    <View
+        android:id="@+id/view_logon_captcha"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_captcha"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+
+    <EditText
+        android:id="@+id/et_logon_inviter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_logon_captcha"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@mipmap/register_identifyingcode_icon"
+        android:drawablePadding="10dp"
+        android:hint="邀请人乐学号( 选填 )"
+        android:textColorHint="@color/grayText" />
+
+    <View
+        android:id="@+id/view_logon_inviter"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_logon_inviter"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/grayText" />
+
+    <Button
+        android:id="@+id/btn_logon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_logon_inviter"
+        android:layout_margin="10dp"
+        android:text="注    册" />
+
+    <CheckBox
+        android:id="@+id/cb_approve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_logon"
+        android:layout_marginLeft="10dp"
+        android:text="我同意"
+        android:scaleX="0.8"
+        android:scaleY="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_logon"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/mainblue"
+        android:textSize="11sp"
+        android:layout_toRightOf="@id/cb_approve"
+        android:text="使用条款和隐私政策" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/login_banner" />
+
+</RelativeLayout>

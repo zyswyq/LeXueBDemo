@@ -13,8 +13,13 @@
     <!--底部灰色字体-->
     <color name="grayText">#bab4b4</color>
     <!--黑色-->
+<<<<<<< HEAD
     <!--<color name=""-->
     <color name="lightBlack">#3b3737</color>
     <color name="black">#000</color>
+=======
+    <color name="black">#3b3737</color>
+    <color name="origen">#e17e00</color>
+>>>>>>> 77f9d4ef42f29c1bc46e6f3d88ecd2b4ace2fac6
 
 </resources>
