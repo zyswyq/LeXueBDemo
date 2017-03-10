@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.adapter;
+package com.example.dllo.lexuebdemo.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,12 +1,10 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.home;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.adapter.HomeTabAdapter;
+import com.example.dllo.lexuebdemo.home.HomeTabAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 /**

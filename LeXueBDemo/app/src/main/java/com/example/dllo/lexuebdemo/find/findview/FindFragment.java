@@ -1,18 +1,14 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.find.findview;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.adapter.FindLVAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
-import com.example.dllo.lexuebdemo.presenter.FindPresenter;
+import com.example.dllo.lexuebdemo.find.adapter.FindLVAdapter;
+import com.example.dllo.lexuebdemo.find.presenter.FindPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +59,7 @@ public class FindFragment extends BaseFragment implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+        presenter.goIntent(i,context);
     }
 
     @Override
@@ -73,4 +69,11 @@ public class FindFragment extends BaseFragment implements AdapterView.OnItemClic
         adapter.setContent(content);
         findLV.setAdapter(adapter);
     }
+
+    @Override
+    public void goActivity(Intent intent) {
+        startActivity(intent);
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.myself;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;

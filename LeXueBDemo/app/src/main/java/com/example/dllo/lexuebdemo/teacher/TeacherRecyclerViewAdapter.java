@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.adapter;
+package com.example.dllo.lexuebdemo.teacher;
 
 import android.content.Context;
 import android.graphics.Bitmap;

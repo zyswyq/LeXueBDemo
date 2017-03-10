@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.view;
+package com.example.dllo.lexuebdemo.customview;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 /**
  * Created by dllo on 17/3/9.
+ * 王宇琦
  */
 
 public class NoMoveViewPager extends ViewPager {

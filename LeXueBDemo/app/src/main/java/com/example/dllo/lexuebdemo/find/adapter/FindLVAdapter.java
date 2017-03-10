@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.adapter;
+package com.example.dllo.lexuebdemo.find.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 17/3/9.
+ * 王宇琦
  */
 
 public class FindLVAdapter extends BaseAdapter{

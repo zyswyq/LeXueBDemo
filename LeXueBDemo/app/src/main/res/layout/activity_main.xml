@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.dllo.lexuebdemo.view.MainActivity">
+    tools:context="com.example.dllo.lexuebdemo.main.view.MainActivity">
     <!--最外层框架-->
-    <com.example.dllo.lexuebdemo.view.NoMoveViewPager
+    <com.example.dllo.lexuebdemo.customview.NoMoveViewPager
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"

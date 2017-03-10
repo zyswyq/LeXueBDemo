@@ -1,12 +1,11 @@
-package com.example.dllo.lexuebdemo.presenter;
+package com.example.dllo.lexuebdemo.main.presenter;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.view.FindFragment;
-import com.example.dllo.lexuebdemo.view.MainView;
-import com.example.dllo.lexuebdemo.view.TeacherFragment;
+import com.example.dllo.lexuebdemo.main.view.MainView;
 
 /**
  * Created by dllo on 17/3/9.
+ * 王宇琦
  */
 
 public class MainPresenter {
