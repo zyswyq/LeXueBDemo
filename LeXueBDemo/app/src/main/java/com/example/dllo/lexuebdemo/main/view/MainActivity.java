@@ -7,13 +7,15 @@ import android.widget.RadioGroup;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
-import com.example.dllo.lexuebdemo.find.findview.FindFragment;
+import com.example.dllo.lexuebdemo.find.findview.fragment.FindFragment;
 import com.example.dllo.lexuebdemo.home.HomeTabFragment;
 import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
+
 import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
 import com.example.dllo.lexuebdemo.myself.MyselfFragment;
+
 
 import java.util.ArrayList;
 import java.util.List;

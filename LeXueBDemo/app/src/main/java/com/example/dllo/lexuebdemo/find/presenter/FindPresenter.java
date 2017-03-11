@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.dllo.lexuebdemo.find.findview.FindView;
-import com.example.dllo.lexuebdemo.find.findview.FindDetilCafeActivity;
-import com.example.dllo.lexuebdemo.find.findview.FindDetilVideoActivity;
-import com.example.dllo.lexuebdemo.find.findview.FindWebView;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilCafeActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 
 /**
  * Created by dllo on 17/3/9.

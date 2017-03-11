@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".find.findview.FindDetilCafeActivity"/>
-        <activity android:name=".find.findview.FindDetilVideoActivity"/>
-        <activity android:name=".find.findview.FindWebView"/>
+        <activity android:name=".find.findview.activity.FindDetilCafeActivity"/>
+        <activity android:name=".find.findview.activity.FindDetilVideoActivity"/>
+        <activity android:name=".find.findview.activity.FindWebView"/>
     </application>
 
 </manifest>

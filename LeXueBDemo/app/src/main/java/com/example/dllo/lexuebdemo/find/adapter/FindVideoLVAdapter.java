@@ -57,6 +57,14 @@ public class FindVideoLVAdapter extends BaseAdapter{
         baseViewHolder.setText(R.id.tv_video_item_title,data.get(i).getLive_name());
         baseViewHolder.setImg(R.id.img_video_item,data.get(i).getLive_cover().getUrl());
         baseViewHolder.setText(R.id.tv_video_item_time,data.get(i).getLive_date()+" "+data.get(i).getLive_start()+"-"+data.get(i).getLive_end());
+        baseViewHolder.setText(R.id.tv_video_item_price,"¥"+data.get(i).getReal_price());
+//        if (data.get(i).getLeft_head()<0){
+//            baseViewHolder.setViewVisiable(R.id.linear_video_item_type,View.VISIBLE);
+//        }else {
+//            baseViewHolder.setViewVisiable(R.id.linear_video_item_type,View.INVISIBLE);
+//        }
+//        baseViewHolder.setText(R.id.tv_video_item_type)
+        baseViewHolder.setText(R.id.tv_video_item_tag,data.get(i).getLive_tags().get(0).getTag_name());
         return baseViewHolder.getMview();
     }
 }

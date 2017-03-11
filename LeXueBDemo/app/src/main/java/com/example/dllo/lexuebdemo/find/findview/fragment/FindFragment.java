@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.find.findview;
+package com.example.dllo.lexuebdemo.find.findview.fragment;
 
 import android.content.Intent;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.ListView;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.find.adapter.FindLVAdapter;
+import com.example.dllo.lexuebdemo.find.findview.FindView;
 import com.example.dllo.lexuebdemo.find.presenter.FindPresenter;
 
 import java.util.ArrayList;
