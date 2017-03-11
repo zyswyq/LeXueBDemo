@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="5dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#fff">
+    android:layout_marginStart="@dimen/margin10"
+    android:layout_marginEnd="@dimen/margin10"
+    android:layout_marginTop="@dimen/margin5"
+    app:cardCornerRadius="@dimen/radius"
+    app:cardElevation="@dimen/padding3"
+    app:cardBackgroundColor="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,20 +17,20 @@
         <ImageView
             android:id="@+id/item_teacher_rv_bg"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/teacher_bg"
             android:scaleType="fitXY"/>
         <!--名师头像-->
         <ImageView
             android:id="@+id/item_teacher_rv_headimg"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/teacher_head"
+            android:layout_height="@dimen/teacher_head"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="@dimen/margin30"/>
         <!--名师头像右下角图标-->
         <ImageView
             android:id="@+id/item_teacher_rv_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/margin20"
+            android:layout_height="@dimen/margin20"
             android:layout_alignBottom="@id/item_teacher_rv_headimg"
             android:layout_alignEnd="@id/item_teacher_rv_headimg"
             />
@@ -42,14 +42,14 @@
             android:layout_below="@id/item_teacher_rv_headimg"
             android:layout_centerHorizontal="true"
             android:text="teacherName"
-            android:textColor="#fff" />
+            android:textColor="@color/white"/>
         <!--名师性别-->
         <ImageView
             android:id="@+id/item_teacher_rv_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/item_teacher_rv_name"
-            android:padding="3dp"
+            android:padding="@dimen/padding3"
             android:layout_toEndOf="@id/item_teacher_rv_name"
             android:src="@mipmap/sex_man"
             />
@@ -60,8 +60,8 @@
             android:id="@+id/item_teacher_rv_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"
             android:layout_below="@id/item_teacher_rv_bg">
 
             <LinearLayout
@@ -76,14 +76,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="89"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/tvsize12"
                     android:textColor="#000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="视频"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/tvsize12" />
             </LinearLayout>
 
             <LinearLayout
@@ -98,14 +98,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="347万"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/tvsize12"
                     android:textColor="#000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="播放"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/tvsize12" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,14 +120,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7.5万"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/tvsize12"
                     android:textColor="#000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="粉丝"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/tvsize12" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,14 +142,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2345万"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/tvsize12"
                     android:textColor="#000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="人气"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/tvsize12" />
             </LinearLayout>
         </LinearLayout>
         <!--分割线-->
@@ -290,7 +290,7 @@
             android:drawableEnd="@mipmap/more_movie_arrow"
             android:text="更多视频 "
             android:padding="10dp"
-            android:textColor="#17c4d1" />
+            android:textColor="#1790d1" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
