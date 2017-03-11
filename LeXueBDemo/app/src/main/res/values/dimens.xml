@@ -9,6 +9,9 @@
     <dimen name="every_tool_height">40dp</dimen>
     <!--发现界面listview  item高度-->
     <dimen name="find_lv_item_height">70dp</dimen>
+    <!--名师界面,名师背景图片高度-->
+    <dimen name="teacher_bg">120dp</dimen>
+    <dimen name="teacher_head">60dp</dimen>
 
     <!--一些常用数据-->
     <dimen name="margin5">5dp</dimen>
@@ -21,11 +24,19 @@
     <dimen name="tvsize5">5sp</dimen>
     <dimen name="tvsize7">7sp</dimen>
     <dimen name="tvsize10">10sp</dimen>
-    <dimen name="tvsize13">13sp</dimen>
+    <dimen name="tvsize12">12sp</dimen>
     <dimen name="tvsize15">15sp</dimen>
     <dimen name="tvsize20">20sp</dimen>
     <dimen name="tvsize23">23sp</dimen>
     <dimen name="tvsize25">25sp</dimen>
+    <!--常用pading间隔-->
+    <dimen name="padding10">10dp</dimen>
+    <dimen name="padding5">5dp</dimen>
+    <dimen name="padding3">3dp</dimen>
+    <!--分割线的高度-->
+    <dimen name="divider">1dp</dimen>
+    <!--圆角角度-->
+    <dimen name="radius">10dp</dimen>
 
 
 </resources>

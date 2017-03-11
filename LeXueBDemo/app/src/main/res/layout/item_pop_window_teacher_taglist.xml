@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@null">
+    <TextView
+        android:id="@+id/item_pop_window_tv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin5"
+        android:background="@drawable/teacher_taglist_bg_selector"
+        android:gravity="center"
+        android:padding="@dimen/padding5"
+        android:textColor="@drawable/teacher_taglist_text_selector">
+
+    </TextView>
+</LinearLayout>
