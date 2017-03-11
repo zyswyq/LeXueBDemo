@@ -18,8 +18,10 @@
 
     <!--<color name=""-->
     <color name="lightBlack">#3b3737</color>
-    <color name="black">#000</color>
+    <color name="pureBlack">#000</color>
+    <color name="black">#3b3737</color>
     <color name="blacktext">#3b3737</color>
+
     <color name="origen">#e17e00</color>
 
 

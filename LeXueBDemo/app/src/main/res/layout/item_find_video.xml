@@ -64,8 +64,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="sdsadsadas"
-            android:textSize="13sp"/>
-
+            android:textSize="@dimen/tvsize12"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
