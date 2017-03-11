@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.find.findview;
+package com.example.dllo.lexuebdemo.find.findview.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,6 +14,7 @@ import android.widget.PopupWindow;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.find.adapter.FindVideoLVAdapter;
+import com.example.dllo.lexuebdemo.find.findview.FindVideoView;
 import com.example.dllo.lexuebdemo.find.model.FindVideoBean;
 import com.example.dllo.lexuebdemo.find.presenter.FindVideoPresenter;
 

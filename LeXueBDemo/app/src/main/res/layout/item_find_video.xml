@@ -10,7 +10,37 @@
         android:layout_width="125dp"
         android:layout_height="75dp"
         android:layout_margin="@dimen/margin10"
-        android:src="@color/black" />
+         />
+    <TextView
+        android:id="@+id/tv_video_item_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin10"
+        android:text="物理"
+        android:textSize="@dimen/tvsize7"
+        android:textColor="@color/white"
+        />
+    <LinearLayout
+        android:id="@+id/linear_video_item_type"
+        android:layout_width="125dp"
+        android:layout_height="10dp"
+        android:layout_alignBottom="@id/img_video_item"
+        android:layout_marginLeft="@dimen/margin10"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#66000000"
+        android:visibility="invisible"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直播中"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize7"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,10 +92,26 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_video_item_price"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="$30"
             android:textColor="@color/origen"
             android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/tv_video_item_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/tvsize13"
+            android:textColor="@color/grayText"/>
+
+        <TextView
+            android:id="@+id/tv_video_item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/tvsize13"
+            android:layout_margin="@dimen/margin5"/>
     </LinearLayout>
 </RelativeLayout>

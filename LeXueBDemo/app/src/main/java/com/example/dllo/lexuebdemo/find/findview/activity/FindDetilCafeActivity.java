@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.find.findview;
+package com.example.dllo.lexuebdemo.find.findview.activity;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
