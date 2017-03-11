@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="sdsadsadas"
-            android:textSize="@dimen/tvsize13"/>
+            android:textSize="@dimen/tvsize12"/>
 
         <LinearLayout
             android:layout_width="match_parent"
