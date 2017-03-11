@@ -1,5 +1,7 @@
 package com.example.dllo.lexuebdemo.view;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -8,6 +10,9 @@ import android.view.View;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.adapter.HomeTabAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ✎﹏﹏﹏.₯㎕*﹏﹏﹏
@@ -19,9 +24,12 @@ public class HomeTabFragment extends BaseFragment{
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private HomeTabAdapter mHomeTabAdapter;
-    public static final String [] tanTitle = new String[]{"推荐","数学","语文","化学"
-            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理",
-            "自招物理","自招数学"};
+    private List<String> fragments;
+
+
+//    public static final String [] tabTitle = new String[]{"推荐","数学","语文","化学"
+//            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理",
+//            "自招物理","自招数学"};
     @Override
     protected int getLayout() {
         return R.layout.fragment_home_tablayout;
@@ -35,6 +43,20 @@ public class HomeTabFragment extends BaseFragment{
 
     @Override
     protected void initData() {
+        mTabLayout.setSelectedTabIndicatorColor(0);
+
+        fragments = new ArrayList<>();
+        for (int i = 1; i <= 15 ; i++) {
+            fragments.add("课程" + i);
+        }
+    mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
+        mViewPager.setAdapter(mHomeTabAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = mTabLayout.getTabAt(i);
+            tab.setText(fragments.get(i));
+        }
 
     }
 
@@ -42,4 +64,6 @@ public class HomeTabFragment extends BaseFragment{
     protected void initListener() {
 
     }
+
+
 }
