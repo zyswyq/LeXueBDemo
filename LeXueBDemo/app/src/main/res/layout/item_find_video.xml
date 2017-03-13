@@ -16,6 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="13dp"
         android:text="物理"
+        android:background="@mipmap/btn_white_stroke"
+        android:padding="3dp"
         android:textColor="@color/white"
         android:textSize="@dimen/tvsize7" />
 
@@ -74,20 +76,30 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_video_item_tag1"
+                android:background="@mipmap/btn_grey_bg"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_video_item_tag2"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"
+               />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_video_item_tag3"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_video_item_tag4"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
+
         </LinearLayout>
     </LinearLayout>
 
@@ -121,13 +133,18 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/grayText"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:text="13人/300人"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/margin10"/>
 
         <TextView
             android:id="@+id/tv_video_item_type"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin5"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:text="直播中"
+            android:textColor="@color/origen"/>
     </LinearLayout>
 </RelativeLayout>
