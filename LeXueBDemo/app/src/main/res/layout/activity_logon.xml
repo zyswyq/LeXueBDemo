@@ -67,6 +67,12 @@
         android:hint="密码由6-18个字符组成"
         android:textColorHint="@color/grayText" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:src="@mipmap/register_password_visible_icon" />
+
     <View
         android:id="@+id/view_logon_pwd"
         android:layout_width="match_parent"
@@ -130,19 +136,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_logon"
         android:layout_marginLeft="10dp"
-        android:text="我同意"
         android:scaleX="0.8"
-        android:scaleY="0.8" />
+        android:scaleY="0.8"
+        android:text="我同意" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_logon"
         android:layout_marginTop="8dp"
-        android:textColor="@color/mainblue"
-        android:textSize="11sp"
         android:layout_toRightOf="@id/cb_approve"
-        android:text="使用条款和隐私政策" />
+        android:text="使用条款和隐私政策"
+        android:textColor="@color/mainblue"
+        android:textSize="11sp" />
 
     <ImageView
         android:layout_width="wrap_content"
