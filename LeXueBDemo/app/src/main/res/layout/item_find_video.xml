@@ -2,15 +2,48 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="125dp"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/img_video_item"
         android:layout_width="125dp"
         android:layout_height="75dp"
-        android:layout_margin="@dimen/margin10"
-        android:src="@color/black" />
+        android:layout_margin="@dimen/margin10" />
+
+    <TextView
+        android:id="@+id/tv_video_item_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:text="物理"
+        android:background="@mipmap/btn_white_stroke"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tvsize7" />
+
+    <LinearLayout
+        android:id="@+id/linear_video_item_type"
+        android:layout_width="125dp"
+        android:layout_height="10dp"
+        android:layout_alignBottom="@id/img_video_item"
+        android:layout_marginLeft="@dimen/margin10"
+        android:background="#66000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/video_ing_anim" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直播中"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tvsize7" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,9 +56,9 @@
             android:id="@+id/tv_video_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:text="sdsfdsfdsfdsfsd"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_video_item_time"
@@ -34,13 +67,38 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="sdsadsadas"
-            android:textSize="@dimen/tvsize13"/>
+            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_video_item_tag1"
+                android:background="@mipmap/btn_grey_bg"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_video_item_tag2"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"
+               />
+
+            <TextView
+                android:id="@+id/tv_video_item_tag3"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_video_item_tag4"
+                android:background="@mipmap/btn_grey_stroke"
+                style="@style/find_video_tag_img"
+                android:visibility="invisible"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -51,21 +109,42 @@
         android:layout_height="2dp"
         android:layout_below="@id/img_video_item"
         android:background="@drawable/dotted_line"
-        android:layerType="software"  />
+        android:layerType="software" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/img_video_item"
         android:layout_toRightOf="@id/img_video_item"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_video_item_price"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="$30"
             android:textColor="@color/origen"
-            android:textSize="17sp"/>
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_video_item_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/grayText"
+            android:textSize="13sp"
+            android:text="13人/300人"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/margin10"/>
+
+        <TextView
+            android:id="@+id/tv_video_item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin5"
+            android:textSize="13sp"
+            android:text="直播中"
+            android:textColor="@color/origen"/>
     </LinearLayout>
 </RelativeLayout>

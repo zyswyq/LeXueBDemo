@@ -1,8 +1,14 @@
 package com.example.dllo.lexuebdemo.home;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.dllo.lexuebdemo.view.HomeSubjectFragment;
+
+import com.example.dllo.lexuebdemo.view.HomeViewPagerFragment;
+import com.example.dllo.lexuebdemo.view.HomeVolunteerFragment;
 
 import java.util.List;
 
@@ -14,24 +20,27 @@ import java.util.List;
  */
 public class HomeTabAdapter extends FragmentPagerAdapter{
     private List <Fragment> mFragments;
+    private Context context;
 
-    public HomeTabAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public HomeTabAdapter(FragmentManager fm, Context context) {
         super(fm);
-        mFragments = fragments;
+        this.context = context;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return mFragments.get(position);
+        if (0 == position) {
+            return HomeViewPagerFragment.newInstance();
+        } else if (0 < position && 7 > position) {
+            return HomeSubjectFragment.newInstance(position);
+        } else
+            return HomeVolunteerFragment.newInstance(position);
     }
 
     @Override
     public int getCount() {
-        return mFragments.size();
+        return 15;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return super.getPageTitle(position);
-    }
+
 }

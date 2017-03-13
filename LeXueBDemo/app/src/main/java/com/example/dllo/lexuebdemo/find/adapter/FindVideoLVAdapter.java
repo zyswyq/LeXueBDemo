@@ -57,6 +57,32 @@ public class FindVideoLVAdapter extends BaseAdapter{
         baseViewHolder.setText(R.id.tv_video_item_title,data.get(i).getLive_name());
         baseViewHolder.setImg(R.id.img_video_item,data.get(i).getLive_cover().getUrl());
         baseViewHolder.setText(R.id.tv_video_item_time,data.get(i).getLive_date()+" "+data.get(i).getLive_start()+"-"+data.get(i).getLive_end());
+        baseViewHolder.setText(R.id.tv_video_item_price,"¥"+data.get(i).getReal_price());
+        baseViewHolder.setText(R.id.tv_video_item_tag,data.get(i).getLive_tags().get(0).getTag_name());
+
+        switch (data.get(i).getTagList().size()) {
+            case 4:
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag1,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag2,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag3,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag4,View.VISIBLE);
+                baseViewHolder.setText(R.id.tv_video_item_tag1,data.get(i).getTagList().get(0).getTag_name());
+                baseViewHolder.setText(R.id.tv_video_item_tag2,data.get(i).getTagList().get(1).getTag_name());
+                baseViewHolder.setText(R.id.tv_video_item_tag3,data.get(i).getTagList().get(2).getTag_name());
+                baseViewHolder.setText(R.id.tv_video_item_tag4,data.get(i).getTagList().get(3).getTag_name());
+                break;
+            case 3:
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag1,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag2,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag3,View.VISIBLE);
+                baseViewHolder.setViewVisiable(R.id.tv_video_item_tag4,View.INVISIBLE);
+                baseViewHolder.setText(R.id.tv_video_item_tag1,data.get(i).getTagList().get(0).getTag_name());
+                baseViewHolder.setText(R.id.tv_video_item_tag2,data.get(i).getTagList().get(1).getTag_name());
+                baseViewHolder.setText(R.id.tv_video_item_tag3,data.get(i).getTagList().get(2).getTag_name());
+                break;
+            default:
+                break;
+        }
         return baseViewHolder.getMview();
     }
 }
