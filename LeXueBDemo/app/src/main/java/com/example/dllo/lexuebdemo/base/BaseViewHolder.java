@@ -11,11 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.dllo.lexuebdemo.R;
+import com.example.dllo.lexuebdemo.find.adapter.FindVideoPopAdapter;
 
 /**
  * Created by dllo on 17/3/9.
