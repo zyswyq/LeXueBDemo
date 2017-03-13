@@ -2,6 +2,8 @@ package com.example.dllo.lexuebdemo.teacher.presenter;
 
 import android.content.Context;
 
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.nettools.NetBean;
 import com.example.dllo.lexuebdemo.teacher.view.ITeacherView;
 import com.example.dllo.lexuebdemo.teacher.model.TeacherPageTagBean;
 
@@ -13,12 +15,14 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public class TeacherPresenter {
+public class TeacherPresenter{
     private static final String TAG = "TeacherPresenter";
     private ITeacherView teacherView;
     private TeacherPageTagBean bean;
     private final List<String> tagList;
     private Context context;
+
+    private NetBean netBean;
 
     public TeacherPresenter(ITeacherView teacherView) {
         this.teacherView = teacherView;
@@ -27,6 +31,8 @@ public class TeacherPresenter {
             tagList.add("课程"+i);
         }
         bean = new TeacherPageTagBean(tagList);
+
+        netBean = new NetBean();
     }
 
     public void setContext(Context context) {
@@ -43,6 +49,21 @@ public class TeacherPresenter {
 
     public void onShow(){
         teacherView.onShow();
+    }
+
+    public void getNetData(String URL){
+
+        netBean.startRequest(URL, NetBean.class, new MyCallBack<NetBean>() {
+                    @Override
+                    public void success(NetBean respomse) {
+                        teacherView.setNetData(respomse);
+                    }
+
+                    @Override
+                    public void error(Throwable throwable) {
+
+            }
+        });
     }
 /**
     public void popTagList(View btn) {

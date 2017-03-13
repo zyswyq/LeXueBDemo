@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.presenter.TeacherPresenter;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherVpAdapter;
 
@@ -106,6 +107,12 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
         ft.show(tagListFragment);
         ft.commit();
     }
+
+    @Override
+    public <T> void setNetData(T data) {
+
+    }
+
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
