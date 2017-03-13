@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".find.findview.FindDetilCafeActivity"/>
         <activity android:name=".find.findview.FindDetilVideoActivity"/>
+        <activity android:name=".myself.LogonActivity"/>
     </application>
 
 </manifest>
