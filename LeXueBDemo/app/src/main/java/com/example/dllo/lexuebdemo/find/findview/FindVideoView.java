@@ -12,4 +12,7 @@ public interface FindVideoView {
 
     void getData(List<FindVideoBean.LivesBean> data);
 
+    void showPop();
+    void disMissPop();
+
 }

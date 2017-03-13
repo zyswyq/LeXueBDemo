@@ -13,6 +13,5 @@
         android:gravity="center"
         android:padding="@dimen/padding5"
         android:textColor="@drawable/teacher_taglist_text_selector">
-
     </TextView>
 </LinearLayout>

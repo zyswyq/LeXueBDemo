@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="sdsfdsfdsfdsfsd"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_video_item_time"
@@ -67,7 +67,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="sdsadsadas"
-            android:textSize="13sp" />
+            android:textSize="10sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
