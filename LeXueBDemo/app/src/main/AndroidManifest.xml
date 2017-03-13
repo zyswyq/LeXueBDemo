@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dllo.lexuebdemo">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
@@ -16,15 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".find.findview.FindDetilCafeActivity"/>
-        <activity android:name=".find.findview.FindDetilVideoActivity"/>
-        <activity android:name=".myself.LogonActivity"/>
-=======
-        <activity android:name=".find.findview.activity.FindDetilCafeActivity"/>
-        <activity android:name=".find.findview.activity.FindDetilVideoActivity"/>
-        <activity android:name=".find.findview.activity.FindWebView"/>
->>>>>>> 1710582d9aa3f8747bea83f12589a221a9f623cb
+
+        <activity android:name=".myself.activity.LogonActivity" />
+        <activity android:name=".myself.activity.ClauseActivity" />
+        <activity android:name=".myself.activity.LoginActivity" />
+        <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
+        <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
+        <activity android:name=".find.findview.activity.FindWebView" />
     </application>
 
 </manifest>
