@@ -5,7 +5,7 @@ package com.example.dllo.lexuebdemo.teacher.view;
     data 2017-03-09
     desc 描述
 */
-public interface TeacherSubjectView {
+public interface ITeacherSubjectView {
     void setAdapter();
     void setRecyclerView();
 }

@@ -10,9 +10,8 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public interface TeacherView {
+public interface ITeacherView {
     void setAdapter();
     void setTabLayout(List<String> tagList);
-    void popTagList(PopupWindow popupWindow, View btn, int xoff, int yoff);
     void onShow();
 }

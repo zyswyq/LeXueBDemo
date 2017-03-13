@@ -2,4 +2,9 @@
     <string name="app_name">乐学高考</string>
     <string name="title_teacher">乐学名师</string>
     <string name="finish">完成</string>
+    <string name="focus">加关注</string>
+    <string name="gift">送礼物</string>
+    <string name="all_course">所有课程</string>
+    <string name="personal_info">个人资料</string>
+    <string name="receive_gift">收到礼物</string>
 </resources>

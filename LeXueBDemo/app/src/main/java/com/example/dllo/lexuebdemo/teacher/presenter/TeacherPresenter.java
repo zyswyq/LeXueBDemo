@@ -1,23 +1,8 @@
 package com.example.dllo.lexuebdemo.teacher.presenter;
 
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
 
-import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.adapter.TeacherTagListRecycleViewAdapter;
-import com.example.dllo.lexuebdemo.teacher.adapter.MyDragGridViewAdapter;
-import com.example.dllo.lexuebdemo.teacher.customview.DragGridView;
-import com.example.dllo.lexuebdemo.teacher.view.TeacherView;
+import com.example.dllo.lexuebdemo.teacher.view.ITeacherView;
 import com.example.dllo.lexuebdemo.teacher.model.TeacherPageTagBean;
 
 import java.util.ArrayList;
@@ -30,12 +15,12 @@ import java.util.List;
 */
 public class TeacherPresenter {
     private static final String TAG = "TeacherPresenter";
-    private TeacherView teacherView;
+    private ITeacherView teacherView;
     private TeacherPageTagBean bean;
     private final List<String> tagList;
     private Context context;
 
-    public TeacherPresenter(TeacherView teacherView) {
+    public TeacherPresenter(ITeacherView teacherView) {
         this.teacherView = teacherView;
         tagList = new ArrayList<>();
         for(int i = 1; i <= 15; i++){
@@ -64,7 +49,7 @@ public class TeacherPresenter {
         View popView = LayoutInflater.from(context).inflate(R.layout.fragment_teacher_taglist, null);
         DragGridView dragGridView = (DragGridView) popView.findViewById(R.id.drag_gridview);
 
-        MyDragGridViewAdapter adapter = new MyDragGridViewAdapter(bean.getTags());
+        MyDragGvAdapter adapter = new MyDragGvAdapter(bean.getTags());
         adapter.setContext(context);
         dragGridView.setAdapter(adapter);
 

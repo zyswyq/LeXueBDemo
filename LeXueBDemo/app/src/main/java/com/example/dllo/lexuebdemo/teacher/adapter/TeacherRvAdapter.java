@@ -20,10 +20,15 @@ import com.example.dllo.lexuebdemo.base.BaseViewHolder;
     data 2017-03-09
     desc 描述
 */
-public class TeacherRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class TeacherRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private Context context;
     private int dataSize = 10;
+    private DetailInfo detailInfo;
+
+    public void setDetailInfo(DetailInfo detailInfo) {
+        this.detailInfo = detailInfo;
+    }
 
     public void setContext(Context context) {
         this.context = context;
@@ -103,10 +108,40 @@ public class TeacherRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHol
         }
         TextView playCountRight = holder.getView(R.id.item_teacher_rv_movie_right_count);
         playCountRight.setText("2875");
+
+
+        //设置点击事件
+        //跳转名师详情界面
+        holder.getView(R.id.item_teacher_rv_basic_info).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detailInfo.showTeacherInfo(null);
+            }
+        });
+        //跳转视频(左)详情界面
+        holder.getView(R.id.item_teacher_rv_movie_left_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detailInfo.showMovieInfo(null);
+            }
+        });
+        //跳转视频(右)详情界面
+        holder.getView(R.id.item_teacher_rv_movie_right_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detailInfo.showMovieInfo(null);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return dataSize;
+    }
+
+    public interface DetailInfo{
+        void showTeacherInfo(String url);
+        void showMovieInfo(String url);
     }
 }

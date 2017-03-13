@@ -7,10 +7,8 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public interface TeacherTagListView {
-    void setAdapter(List<String> tagList);
-
+public interface ITeacherTagListView {
+    void initAdapter(List<String> tagList);
     void onHide();
-
-    void setSelectedItem(int position);
+    List<String> getTagList();
 }

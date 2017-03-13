@@ -1,7 +1,6 @@
 package com.example.dllo.lexuebdemo.teacher.presenter;
 
-import com.example.dllo.lexuebdemo.teacher.view.TeacherTagListView;
-import com.example.dllo.lexuebdemo.teacher.view.TeacherView;
+import com.example.dllo.lexuebdemo.teacher.view.ITeacherTagListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +11,11 @@ import java.util.List;
     desc 描述
 */
 public class TeacherTagListPresenter {
-    private TeacherTagListView teacherTagListView;
+    private ITeacherTagListView teacherTagListView;
     private List<String> tagList;
 
-    public TeacherTagListPresenter(TeacherTagListView teacherTagListView){
+
+    public TeacherTagListPresenter(ITeacherTagListView teacherTagListView){
         this.teacherTagListView = teacherTagListView;
         tagList = new ArrayList<String>();
         for(int i = 1; i <= 15; i++){
@@ -23,18 +23,16 @@ public class TeacherTagListPresenter {
         }
     }
 
-    public void setAdapter(){
-        teacherTagListView.setAdapter(tagList);
+    public void initAdapter(){
+        teacherTagListView.initAdapter(tagList);
     }
 
     public void onHide(){
         teacherTagListView.onHide();
     }
 
-
-    public void setSelectedItem(int position){
-        teacherTagListView.setSelectedItem(position);
+    public List<String> getTagList(){
+        return teacherTagListView.getTagList();
     }
-
 
 }
