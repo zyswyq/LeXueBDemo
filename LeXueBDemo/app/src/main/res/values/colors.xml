@@ -14,6 +14,9 @@
     <!--底部灰色字体-->
     <color name="grayText">#bab4b4</color>
     <!--黑色-->
+
+
+
     <!--<color name=""-->
     <color name="lightBlack">#3b3737</color>
     <color name="pureBlack">#000</color>
@@ -29,5 +32,6 @@
     <color name="purple">#6a49cf</color>
     <!--灰色-->
     <color name="gray">#8492A3</color>
+
 
 </resources>

@@ -13,6 +13,6 @@ public class URLBean {
 
     public static String FINDSHOP="http://www.lexue.com/mall/index.html?version=2.3.0&os=baidu";
 
-    public static String FINDCAFE="http://post.lexue.com/post/pub/post_list?page_size=1&page=";
+    public static String FINDCAFE="http://post.lexue.com/post/pub/post_list?page_size=10&page=";
 
 }

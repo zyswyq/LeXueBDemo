@@ -1,7 +1,9 @@
 package com.example.dllo.lexuebdemo.main.view;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -13,8 +15,9 @@ import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
 
+import com.example.dllo.lexuebdemo.myself.activity.LogonActivity;
 import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
-import com.example.dllo.lexuebdemo.myself.MyselfFragment;
+import com.example.dllo.lexuebdemo.myself.fragment.MyselfFragment;
 
 
 import java.util.ArrayList;
@@ -44,6 +47,7 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void initView() {
         fragments=new ArrayList<>();
         mainPage = bindView(R.id.radiobtn_main);
+        myPage = bindView(R.id.radiobtn_my);
         teacherPage = bindView(R.id.radiobtn_teacher);
         findPage = bindView(R.id.radiobtn_find);
         myPage = bindView(R.id.radiobtn_my);
@@ -73,6 +77,13 @@ public class MainActivity extends BaseActivity implements MainView {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                presenter.selectPage(i);
+            }
+        });
+        myPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LogonActivity.class);
+                startActivity(intent);
             }
         });
     }
