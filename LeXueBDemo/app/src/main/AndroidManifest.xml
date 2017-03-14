@@ -16,15 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".find.findview.FindDetilCafeActivity"/>
-        <activity android:name=".find.findview.FindDetilVideoActivity"/>
+
         <activity android:name=".myself.LogonActivity"/>
-=======
+
         <activity android:name=".find.findview.activity.FindDetilCafeActivity"/>
         <activity android:name=".find.findview.activity.FindDetilVideoActivity"/>
         <activity android:name=".find.findview.activity.FindWebView"/>
->>>>>>> 1710582d9aa3f8747bea83f12589a221a9f623cb
+
     </application>
 
 </manifest>
