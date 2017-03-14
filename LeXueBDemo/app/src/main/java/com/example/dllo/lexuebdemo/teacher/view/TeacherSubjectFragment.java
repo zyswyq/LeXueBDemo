@@ -1,12 +1,13 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
-import com.example.dllo.lexuebdemo.teacher.adapter.TeacherRecyclerViewAdapter;
+import com.example.dllo.lexuebdemo.teacher.adapter.TeacherRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.presenter.TeacherSubjectPresenter;
 
 /*
@@ -14,9 +15,9 @@ import com.example.dllo.lexuebdemo.teacher.presenter.TeacherSubjectPresenter;
     data 2017-03-09
     desc 描述
 */
-public class TeacherSubjectFragment extends BaseFragment implements TeacherSubjectView {
+public class TeacherSubjectFragment extends BaseFragment implements ITeacherSubjectView, TeacherRvAdapter.DetailInfo {
     private RecyclerView recyclerView;
-    private TeacherRecyclerViewAdapter adapter;
+    private TeacherRvAdapter adapter;
     private TeacherSubjectPresenter teacherSubjectPresenter;
 
     @Override
@@ -48,8 +49,9 @@ public class TeacherSubjectFragment extends BaseFragment implements TeacherSubje
 
     @Override
     public void setAdapter() {
-        adapter = new TeacherRecyclerViewAdapter();
+        adapter = new TeacherRvAdapter();
         adapter.setContext(context);
+        adapter.setDetailInfo(this);
     }
 
     @Override
@@ -57,4 +59,15 @@ public class TeacherSubjectFragment extends BaseFragment implements TeacherSubje
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void showTeacherInfo(String url) {
+        context.startActivity(new Intent(context, TeacherDetailInfoActivity.class));
+    }
+
+    @Override
+    public void showMovieInfo(String url) {
+
+    }
+
 }

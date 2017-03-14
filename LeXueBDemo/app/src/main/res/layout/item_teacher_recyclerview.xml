@@ -13,46 +13,52 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--名师背景图-->
-        <ImageView
-            android:id="@+id/item_teacher_rv_bg"
+        <RelativeLayout
+            android:id="@+id/item_teacher_rv_basic_info"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/teacher_bg"
-            android:scaleType="fitXY"/>
-        <!--名师头像-->
-        <ImageView
-            android:id="@+id/item_teacher_rv_headimg"
-            android:layout_width="@dimen/teacher_head"
-            android:layout_height="@dimen/teacher_head"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin30"/>
-        <!--名师头像右下角图标-->
-        <ImageView
-            android:id="@+id/item_teacher_rv_icon"
-            android:layout_width="@dimen/margin20"
-            android:layout_height="@dimen/margin20"
-            android:layout_alignBottom="@id/item_teacher_rv_headimg"
-            android:layout_alignEnd="@id/item_teacher_rv_headimg"
-            />
-        <!--名师名字-->
-        <TextView
-            android:id="@+id/item_teacher_rv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/item_teacher_rv_headimg"
-            android:layout_centerHorizontal="true"
-            android:text="teacherName"
-            android:textColor="@color/white"/>
-        <!--名师性别-->
-        <ImageView
-            android:id="@+id/item_teacher_rv_sex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/item_teacher_rv_name"
-            android:padding="@dimen/padding3"
-            android:layout_toEndOf="@id/item_teacher_rv_name"
-            android:src="@mipmap/sex_man"
-            />
+            android:layout_height="wrap_content">
+            <!--名师背景图-->
+            <ImageView
+                android:id="@+id/item_teacher_rv_bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/teacher_bg"
+                android:scaleType="fitXY"/>
+            <!--名师头像-->
+            <ImageView
+                android:id="@+id/item_teacher_rv_headimg"
+                android:layout_width="@dimen/teacher_head"
+                android:layout_height="@dimen/teacher_head"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin30"/>
+            <!--名师头像右下角图标-->
+            <ImageView
+                android:id="@+id/item_teacher_rv_icon"
+                android:layout_width="@dimen/margin20"
+                android:layout_height="@dimen/margin20"
+                android:layout_alignBottom="@id/item_teacher_rv_headimg"
+                android:layout_alignEnd="@id/item_teacher_rv_headimg"
+                />
+            <!--名师名字-->
+            <TextView
+                android:id="@+id/item_teacher_rv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_teacher_rv_headimg"
+                android:layout_centerHorizontal="true"
+                android:text="teacherName"
+                android:textColor="@color/white"/>
+            <!--名师性别-->
+            <ImageView
+                android:id="@+id/item_teacher_rv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/item_teacher_rv_name"
+                android:padding="@dimen/padding3"
+                android:layout_toEndOf="@id/item_teacher_rv_name"
+                android:src="@mipmap/sex_man"
+                />
+        </RelativeLayout>
+
 
 
         <!--名师信息-->
@@ -62,7 +68,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/padding5"
             android:paddingBottom="@dimen/padding5"
-            android:layout_below="@id/item_teacher_rv_bg">
+            android:layout_below="@id/item_teacher_rv_basic_info">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -77,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="89"
                     android:textSize="@dimen/tvsize12"
-                    android:textColor="#000" />
+                    android:textColor="@color/pureBlack" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:text="347万"
                     android:textSize="@dimen/tvsize12"
-                    android:textColor="#000" />
+                    android:textColor="@color/pureBlack" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="7.5万"
                     android:textSize="@dimen/tvsize12"
-                    android:textColor="#000" />
+                    android:textColor="@color/pureBlack" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:text="2345万"
                     android:textSize="@dimen/tvsize12"
-                    android:textColor="#000" />
+                    android:textColor="@color/pureBlack" />
 
                 <TextView
                     android:layout_width="wrap_content"

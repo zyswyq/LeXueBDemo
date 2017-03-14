@@ -1,7 +1,11 @@
 package com.example.dllo.lexuebdemo.find.presenter;
 
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
+import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.find.findview.FindVideoView;
 import com.example.dllo.lexuebdemo.find.model.FindVideoBean;
 import com.example.dllo.lexuebdemo.find.model.URLBean;
@@ -22,6 +26,7 @@ public class FindVideoPresenter {
     }
 
     public void getData(int subject,int type){
+        Log.d("hahahah", subject + "  " + type);
         model.getData(URLBean.FINDVIDEO1 + "1" + URLBean.FINDVIDEO2 + subject + URLBean.FINDVIDEO3 + type, new VideoRequestListener() {
             @Override
             public void onSuccess(FindVideoBean bean) {
@@ -34,6 +39,21 @@ public class FindVideoPresenter {
 
             }
         });
+    }
+
+    public void clickToOpen(int Id){
+        switch (Id){
+            case R.id.img_findvideo_chose:
+                videoView.showPop();
+                break;
+            case R.id.tv_find_pop_dimiss:
+                videoView.disMissPop();
+                break;
+            case R.id.tv_find_pop_ok:
+                //TODO 从新加载数据
+                break;
+        }
+
     }
 
 }

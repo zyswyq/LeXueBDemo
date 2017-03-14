@@ -1,6 +1,6 @@
 package com.example.dllo.lexuebdemo.teacher.presenter;
 
-import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectView;
+import com.example.dllo.lexuebdemo.teacher.view.ITeacherSubjectView;
 
 /*
     by Mr.L
@@ -8,8 +8,8 @@ import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectView;
     desc 描述
 */
 public class TeacherSubjectPresenter {
-    private TeacherSubjectView teacherSubjectView;
-    public TeacherSubjectPresenter(TeacherSubjectView teacherSubjectView){
+    private ITeacherSubjectView teacherSubjectView;
+    public TeacherSubjectPresenter(ITeacherSubjectView teacherSubjectView){
         this.teacherSubjectView = teacherSubjectView;
     }
 

@@ -2,6 +2,7 @@ package com.example.dllo.lexuebdemo.base;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.example.dllo.lexuebdemo.R;
+import com.example.dllo.lexuebdemo.find.adapter.FindVideoPopAdapter;
 
 /**
  * Created by dllo on 17/3/9.
@@ -77,9 +81,9 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         View view = getView(id);
         if (type == View.INVISIBLE) {
             view.setVisibility(View.INVISIBLE);
-        } else if (type==View.VISIBLE){
+        } else if (type == View.VISIBLE) {
             view.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             view.setVisibility(View.GONE);
         }
         return this;
@@ -100,16 +104,18 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     }
 
     public BaseViewHolder setCircleImg(int id, String url) {
-        ImageView imageView = getView(id);
+        final ImageView imageView = getView(id);
         if (url != null) {
-            Glide.with(context).load(url).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageView) {
+            Glide.with(context).load(url).asBitmap().error(R.mipmap.ic_launcher).centerCrop().into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
                             RoundedBitmapDrawableFactory.create(context.getResources(), resource);
                     circularBitmapDrawable.setCircular(true);
-                    ImageView imageView = null;
-                    imageView.setImageDrawable(circularBitmapDrawable);
+                    if (circularBitmapDrawable != null) {
+                        imageView.setImageDrawable(circularBitmapDrawable);
+
+                    }
                 }
             });
         }
@@ -137,6 +143,23 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     public BaseViewHolder setImg(int id, int resouce) {
         ImageView imageView = getView(id);
         Glide.with(context).load(resouce).into(imageView);
+        return this;
+    }
+
+    //设置文字右边的图片
+    public BaseViewHolder setTextImg(int id, int resouce) {
+        TextView textView = getView(id);
+        Drawable nav_up = context.getDrawable(resouce);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, nav_up, null);
+        return this;
+    }
+
+    public BaseViewHolder setTextleftImg(int id, int resouce) {
+        TextView textView = getView(id);
+        Drawable nav_up = context.getDrawable(resouce);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables( nav_up,null, null, null);
         return this;
     }
 
