@@ -12,10 +12,10 @@ import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectFragment;
     data 2017-03-09
     desc 描述
 */
-public class TeacherViewPagerAdapter extends FragmentPagerAdapter {
+public class TeacherVpAdapter extends FragmentPagerAdapter {
     private Context context;
 
-    public TeacherViewPagerAdapter(FragmentManager fm, Context context) {
+    public TeacherVpAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }

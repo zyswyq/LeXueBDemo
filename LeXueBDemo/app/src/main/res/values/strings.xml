@@ -4,8 +4,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-=======
+
     <string name="title_teacher">乐学名师</string>
     <string name="finish">完成</string>
->>>>>>> 6e1c8f52d11740150c58ef7bf2a8beb54c6ad975
+
+    <string name="focus">加关注</string>
+    <string name="gift">送礼物</string>
+    <string name="all_course">所有课程</string>
+    <string name="personal_info">个人资料</string>
+    <string name="receive_gift">收到礼物</string>
 </resources>

@@ -1,7 +1,7 @@
-package com.example.dllo.lexuebdemo.myself;
+package com.example.dllo.lexuebdemo.myself.fragment;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.base.BaseActivity;
+import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 /*
          |              |
@@ -22,10 +22,10 @@ import com.example.dllo.lexuebdemo.base.BaseActivity;
              |       |
              |       |
 */
-public class LogonActivity extends BaseActivity {
+public class MyselfFragment extends BaseFragment {
     @Override
     protected int getLayout() {
-        return R.layout.activity_logon;
+        return R.layout.fragment_myself;
     }
 
     @Override

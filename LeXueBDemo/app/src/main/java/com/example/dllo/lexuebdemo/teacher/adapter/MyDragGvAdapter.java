@@ -17,12 +17,12 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public class MyDragGridViewAdapter extends DragGridAdapter<String> {
+public class MyDragGvAdapter extends DragGridAdapter<String> {
     private Context context;
     private int selectedItem = -1;
 
 
-    public MyDragGridViewAdapter(List<String> tagList) {
+    public MyDragGvAdapter(List<String> tagList) {
         super(tagList);
     }
 

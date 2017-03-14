@@ -9,7 +9,7 @@
         android:layout_height="@dimen/margin30"
         android:background="@color/white">
         <TextView
-            android:id="@+id/tv_teacher"
+            android:id="@+id/tv_teacher_finish"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/finish"

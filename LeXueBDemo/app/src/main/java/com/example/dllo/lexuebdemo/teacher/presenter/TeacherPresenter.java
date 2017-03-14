@@ -1,23 +1,10 @@
 package com.example.dllo.lexuebdemo.teacher.presenter;
 
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
 
-import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.adapter.TeacherTagListRecycleViewAdapter;
-import com.example.dllo.lexuebdemo.teacher.adapter.MyDragGridViewAdapter;
-import com.example.dllo.lexuebdemo.teacher.customview.DragGridView;
-import com.example.dllo.lexuebdemo.teacher.view.TeacherView;
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.nettools.NetBean;
+import com.example.dllo.lexuebdemo.teacher.view.ITeacherView;
 import com.example.dllo.lexuebdemo.teacher.model.TeacherPageTagBean;
 
 import java.util.ArrayList;
@@ -28,20 +15,24 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public class TeacherPresenter {
+public class TeacherPresenter{
     private static final String TAG = "TeacherPresenter";
-    private TeacherView teacherView;
+    private ITeacherView teacherView;
     private TeacherPageTagBean bean;
     private final List<String> tagList;
     private Context context;
 
-    public TeacherPresenter(TeacherView teacherView) {
+    private NetBean netBean;
+
+    public TeacherPresenter(ITeacherView teacherView) {
         this.teacherView = teacherView;
         tagList = new ArrayList<>();
         for(int i = 1; i <= 15; i++){
             tagList.add("课程"+i);
         }
         bean = new TeacherPageTagBean(tagList);
+
+        netBean = new NetBean();
     }
 
     public void setContext(Context context) {
@@ -59,12 +50,27 @@ public class TeacherPresenter {
     public void onShow(){
         teacherView.onShow();
     }
+
+    public void getNetData(String URL){
+
+        netBean.startRequest(URL, NetBean.class, new MyCallBack<NetBean>() {
+                    @Override
+                    public void success(NetBean respomse) {
+                        teacherView.setNetData(respomse);
+                    }
+
+                    @Override
+                    public void error(Throwable throwable) {
+
+            }
+        });
+    }
 /**
     public void popTagList(View btn) {
         View popView = LayoutInflater.from(context).inflate(R.layout.fragment_teacher_taglist, null);
         DragGridView dragGridView = (DragGridView) popView.findViewById(R.id.drag_gridview);
 
-        MyDragGridViewAdapter adapter = new MyDragGridViewAdapter(bean.getTags());
+        MyDragGvAdapter adapter = new MyDragGvAdapter(bean.getTags());
         adapter.setContext(context);
         dragGridView.setAdapter(adapter);
 

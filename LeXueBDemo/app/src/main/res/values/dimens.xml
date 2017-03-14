@@ -31,6 +31,7 @@
     <dimen name="tvsize25">25sp</dimen>
     <!--常用pading间隔-->
     <dimen name="padding10">10dp</dimen>
+    <dimen name="padding8">10dp</dimen>
     <dimen name="padding5">5dp</dimen>
     <dimen name="padding3">3dp</dimen>
     <!--分割线的高度-->

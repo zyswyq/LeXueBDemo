@@ -5,10 +5,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
-import com.example.dllo.lexuebdemo.teacher.adapter.MyDragGridViewAdapter;
+import com.example.dllo.lexuebdemo.teacher.adapter.MyDragGvAdapter;
 import com.example.dllo.lexuebdemo.teacher.customview.DragGridView;
 import com.example.dllo.lexuebdemo.teacher.presenter.TeacherTagListPresenter;
 
@@ -19,13 +20,15 @@ import java.util.List;
     data 2017-03-09
     desc 描述
 */
-public class TeacherTagListFragment extends BaseFragment implements View.OnTouchListener, TeacherTagListView, View.OnClickListener {
+public class TeacherTagListFragment extends BaseFragment implements View.OnTouchListener, ITeacherTagListView, View.OnClickListener {
+    private static final String TAG = "TeacherTagListFragment";
     private DragGridView dragGridView;
-    private MyDragGridViewAdapter adapter;
+    private MyDragGvAdapter adapter;
     private ImageView hideBtn;
     private TeacherTagListPresenter presenter;
 
     private FragmentManager fm;
+    private TextView finishEdit;
 
 
     @Override
@@ -37,13 +40,15 @@ public class TeacherTagListFragment extends BaseFragment implements View.OnTouch
     protected void initView() {
         dragGridView= bindView(R.id.drag_gridview);
         hideBtn = bindView(R.id.iv_teacher_taglist_back);
+        finishEdit = bindView(R.id.tv_teacher_finish);
         presenter = new TeacherTagListPresenter(this);
     }
 
     @Override
     protected void initData() {
         fm = getFragmentManager();
-        presenter.setAdapter();
+        presenter.initAdapter();
+
     }
 
     @Override
@@ -51,6 +56,7 @@ public class TeacherTagListFragment extends BaseFragment implements View.OnTouch
         //设置触摸事件监听
         view.setOnTouchListener(this);
         hideBtn.setOnClickListener(this);
+        finishEdit.setOnClickListener(this);
     }
 
     //复写监听事件，防止fragment进行add操作后点击事件穿透
@@ -59,21 +65,28 @@ public class TeacherTagListFragment extends BaseFragment implements View.OnTouch
         return true;
     }
 
+
     @Override
-    public void setAdapter(List<String> tagList) {
-        adapter = new MyDragGridViewAdapter(tagList);
+    public void initAdapter(List<String> tagList) {
+        adapter = new MyDragGvAdapter(tagList);
         adapter.setContext(context);
         dragGridView.setAdapter(adapter);
     }
 
     @Override
     public void onHide() {
+
         FragmentTransaction ft = fm.beginTransaction();
         ft.hide(this);
         ft.commit();
     }
 
     @Override
+    public List<String> getTagList() {
+        return adapter.getList();
+    }
+
+
     public void setSelectedItem(int position) {
         adapter.setSelectedItem(position);
     }
@@ -82,6 +95,10 @@ public class TeacherTagListFragment extends BaseFragment implements View.OnTouch
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_teacher_taglist_back:
+                presenter.onHide();
+                break;
+            case R.id.tv_teacher_finish:
+                presenter.getTagList();
                 presenter.onHide();
                 break;
         }
