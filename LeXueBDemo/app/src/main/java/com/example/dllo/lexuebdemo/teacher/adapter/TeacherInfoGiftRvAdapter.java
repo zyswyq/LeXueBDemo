@@ -12,7 +12,7 @@ import com.example.dllo.lexuebdemo.base.BaseViewHolder;
     data 2017-03-11
     desc 描述
 */
-public class TeacherInfoGiftAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class TeacherInfoGiftRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Context context;
 
     public void setContext(Context context) {

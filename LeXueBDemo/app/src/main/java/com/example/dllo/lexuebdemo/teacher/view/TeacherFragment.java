@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.nettools.NetBean;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.presenter.TeacherPresenter;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherVpAdapter;
@@ -55,6 +56,7 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
         teacherPresenter.setAdapter();
         teacherPresenter.setTabLayout();
         initTagListFrgamnet();
+
     }
 
     private void initTagListFrgamnet() {
