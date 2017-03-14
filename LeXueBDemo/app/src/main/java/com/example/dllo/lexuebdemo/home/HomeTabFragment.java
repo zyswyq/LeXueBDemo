@@ -41,6 +41,7 @@ public class HomeTabFragment extends BaseFragment{
 
     @Override
     protected void initData() {
+        //字体底部下划线消失方法
         mTabLayout.setSelectedTabIndicatorColor(0);
 
         fragments = new ArrayList<>();
@@ -50,6 +51,7 @@ public class HomeTabFragment extends BaseFragment{
     mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
         mViewPager.setAdapter(mHomeTabAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
+        //可以滑动的方法
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mTabLayout.getTabAt(i);

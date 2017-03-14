@@ -31,9 +31,6 @@
         <activity android:name=".myself.activity.LogonActivity" />
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
-        <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
-        <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
-        <activity android:name=".find.findview.activity.FindWebView" />
 
     </application>
 

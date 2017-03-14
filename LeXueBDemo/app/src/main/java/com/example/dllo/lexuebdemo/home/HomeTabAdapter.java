@@ -29,6 +29,7 @@ public class HomeTabAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
+        //对position进行判断  加载不同的布局
         if (0 == position) {
             return HomeViewPagerFragment.newInstance();
         } else if (0 < position && 7 > position) {

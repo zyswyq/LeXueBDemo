@@ -37,15 +37,15 @@ public class HomeVolunteerFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        mTestTv = bindView(R.id.test_tv_volunteer);
+//        mTestTv = bindView(R.id.test_tv_volunteer);
     }
 
     @Override
     protected void initData() {
         Bundle bundle = getArguments();
         int positionFrag = bundle.getInt("positionFrag");
-        mTestTv.setText("志愿第"+positionFrag+"个");
-        mTestTv.setTextSize(50);
+//        mTestTv.setText("志愿第"+positionFrag+"个");
+//        mTestTv.setTextSize(50);
     }
 
     @Override
