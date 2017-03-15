@@ -1,10 +1,6 @@
 package com.example.dllo.lexuebdemo.find.presenter;
 
-import android.content.Context;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.find.findview.FindVideoView;
 import com.example.dllo.lexuebdemo.find.model.FindVideoBean;
