@@ -1,11 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-<TextView
-    android:id="@+id/test_tv_banner"
-    android:background="#ffe101"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
-</LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+    <!--这是第一界面的布局-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/fragment_home_viewpager_first_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/fragment_home_viewpager_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+            </com.youth.banner.Banner>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_viewpager_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragment_home_viewpager_first_rl"
+            android:layout_below="@+id/fragment_home_viewpager_first_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            >
+         <ImageView
+             android:id="@+id/fragment_home_viewpager_first_iv"
+             android:background="@mipmap/nav_searchbar_blue"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_first_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fragment_home_viewpager_first_iv"
+                android:text="题目"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/margin10"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_first_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_navigation_arrow_pressed"
+                android:text="更多免费"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_viewpager_first_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fragment_home_viewpager_first_iv">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_home_viewpager_second_rl"
+            android:layout_below="@+id/fragment_home_viewpager_first_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            >
+            <ImageView
+                android:id="@+id/fragment_home_viewpager_second_iv"
+                android:background="@mipmap/nav_searchbar_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_second_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fragment_home_viewpager_second_iv"
+                android:text="题目"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/margin10"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_second_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_navigation_arrow_pressed"
+                android:text="京城名师讲解"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_viewpager_second_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fragment_home_viewpager_second_iv">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_home_viewpager_three_rl"
+            android:layout_below="@+id/fragment_home_viewpager_second_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            >
+            <ImageView
+                android:id="@+id/fragment_home_viewpager_three_iv"
+                android:background="@mipmap/nav_searchbar_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_three_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fragment_home_viewpager_three_iv"
+                android:text="题目"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/margin10"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_three_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_navigation_arrow_pressed"
+                android:text="多维度立体复习"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_viewpager_three_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fragment_home_viewpager_three_iv">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_home_viewpager_four_rl"
+            android:layout_below="@+id/fragment_home_viewpager_second_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            >
+            <ImageView
+                android:id="@+id/fragment_home_viewpager_four_iv"
+                android:background="@mipmap/nav_searchbar_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_four_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fragment_home_viewpager_four_iv"
+                android:text="题目"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/margin10"
+                />
+            <TextView
+                android:id="@+id/fragment_home_viewpager_four_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_navigation_arrow_pressed"
+                android:text="乐学出品"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_viewpager_four_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fragment_home_viewpager_four_iv">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

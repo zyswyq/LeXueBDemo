@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_marginTop="3dp"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp">
 
     <ImageView
-        android:id="@+id/item_home_subject_iv"
+        android:id="@+id/item_home_volunteer_iv"
         android:layout_width="125dp"
         android:layout_height="75dp"
         android:layout_margin="@dimen/margin10"
@@ -13,7 +13,7 @@
         />
 
     <TextView
-        android:id="@+id/item_home_subject_tv"
+        android:id="@+id/item_home_volunteer_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin15"
@@ -23,15 +23,15 @@
         android:textSize="@dimen/tvsize7"/>
 
     <LinearLayout
-        android:id="@+id/item_home_subject_size"
+        android:id="@+id/item_home_volunteer_size"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_margin="@dimen/margin10"
-        android:layout_toRightOf="@+id/item_home_subject_iv"
+        android:layout_toRightOf="@+id/item_home_volunteer_iv"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_home_subject_school"
+            android:id="@+id/item_home_volunteer_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="asdasdas"
@@ -47,7 +47,7 @@
             >
 
             <TextView
-                android:id="@+id/item_home_subject_teacher"
+                android:id="@+id/item_home_volunteer_teacher"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
@@ -70,7 +70,7 @@
                 android:textSize="10sp"/>
 
             <TextView
-                android:id="@+id/item_home_subject_person"
+                android:id="@+id/item_home_volunteer_person"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -86,7 +86,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/item_home_subject_textview"
+            android:id="@+id/item_home_volunteer_textview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/home_home_text_border"
@@ -96,31 +96,34 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/item_home_subject_line"
+        android:id="@+id/item_home_volunteer_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/item_home_subject_size"
+        android:layout_below="@+id/item_home_volunteer_size"
         android:background="@drawable/dotted_line"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/item_home_subject_line"
+        android:layout_below="@+id/item_home_volunteer_line"
         android:orientation="horizontal">
+
         <TextView
-            android:id="@+id/item_home_subject_price"
+            android:id="@+id/item_home_volunteer_price"
             android:layout_width="0dp"
-            android:layout_weight="7"
             android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center"
             android:text="免费"
             android:textColor="@color/origen"
-            android:gravity="center"
             />
+
         <TextView
-            android:id="@+id/item_home_subject_status"
+            android:id="@+id/item_home_volunteer_status"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="已购买"
             android:textSize="10sp"
             />

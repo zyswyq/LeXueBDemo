@@ -25,7 +25,6 @@
                 android:layout_height="wrap_content"
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
-
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <!--<ImageView-->
@@ -74,7 +73,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
                             <TextView
-                                android:id="@+id/tv_teacher_detail_infotag_phone"
+                                android:id="@+id/tv_teacher_detail_infotag_photo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="@dimen/padding8"
@@ -261,16 +260,25 @@
                 </RelativeLayout>
 
 
+                <!--高度设置为1dp，防止遮盖住地下的点击事件-->
+
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
+                    android:layout_width="1dp"
                     android:layout_height="80dp"
                     app:layout_collapseMode="pin"/>
+                <android.support.v7.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    >
+
+                </android.support.v7.widget.Toolbar>
 
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nsv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -280,7 +288,19 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/item_teacher_detail_rv_infotag">
 
-                <include layout="@layout/item_teacher_detail_info_dataframe" />
+                <include
+                    android:id="@+id/personal_include"
+                    layout="@layout/item_teacher_detail_info_dataframe" />
+                <include
+                    android:id="@+id/all_course"
+                    layout="@layout/item_teacher_detail_info_photoframe"
+                    android:visibility="gone"/>
+                <include
+                    android:id="@+id/fans"
+                    layout="@layout/item_teacher_detail_info_fansframe"
+                    android:visibility="gone"/>
+
+
             </FrameLayout>
 
 
@@ -301,6 +321,7 @@
         android:layout_height="@dimen/every_tool_height"
         android:background="@color/alp">
         <ImageView
+            android:id="@+id/item_teacher_detail_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingStart="@dimen/padding10"
@@ -313,8 +334,10 @@
         android:background="@color/white"
         android:layout_height="@dimen/every_tool_height"
         android:visibility="gone"
+
         >
         <ImageView
+            android:id="@+id/item_teacher_detail_back_white"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingStart="@dimen/padding10"

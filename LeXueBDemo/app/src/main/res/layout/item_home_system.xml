@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_marginTop="@dimen/margin10"
+                android:layout_marginLeft="@dimen/margin10"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/item_home_system_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/item_home_system_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin5"
+        android:layout_marginLeft="@dimen/margin5"
+        android:textColor="@color/white"
+        android:text="数学"
+        android:background="@drawable/home_home_text_border"/>
+    <TextView
+        android:id="@+id/item_home_system_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_home_system_imageview"
+        android:text="我是内容"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/item_home_system_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_home_system_content"
+        android:text="我是作者"
+        />
+    <TextView
+        android:id="@+id/item_home_system_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_home_system_content"
+        android:layout_toRightOf="@+id/item_home_system_author"
+        android:layout_marginRight="@dimen/margin30"
+        android:layout_marginLeft="@dimen/margin30"
+        android:drawableLeft="@mipmap/home_money_red"
+        android:text="免费"/>
+</RelativeLayout>
