@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
@@ -23,6 +24,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     private View detailInclude, testInclude, evaluateInclude;
     private TextView detailBtn, testBtn, evaluateBtn;
     private ImageView detailDiv, testDiv, evaluateDiv;
+
+    private RadioButton radioButton;
 
 
     @Override
@@ -45,6 +48,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         detailDiv = bindView(R.id.iv_teacher_movie_detail_detail_div);
         testDiv = bindView(R.id.iv_teacher_movie_detail_test_div);
         evaluateDiv = bindView(R.id.tv_teacher_movie_detail_evaluate_div);
+
+        radioButton = bindView(R.id.rb_all);
     }
 
     @Override
@@ -55,6 +60,10 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         commentRv.setAdapter(adapter);
 
         initFrame();
+
+        radioButton.setChecked(true);
+
+
     }
 
     private void initFrame() {
