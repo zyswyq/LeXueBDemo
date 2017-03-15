@@ -11,9 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.find.findview.FindVideoView;
-import com.example.dllo.lexuebdemo.find.presenter.FindVideoPresenter;
-
 import java.util.ArrayList;
 import java.util.List;
 
