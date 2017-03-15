@@ -6,10 +6,13 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dllo.lexuebdemo.R;
+
+import java.util.LinkedList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +24,7 @@ import butterknife.OnClick;
     desc 描述
 */
 public class TestActivity extends AppCompatActivity {
+    private static final String TAG = "TestActivity";
     @BindView(R.id.iv)
     ImageView iv;
     @BindView(R.id.toolbar)
@@ -36,8 +40,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
         //在此设置标题，可以随着View的滑动而伸缩
-//        collapsingToolbarLayout.setTitle("标题");
-
+        //collapsingToolbarLayout.setTitle("标题");
     }
 
     @OnClick({R.id.iv, R.id.toolbar, R.id.ctl, R.id.abl})

@@ -36,7 +36,7 @@ public class TeacherInfoFansRvAdapter extends RecyclerView.Adapter<BaseViewHolde
                 break;
             case DIV_VIEW:
                 holder = BaseViewHolder.createRvViewHolder(context, parent,
-                        R.layout.item_teacher_detail_info_fansframe_rv_fan_div);
+                        R.layout.rv_div);
                 break;
         }
         return holder;
