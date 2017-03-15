@@ -41,6 +41,8 @@
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
 
+        <activity android:name=".teacher.view.TeacherMovieDetailActivity"/>
+
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public class TeacherSubjectFragment extends BaseFragment implements ITeacherSubj
 
     @Override
     public void showMovieInfo(String url) {
-
+        context.startActivity(new Intent(context, TeacherMovieDetailActivity.class));
     }
 
 }
