@@ -40,10 +40,12 @@ public class FindPresenter {
             case 2:
                 intent = new Intent(context, FindWebView.class);
                 findView.goActivity(intent);
+                break;
             case 3:
                 intent = new Intent(context, FindRobotActivity.class);
                 findView.goActivity(intent);
                 break;
+
         }
     }
 }
