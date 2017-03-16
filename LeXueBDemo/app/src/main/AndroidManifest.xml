@@ -18,7 +18,8 @@
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity android:name=".main.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +43,8 @@
         <activity android:name=".myself.activity.LoginActivity" />
 
         <activity android:name=".teacher.view.TeacherMovieDetailActivity"/>
+        <activity android:name=".teacher.view.CourseAllActivity"
+            android:hardwareAccelerated="false"/>
 
     </application>
 
