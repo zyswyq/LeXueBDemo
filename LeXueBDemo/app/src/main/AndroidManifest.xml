@@ -29,13 +29,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-=======
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="a8aef207cb56828e38fe77c8d8c39c20" />
 
->>>>>>> 0ec14834565c7b48847c2d4a181f63ecdee3e8f2
         <activity android:name=".main.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,15 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
-=======
->>>>>>> 0ec14834565c7b48847c2d4a181f63ecdee3e8f2
         <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
         <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
         <activity android:name=".find.findview.activity.FindWebView" />
         <activity android:name=".teacher.view.TeacherDetailInfoActivity" />
-<<<<<<< HEAD
+
         <activity android:name=".teacher.view.TestActivity">
 
         </activity>
@@ -72,19 +67,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-=======
-        <activity android:name=".teacher.view.TestActivity"></activity>
-        <activity android:name=".find.findview.activity.FindRobotActivity" />
-        <activity android:name=".myself.activity.LogonActivity" />
-        <activity android:name=".myself.activity.ClauseActivity" />
-        <activity android:name=".myself.activity.LoginActivity" />
-        <activity android:name=".teacher.view.TeacherMovieDetailActivity" />
         <activity android:name=".find.findview.activity.FuliActivity" />
-        <activity
-            android:name=".teacher.view.CourseAllActivity"
-            android:hardwareAccelerated="false" />
         <activity android:name=".find.findview.activity.FindMapActivity"></activity>
->>>>>>> 0ec14834565c7b48847c2d4a181f63ecdee3e8f2
+
     </application>
 
 </manifest>

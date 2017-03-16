@@ -201,13 +201,19 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
         ImageView video2 = (ImageView) findViewById(R.id.iv_course_video2);
         ImageView video3 = (ImageView) findViewById(R.id.iv_course_video3);
         if(teacherInfoBean.getVideos() != null){
-
-            Glide.with(this).load(teacherInfoBean.getVideos().get(0).getVideo_cover().getUrl())
-                    .into(video1);
-            Glide.with(this).load(teacherInfoBean.getVideos().get(1).getVideo_cover().getUrl())
-                    .into(video2);
-            Glide.with(this).load(teacherInfoBean.getVideos().get(2).getVideo_cover().getUrl())
-                    .into(video3);
+            int count = teacherInfoBean.getVideo_count() > 3 ? 3 : teacherInfoBean.getVideo_count();
+            switch (count){
+                case 3:
+                    Glide.with(this).load(teacherInfoBean.getVideos().get(2).getVideo_cover().getUrl())
+                            .into(video3);
+                case 2:
+                    Glide.with(this).load(teacherInfoBean.getVideos().get(1).getVideo_cover().getUrl())
+                            .into(video2);
+                case 1:
+                    Glide.with(this).load(teacherInfoBean.getVideos().get(0).getVideo_cover().getUrl())
+                            .into(video1);
+                    break;
+            }
         }
 
         //设置礼物的数量
