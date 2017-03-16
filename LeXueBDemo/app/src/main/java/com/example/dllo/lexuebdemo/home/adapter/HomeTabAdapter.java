@@ -1,14 +1,14 @@
-package com.example.dllo.lexuebdemo.home;
+package com.example.dllo.lexuebdemo.home.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.dllo.lexuebdemo.view.HomeSubjectFragment;
+import com.example.dllo.lexuebdemo.home.fragment.HomeSubjectFragment;
 
-import com.example.dllo.lexuebdemo.view.HomeViewPagerFragment;
-import com.example.dllo.lexuebdemo.view.HomeVolunteerFragment;
+import com.example.dllo.lexuebdemo.home.fragment.HomeViewPagerFragment;
+import com.example.dllo.lexuebdemo.home.fragment.HomeVolunteerFragment;
 
 import java.util.List;
 
@@ -33,9 +33,9 @@ public class HomeTabAdapter extends FragmentPagerAdapter{
         if (0 == position) {
             return HomeViewPagerFragment.newInstance();
         } else if (0 < position && 7 > position) {
-            return HomeSubjectFragment.newInstance(position);
+            return HomeSubjectFragment.newInstance(position + 1);
         } else
-            return HomeVolunteerFragment.newInstance(position);
+            return HomeVolunteerFragment.newInstance(position + 1);
     }
 
     @Override

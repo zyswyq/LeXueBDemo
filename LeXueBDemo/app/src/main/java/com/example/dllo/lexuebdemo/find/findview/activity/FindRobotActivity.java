@@ -49,6 +49,8 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
     private ListView mainList;
     private List<FindRobotBean> data;
     private FindRobotLvAdapter adapter;
+    private List<String> sound=new ArrayList<>();
+    private int num=0;
 
     @Override
     protected int getLayout() {
@@ -66,6 +68,8 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
         adapter.setContext(this);
         adapter.setData(data);
         mainList.setAdapter(adapter);
+        sound.add("xiaoyu");
+        sound.add("xiaoyan");
     }
 
     @Override
@@ -77,6 +81,7 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
     protected void initListener() {
         sayBtn.setOnClickListener(this);
 //        mainList.setOnClickListener(this);
+        chageVoice.setOnClickListener(this);
     }
 
     @Override
@@ -86,6 +91,12 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
                 btnVoice();
                 break;
             case R.id.tv_find_robot:
+                if (num==0){
+                    num=1;
+                }else {
+                    num=0;
+                }
+
                 break;
         }
     }
@@ -160,7 +171,7 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
                     SpeechSynthesizer mTts = SpeechSynthesizer.createSynthesizer(FindRobotActivity.this, null);
                     //2.合成参数设置,详见《MSC Reference Manual》SpeechSynthesizer 类
                     // 设置发音人(更多在线发音人,用户可参见 附录13.2
-                    mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyu");
+                    mTts.setParameter(SpeechConstant.VOICE_NAME, sound.get(num));
                     // 设置发音人
                     mTts.setParameter(SpeechConstant.SPEED, "50");
                     // 设置语速

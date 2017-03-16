@@ -1,12 +1,10 @@
-package com.example.dllo.lexuebdemo.home;
+package com.example.dllo.lexuebdemo.home.fragment;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.example.dllo.lexuebdemo.R;
-import com.example.dllo.lexuebdemo.home.HomeTabAdapter;
+import com.example.dllo.lexuebdemo.home.adapter.HomeTabAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -50,6 +48,7 @@ public class HomeTabFragment extends BaseFragment{
         }
     mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
         mViewPager.setAdapter(mHomeTabAdapter);
+        mViewPager.setOffscreenPageLimit(7);
         mTabLayout.setupWithViewPager(mViewPager);
         //可以滑动的方法
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
