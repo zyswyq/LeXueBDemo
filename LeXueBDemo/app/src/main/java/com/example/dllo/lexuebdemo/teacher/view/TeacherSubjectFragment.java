@@ -70,4 +70,9 @@ public class TeacherSubjectFragment extends BaseFragment implements ITeacherSubj
         context.startActivity(new Intent(context, TeacherMovieDetailActivity.class));
     }
 
+    @Override
+    public void showMoreMovie() {
+        context.startActivity(new Intent(context, CourseAllActivity.class));
+    }
+
 }
