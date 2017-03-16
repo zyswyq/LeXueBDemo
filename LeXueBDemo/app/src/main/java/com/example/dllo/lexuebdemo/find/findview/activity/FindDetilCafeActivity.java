@@ -1,9 +1,6 @@
 package com.example.dllo.lexuebdemo.find.findview.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
-
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.find.adapter.FindCafeLVAdapter;

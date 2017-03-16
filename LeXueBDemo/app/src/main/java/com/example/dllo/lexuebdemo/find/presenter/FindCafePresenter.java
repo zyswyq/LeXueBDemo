@@ -1,14 +1,10 @@
 package com.example.dllo.lexuebdemo.find.presenter;
 
 import com.example.dllo.lexuebdemo.find.findview.FindCafeView;
-import com.example.dllo.lexuebdemo.find.findview.FindVideoView;
 import com.example.dllo.lexuebdemo.find.model.CafeModel;
 import com.example.dllo.lexuebdemo.find.model.CafeRequestListener;
 import com.example.dllo.lexuebdemo.find.model.FindCafeBean;
-import com.example.dllo.lexuebdemo.find.model.FindVideoBean;
 import com.example.dllo.lexuebdemo.find.model.URLBean;
-import com.example.dllo.lexuebdemo.find.model.VideoModel;
-import com.example.dllo.lexuebdemo.find.model.VideoRequestListener;
 
 import java.util.List;
 

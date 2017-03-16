@@ -5,11 +5,14 @@
     <color name="colorAccent">#FF4081</color>
     <!--本项目的主要色调-->
     <color name="mainblue">#10a9f1</color>
+    <color name="alpMainBlue">#3310a9f1</color>
     <!--白色-->
     <color name="white">#fff</color>
     <color name="alpWhite">#ddffffff</color>
     <color name="dividerWhite">#ccc</color>
     <color name="grayWhite">#f5f5f5</color>
+    <color name="grayWhite2">#e3e3e3</color>
+
     <!--底部灰色字体-->
     <color name="grayText">#bab4b4</color>
     <!--黑色-->
@@ -21,8 +24,17 @@
     <color name="pureBlack">#000</color>
     <color name="black">#3b3737</color>
     <color name="blacktext">#3b3737</color>
+    <color name="alpBlack">#33000000</color>
 
     <color name="origen">#e17e00</color>
+    <!--透明-->
+    <color name="alp">#00000000</color>
+    <!--名师信息标签-->
+    <color name="lightBlue">#23ceda</color>
+    <color name="purple">#6a49cf</color>
+    <!--灰色-->
+    <color name="gray">#8492A3</color>
 
-
+    <!--橙色-->
+    <color name="orange">#E7460F</color>
 </resources>

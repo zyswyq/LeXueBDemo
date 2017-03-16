@@ -1,12 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.dllo.lexuebdemo.view.HomeVolunteerFragment">
+             android:layout_height="wrap_content"
+                android:background="@color/white"
+             tools:context="com.example.dllo.lexuebdemo.home.fragment.HomeVolunteerFragment">
 
-    <TextView
-        android:id="@+id/test_tv_volunteer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <!--这是志愿 及最后几个界面的布局-->
+    <!--<TextView-->
+        <!--android:id="@+id/test_tv_volunteer"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
 
-</LinearLayout>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/fragment_home_volunteer_rv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

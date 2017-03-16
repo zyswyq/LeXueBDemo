@@ -166,4 +166,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     public View getMview() {
         return mview;
     }
+
+
 }
