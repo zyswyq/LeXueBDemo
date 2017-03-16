@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.example.dllo.lexuebdemo.find.findview.FindView;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilCafeActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindMapActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindRobotActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 
@@ -43,6 +44,10 @@ public class FindPresenter {
                 break;
             case 3:
                 intent = new Intent(context, FindRobotActivity.class);
+                findView.goActivity(intent);
+                break;
+            case 4:
+                intent=new Intent(context, FindMapActivity.class);
                 findView.goActivity(intent);
                 break;
 
