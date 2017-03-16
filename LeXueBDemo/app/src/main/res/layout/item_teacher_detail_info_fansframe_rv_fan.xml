@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     >
     <ImageView
         android:id="@+id/iv_fan_head"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@color/lightBlue"
         android:layout_marginTop="@dimen/margin10"
         android:layout_marginStart="@dimen/margin10"/>
     <ImageView
         android:id="@+id/iv_fan_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="@dimen/margin10"
         android:src="@mipmap/fans_contribution_list1"
         android:layout_marginTop="@dimen/margin10"

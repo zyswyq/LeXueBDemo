@@ -24,6 +24,8 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
     private TextView allBtn, freeBtn, unfreeBtn;
     private ImageView allDiv, freeDiv, unfreeDiv;
 
+    private ImageView backBtn;
+
 
     @Override
     protected int getLayout() {
@@ -40,6 +42,8 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
         allDiv = bindView(R.id.iv_course_detail_all_div);
         freeDiv = bindView(R.id.iv_course_detail_free_div);
         unfreeDiv = bindView(R.id.iv_course_detail_unfree_div);
+
+        backBtn = bindView(R.id.topbar_course_all_back);
     }
 
     @Override
@@ -62,6 +66,8 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
         allBtn.setOnClickListener(this);
         freeBtn.setOnClickListener(this);
         unfreeBtn.setOnClickListener(this);
+
+        backBtn.setOnClickListener(this);
     }
 
     private void onAllCourseSelected() {
@@ -102,6 +108,9 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.tv_course_detail_unfree:
                 onUnfreeCourseSelected();
+                break;
+            case R.id.topbar_course_all_back:
+                finish();
                 break;
         }
     }

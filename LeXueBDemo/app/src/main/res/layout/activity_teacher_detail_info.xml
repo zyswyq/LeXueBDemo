@@ -122,13 +122,11 @@
                         android:layout_width="@dimen/teacher_head"
                         android:layout_height="@dimen/teacher_head"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="40dp"
-                        android:background="#c7efbb"/>
+                        android:layout_marginTop="40dp"/>
                     <ImageView
                         android:id="@+id/item_teacher_detail_rv_sex"
                         android:layout_width="@dimen/margin20"
                         android:layout_height="@dimen/margin20"
-                        android:background="#eadfae"
                         android:layout_alignBottom="@id/item_teacher_detail_rv_head"
                         android:layout_alignEnd="@id/item_teacher_detail_rv_head"/>
 
@@ -139,13 +137,11 @@
                         android:layout_below="@id/item_teacher_detail_rv_head"
                         android:layout_centerHorizontal="true"
                         android:padding="@dimen/padding3"
-                        android:text="梦香妃"
-                        android:textColor="@color/white"
-                        android:drawableEnd="@mipmap/sex_man"/>
+                        android:textColor="@color/white"/>
                     <TextView
+                        android:id="@+id/item_teacher_detail_rv_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="明明可以靠才华，偏偏要靠脸吃饭"
                         android:padding="10dp"
                         android:layout_below="@id/item_teacher_detail_rv_name"
                         android:layout_centerHorizontal="true"
@@ -174,7 +170,6 @@
                                 android:id="@+id/item_teacher_rv_video_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="89"
                                 android:textSize="@dimen/tvsize12"
                                 android:textColor="@color/white" />
 
@@ -197,7 +192,6 @@
                                 android:id="@+id/item_teacher_rv_video_play_times"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="347万"
                                 android:textSize="@dimen/tvsize12"
                                 android:textColor="@color/white" />
 
@@ -220,7 +214,6 @@
                                 android:id="@+id/item_teacher_rv_fans_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="7.5万"
                                 android:textSize="@dimen/tvsize12"
                                 android:textColor="@color/white" />
 
@@ -243,7 +236,6 @@
                                 android:id="@+id/item_teacher_rv_popularity"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2345万"
                                 android:textSize="@dimen/tvsize12"
                                 android:textColor="@color/white" />
 
@@ -344,9 +336,9 @@
             android:paddingEnd="@dimen/padding10"
             android:src="@mipmap/nav_back_blue_normal"/>
         <TextView
+            android:id="@+id/item_teacher_detail_rv_topbar_white_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="梦香妃"
             android:textColor="@color/pureBlack"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
