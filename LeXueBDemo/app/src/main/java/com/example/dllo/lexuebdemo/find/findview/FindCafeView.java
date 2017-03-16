@@ -10,5 +10,6 @@ import java.util.List;
 
 public interface FindCafeView {
     void getData(List<FindCafeBean.PostsBean> data);
-
+    void showPop();
+    void disMissPop();
 }

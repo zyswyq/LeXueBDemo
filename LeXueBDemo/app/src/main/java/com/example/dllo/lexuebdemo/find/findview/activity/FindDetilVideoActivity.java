@@ -28,14 +28,16 @@ import java.util.List;
  */
 
 public class FindDetilVideoActivity extends BaseActivity implements FindVideoView, View.OnClickListener {
-    private ListView listView, popLisrView, popHeadListView, popHeadListView1;
+    private ListView listView, popLisrView;
     private FindVideoLVAdapter adapter;
-    private List<FindVideoBean.LivesBean> data;
+
     private FindVideoPresenter presenter;
     private ImageView choseImg;
     private PopupWindow popupWindow;
     private View pop;
     private View thisPage;
+
+    private List<String> data1,data2;
 
 
     private TextView ok,dismiss;
@@ -56,10 +58,32 @@ public class FindDetilVideoActivity extends BaseActivity implements FindVideoVie
         listView = bindView(R.id.listview_findvideo);
         choseImg = bindView(R.id.img_findvideo_chose);
         adapter = new FindVideoLVAdapter();
-        data = new ArrayList<>();
         presenter = new FindVideoPresenter(this);
         presenter.getData(SUBJECT, TYPE);
         thisPage = LayoutInflater.from(this).inflate(R.layout.activity_find_video, null);
+        data1=new ArrayList<>();
+        data2=new ArrayList<>();
+        data1.add("全部");
+        data1.add("数学");
+        data1.add("化学");
+        data1.add("物理");
+        data1.add("生物");
+        data1.add("语文");
+        data1.add("英语");
+        data1.add("志愿");
+        data1.add("推荐");
+        data1.add("历史");
+        data1.add("政治");
+        data1.add("地理");
+        data1.add("自招数学");
+        data1.add("政策面试");
+        data1.add("自招物理");
+        data2.add("全部");
+        data2.add("报名中");
+        data2.add("直播中");
+        data2.add("已结束");
+        data2.add("直播录像");
+
 
     }
 
@@ -77,7 +101,6 @@ public class FindDetilVideoActivity extends BaseActivity implements FindVideoVie
     public void getData(List<FindVideoBean.LivesBean> data) {
         adapter.setData(data);
         listView.setAdapter(adapter);
-        this.data = data;
     }
 
     @Override
@@ -88,6 +111,10 @@ public class FindDetilVideoActivity extends BaseActivity implements FindVideoVie
         adapter.setContext(this);
         adapter.setSubject(SUBJECT);
         adapter.setType(TYPE);
+        adapter.setData1(data1);
+        adapter.setData2(data2);
+        adapter.setTitle1("科目");
+        adapter.setTitle2("状态");
         popLisrView.setAdapter(adapter);
 
         ok= (TextView) pop.findViewById(R.id.tv_find_pop_ok);

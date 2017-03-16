@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="专题"
+        android:text="阶段"
         android:background="@color/alpWhite"
         android:paddingRight="20dp"
         android:drawableRight="@mipmap/coupon_icon"
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="专题"
+        android:text="类型"
         android:background="@color/alpWhite"
         android:paddingRight="20dp"
         android:drawableRight="@mipmap/coupon_icon"/>
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="专题"
+        android:text="排序"
         android:background="@color/alpWhite"
        android:paddingRight="20dp"
         android:drawableRight="@mipmap/coupon_icon"/>
