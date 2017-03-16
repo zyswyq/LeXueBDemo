@@ -3,7 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
                 android:background="@color/white"
-             tools:context="com.example.dllo.lexuebdemo.view.HomeVolunteerFragment">
+             tools:context="com.example.dllo.lexuebdemo.home.fragment.HomeVolunteerFragment">
 
     <!--这是志愿 及最后几个界面的布局-->
     <!--<TextView-->

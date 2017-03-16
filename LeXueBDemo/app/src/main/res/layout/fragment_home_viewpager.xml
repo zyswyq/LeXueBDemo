@@ -24,7 +24,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/fragment_home_viewpager_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
@@ -159,7 +159,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/fragment_home_viewpager_four_rl"
-            android:layout_below="@+id/fragment_home_viewpager_second_rl"
+            android:layout_below="@+id/fragment_home_viewpager_three_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin10"

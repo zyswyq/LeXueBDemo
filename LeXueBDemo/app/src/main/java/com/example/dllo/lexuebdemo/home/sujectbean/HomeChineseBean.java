@@ -8,7 +8,7 @@ import java.util.List;
  *
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
-public class ChineseBean {
+public class HomeChineseBean {
 
 
   //  http://api.lexue.com/video/list_v3?pagesize=10&point_id=0
