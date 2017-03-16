@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import java.util.ArrayList;
@@ -23,6 +24,40 @@ public class FindVideoPopMainAdapter extends BaseAdapter{
     private Context context;
     private List<String> data1,data2;
     private int subject,type;
+
+    private String title1,title2;
+
+    public List<String> getData1() {
+        return data1;
+    }
+
+    public void setData1(List<String> data1) {
+        this.data1 = data1;
+    }
+
+    public List<String> getData2() {
+        return data2;
+    }
+
+    public void setData2(List<String> data2) {
+        this.data2 = data2;
+    }
+
+    public String getTitle1() {
+        return title1;
+    }
+
+    public void setTitle1(String title1) {
+        this.title1 = title1;
+    }
+
+    public String getTitle2() {
+        return title2;
+    }
+
+    public void setTitle2(String title2) {
+        this.title2 = title2;
+    }
 
     public int getSubject() {
         return subject;
@@ -44,30 +79,11 @@ public class FindVideoPopMainAdapter extends BaseAdapter{
         return context;
     }
 
+
+
     public void setContext(Context context) {
         this.context = context;
-        data1=new ArrayList<>();
-        data2=new ArrayList<>();
-        data1.add("全部");
-        data1.add("数学");
-        data1.add("化学");
-        data1.add("物理");
-        data1.add("生物");
-        data1.add("语文");
-        data1.add("英语");
-        data1.add("志愿");
-        data1.add("推荐");
-        data1.add("历史");
-        data1.add("政治");
-        data1.add("地理");
-        data1.add("自招数学");
-        data1.add("政策面试");
-        data1.add("自招物理");
-        data2.add("全部");
-        data2.add("报名中");
-        data2.add("直播中");
-        data2.add("已结束");
-        data2.add("直播录像");
+
     }
 
     @Override
@@ -105,14 +121,13 @@ public class FindVideoPopMainAdapter extends BaseAdapter{
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     adapter.setOnclickpos(i);
-//                presenter.getData(adapter.getOnclickpos(),adapter1.getOnclickpos());
                     adapter.notifyDataSetChanged();
                     subject=i;
-                    Log.d("hahahah", adapter.getOnclickpos() + "  " + adapter1.getOnclickpos());
-                    Log.d("aaaaaa", subject + " " + type);
 
                 }
             });
+            myViewHolder.title.setText(title1);
+
         }
         else {
             adapter1.setData(data2);
@@ -123,13 +138,11 @@ public class FindVideoPopMainAdapter extends BaseAdapter{
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     adapter1.setOnclickpos(i);
-//                presenter.getData(adapter.getOnclickpos(),adapter1.getOnclickpos());
                     adapter1.notifyDataSetChanged();
                     type=i;
-                    Log.d("hahahah", adapter.getOnclickpos() + "  " + adapter1.getOnclickpos());
-                    Log.d("aaaaaa", subject + " " + type);
                 }
             });
+            myViewHolder.title.setText(title2);
         }
 
 
@@ -144,8 +157,10 @@ public class FindVideoPopMainAdapter extends BaseAdapter{
 
     public class MyViewHolder {
         ListView listView;
+        TextView title;
         public MyViewHolder(View view) {
             listView= (ListView) view.findViewById(R.id.lv_find_pop_head);
+            title= (TextView) view.findViewById(R.id.tv_find_pop_head);
         }
     }
 

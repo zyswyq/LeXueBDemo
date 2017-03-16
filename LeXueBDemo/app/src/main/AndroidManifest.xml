@@ -42,6 +42,7 @@
         <activity android:name=".myself.activity.LoginActivity" />
 
         <activity android:name=".teacher.view.TeacherMovieDetailActivity"/>
+        <activity android:name=".find.findview.activity.FuliActivity"/>
 
     </application>
 

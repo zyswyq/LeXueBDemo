@@ -1,5 +1,6 @@
 package com.example.dllo.lexuebdemo.find.findview.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -93,6 +94,7 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
             case R.id.tv_find_robot:
                 if (num==0){
                     num=1;
+
                 }else {
                     num=0;
                 }
@@ -122,8 +124,11 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
         // 自动填写地址
 //        mResultText.append(text);
 
-        if (text.equals("!")||text.equals("?")||text.equals("。")){
+        if (text.equals("!")||text.equals("？")||text.equals("。")){
 
+        }else if (text.equals("美女")||text.equals("福利")||text.equals("代码编累了")){
+            Intent intent=new Intent(this,FuliActivity.class);
+            startActivity(intent);
         }else {
             FindRobotBean findbean=new FindRobotBean();
             findbean.setText(text);
@@ -173,7 +178,7 @@ public class FindRobotActivity extends BaseActivity implements View.OnClickListe
                     // 设置发音人(更多在线发音人,用户可参见 附录13.2
                     mTts.setParameter(SpeechConstant.VOICE_NAME, sound.get(num));
                     // 设置发音人
-                    mTts.setParameter(SpeechConstant.SPEED, "50");
+                    mTts.setParameter(SpeechConstant.SPEED, "100");
                     // 设置语速
                     mTts.setParameter(SpeechConstant.VOLUME, "80");
                     // 设置音量,范围 0~100
