@@ -133,6 +133,13 @@ public class TeacherRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             }
         });
 
+        holder.getView(R.id.item_teacher_rv_movie_more).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detailInfo.showMoreMovie();
+            }
+        });
+
     }
 
     @Override
@@ -143,5 +150,6 @@ public class TeacherRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public interface DetailInfo{
         void showTeacherInfo(String url);
         void showMovieInfo(String url);
+        void showMoreMovie();
     }
 }
