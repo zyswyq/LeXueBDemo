@@ -8,6 +8,8 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.home.HomeBinner;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewClassifyAdapter;
+import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewFreeAdapter;
+import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeClassifyBean;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
@@ -26,10 +28,17 @@ import java.util.List;
  */
 //这是志愿界面
 public class HomeViewPagerFragment extends BaseFragment{
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView ,freeRecycleview;
+
     private static final String url = "http://api.lexue.com/layout/entry ";
+    private static final String freeurl = "http://api.lexue.com/video/list_v3?subject_id=100 ";
+
     private  List<HomeClassifyBean.EntriesBean>  datas;
+    private  List<HomeBean.VideosBean.ContentListBean> mContentListBeen;
+
     private HomeViewClassifyAdapter mViewClassifyAdapter;
+    private HomeViewFreeAdapter mHomeViewFreeAdapter;
+
 
     private Banner mBanner;
     private List<String> pic;
@@ -49,8 +58,11 @@ public class HomeViewPagerFragment extends BaseFragment{
         mBanner = (Banner) view.
                 findViewById(R.id.fragment_home_viewpager_banner);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_rv);
-       mViewClassifyAdapter = new HomeViewClassifyAdapter(context);
-        mRecyclerView.setAdapter(mViewClassifyAdapter);
+        freeRecycleview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_first_rv);
+
+
+
+
     }
 
     @Override
@@ -75,11 +87,14 @@ public class HomeViewPagerFragment extends BaseFragment{
         mBanner.setIndicatorGravity(BannerConfig.CENTER);
 
         mBanner.start();
-        homeClassify();
+//        homeClassify();
+        homeFree();
     }
 
     public  void homeClassify(){
         GridLayoutManager manager = new GridLayoutManager(context,4);
+        mViewClassifyAdapter = new HomeViewClassifyAdapter(context);
+
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mViewClassifyAdapter);
         NetTools.getInstance().startRequest(url, HomeClassifyBean.class, new MyCallBack<HomeClassifyBean>() {
@@ -96,6 +111,27 @@ public class HomeViewPagerFragment extends BaseFragment{
             }
         });
     }
+
+    public void homeFree(){
+        GridLayoutManager freemanager = new GridLayoutManager(context,2);
+        mHomeViewFreeAdapter = new HomeViewFreeAdapter(context);
+
+        freeRecycleview.setLayoutManager(freemanager);
+        freeRecycleview.setAdapter(mHomeViewFreeAdapter);
+        NetTools.getInstance().startRequest(freeurl, HomeBean.VideosBean.class, new MyCallBack<HomeBean.VideosBean>() {
+            @Override
+            public void success(HomeBean.VideosBean respomse) {
+                mContentListBeen = respomse.getContent_list();
+                mHomeViewFreeAdapter.setDatas(mContentListBeen);
+            }
+
+            @Override
+            public void error(Throwable throwable) {
+
+            }
+        });
+    }
+
     @Override
     protected void initListener() {
 
