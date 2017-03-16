@@ -5,11 +5,13 @@
     <color name="colorAccent">#FF4081</color>
     <!--本项目的主要色调-->
     <color name="mainblue">#10a9f1</color>
+    <color name="alpMainBlue">#3310a9f1</color>
     <!--白色-->
     <color name="white">#fff</color>
     <color name="alpWhite">#ddffffff</color>
     <color name="dividerWhite">#ccc</color>
     <color name="grayWhite">#f5f5f5</color>
+    <color name="grayWhite2">#e3e3e3</color>
 
     <!--底部灰色字体-->
     <color name="grayText">#bab4b4</color>
@@ -33,5 +35,6 @@
     <!--灰色-->
     <color name="gray">#8492A3</color>
 
-
+    <!--橙色-->
+    <color name="orange">#E7460F</color>
 </resources>

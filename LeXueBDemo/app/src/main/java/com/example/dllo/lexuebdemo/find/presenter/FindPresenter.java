@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.example.dllo.lexuebdemo.find.findview.FindView;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilCafeActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindRobotActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 
 /**
@@ -22,24 +23,29 @@ public class FindPresenter {
         this.findView = findView;
     }
 
-    public void setAdaper(){
+    public void setAdaper() {
         findView.setAdapter();
     }
 
-    public void goIntent(int position, Context context){
-        switch (position){
+    public void goIntent(int position, Context context) {
+        switch (position) {
             case 0:
                 intent = new Intent(context, FindDetilVideoActivity.class);
                 findView.goActivity(intent);
                 break;
             case 1:
-                intent=new Intent(context, FindDetilCafeActivity.class);
+                intent = new Intent(context, FindDetilCafeActivity.class);
                 findView.goActivity(intent);
                 break;
             case 2:
-                intent=new Intent(context, FindWebView.class);
+                intent = new Intent(context, FindWebView.class);
                 findView.goActivity(intent);
                 break;
+            case 3:
+                intent = new Intent(context, FindRobotActivity.class);
+                findView.goActivity(intent);
+                break;
+
         }
     }
 }

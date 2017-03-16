@@ -64,9 +64,11 @@ public class FindVideoPopAdapter extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
         BaseViewHolder baseViewHolder=BaseViewHolder.createListViewHolder(context,view,viewGroup, R.layout.item_find_pop_item);
         if (i==onclickpos){
-            baseViewHolder.setTextColor(R.id.tv_find_pop_item, Color.BLUE);
+            baseViewHolder.setTextColor(R.id.tv_find_pop_item, Color.parseColor("#10a9f1"));
+            baseViewHolder.setViewVisiable(R.id.img_find_pop_item,View.VISIBLE);
         }else {
             baseViewHolder.setTextColor(R.id.tv_find_pop_item, Color.BLACK);
+            baseViewHolder.setViewVisiable(R.id.img_find_pop_item,View.INVISIBLE);
 
         }
         baseViewHolder.setText(R.id.tv_find_pop_item,data.get(i));

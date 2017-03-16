@@ -19,7 +19,7 @@ public class FindLVAdapter extends BaseAdapter{
     private Context context;
     private List<String> title;
     private List<String> content;
-    private int[] a=new int[]{R.mipmap.home_videolive_btn_normal,R.mipmap.home_cafe_btn_pressed,R.mipmap.home_shop_btn_normal};
+    private int[] a=new int[]{R.mipmap.home_videolive_btn_normal,R.mipmap.home_cafe_btn_pressed,R.mipmap.home_shop_btn_normal,R.mipmap.ic_launcher};
 
     public List<String> getTitle() {
         return title;

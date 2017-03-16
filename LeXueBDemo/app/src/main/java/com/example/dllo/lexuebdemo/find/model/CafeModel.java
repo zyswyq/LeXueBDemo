@@ -2,7 +2,6 @@ package com.example.dllo.lexuebdemo.find.model;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
