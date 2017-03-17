@@ -6,7 +6,6 @@
         android:id="@+id/iv_course_bg"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:background="#ecaaf2"
         android:layout_margin="@dimen/margin10"/>
     <TextView
         android:id="@+id/tv_course_title"
@@ -22,14 +21,13 @@
         android:layout_marginEnd="@dimen/margin10"/>
     <TextView
         android:id="@+id/tv_course_auther"
-        android:layout_marginTop="@dimen/margin5"
-        android:layout_below="@id/tv_course_title"
         android:textSize="@dimen/tvsize12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="巴哈"
-        android:layout_toLeftOf="@+id/tv_course_expendtag"
-        android:layout_toStartOf="@+id/tv_course_expendtag" />
+
+        android:layout_alignStart="@id/tv_course_title"
+        android:layout_below="@+id/tv_course_title" />
     <View
         android:layout_toEndOf="@id/tv_course_auther"
         android:layout_alignTop="@id/tv_course_auther"
@@ -60,17 +58,58 @@
         android:layout_marginTop="@dimen/margin5"
         android:layout_below="@id/tv_course_auther"
         android:layout_toEndOf="@id/iv_course_bg"/>
-    <!--拓展的标签，需要动态添加-->
-    <LinearLayout
-        android:id="@+id/tv_course_expendtag"
-        android:layout_width="match_parent"
+    <!--拓展的标签，根据需要显示隐藏-->
+    <TextView
+        android:id="@+id/tv_course_maintag2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/tv_course_maintag"
-        android:layout_toEndOf="@id/tv_course_maintag"
+        android:textSize="@dimen/tvsize12"
+        android:text="222"
+        android:visibility="gone"
+        android:background="@drawable/item_course_all_rv_tag_shape"
+        android:padding="@dimen/padding3"
         android:layout_marginStart="@dimen/margin5"
-        android:layout_marginEnd="@dimen/margin5">
+        android:layout_alignTop="@id/tv_course_maintag"
+        android:layout_toRightOf="@id/tv_course_maintag"
+        android:layout_alignBottom="@+id/tv_course_maintag" />
+    <TextView
+        android:id="@+id/tv_course_maintag3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/tvsize12"
+        android:text="222"
+        android:visibility="gone"
+        android:background="@drawable/item_course_all_rv_tag_shape"
+        android:padding="@dimen/padding3"
+        android:layout_marginStart="@dimen/margin5"
+        android:layout_alignTop="@id/tv_course_maintag"
+        android:layout_toRightOf="@id/tv_course_maintag2"/>
+    <TextView
+        android:id="@+id/tv_course_maintag4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/tvsize12"
+        android:text="222"
+        android:visibility="gone"
+        android:background="@drawable/item_course_all_rv_tag_shape"
+        android:padding="@dimen/padding3"
+        android:layout_marginStart="@dimen/margin5"
+        android:layout_alignTop="@id/tv_course_maintag"
+        android:layout_toRightOf="@id/tv_course_maintag3"/>
+    <TextView
+        android:id="@+id/tv_course_maintag5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/tvsize12"
+        android:text="222"
+        android:visibility="gone"
+        android:background="@drawable/item_course_all_rv_tag_shape"
+        android:padding="@dimen/padding3"
+        android:layout_marginStart="@dimen/margin5"
+        android:layout_alignTop="@id/tv_course_maintag"
+        android:layout_toRightOf="@id/tv_course_maintag4"/>
 
-    </LinearLayout>
+    <!--虚线分割线-->
     <View
         android:id="@+id/course_div"
         android:layout_alignStart="@id/iv_course_bg"
@@ -88,7 +127,8 @@
         android:layout_marginBottom="@dimen/margin10"
         android:textSize="20dp"
         android:textColor="@color/orange"
-        android:layout_centerHorizontal="true"/>
+        android:layout_toRightOf="@+id/iv_course_bg"
+        android:layout_toEndOf="@+id/iv_course_bg" />
     <ImageView
         android:id="@+id/iv_course_icon"
         android:layout_marginTop="6dp"
@@ -117,8 +157,8 @@
         android:text="42/300人"
         android:layout_marginBottom="@dimen/margin5"
         android:layout_alignBottom="@id/tv_course_price"
-        android:layout_toStartOf="@id/tv_course_islearning"
-        android:layout_marginEnd="@dimen/margin10"/>
+       android:layout_alignParentEnd="true"
+        android:layout_marginEnd="55dp"/>
 
     <View
         android:id="@+id/v1"

@@ -2,10 +2,12 @@ package com.example.dllo.lexuebdemo.teacher.presenter;
 
 import android.content.Context;
 
+import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.nettools.NetBean;
+import com.example.dllo.lexuebdemo.teacher.model.Constant;
+import com.example.dllo.lexuebdemo.teacher.model.TeacherTagBean;
 import com.example.dllo.lexuebdemo.teacher.view.ITeacherView;
-import com.example.dllo.lexuebdemo.teacher.model.TeacherPageTagBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,21 +20,24 @@ import java.util.List;
 public class TeacherPresenter{
     private static final String TAG = "TeacherPresenter";
     private ITeacherView teacherView;
-    private TeacherPageTagBean bean;
-    private final List<String> tagList;
+    private List<String> tagList;
     private Context context;
 
-    private NetBean netBean;
-
-    public TeacherPresenter(ITeacherView teacherView) {
+    public TeacherPresenter(final ITeacherView teacherView) {
         this.teacherView = teacherView;
-        tagList = new ArrayList<>();
-        for(int i = 1; i <= 15; i++){
-            tagList.add("课程"+i);
-        }
-        bean = new TeacherPageTagBean(tagList);
+        NetTools.getInstance().startRequest(Constant.TEACHER_ALLDATA_URL,
+                TeacherTagBean.class, new MyCallBack<TeacherTagBean>() {
+                    @Override
+                    public void success(TeacherTagBean respomse) {
+                        teacherView.setNetData(respomse);
+                    }
 
-        netBean = new NetBean();
+                    @Override
+                    public void error(Throwable throwable) {
+
+                    }
+                });
+
     }
 
     public void setContext(Context context) {
@@ -44,27 +49,13 @@ public class TeacherPresenter{
     }
 
     public void setTabLayout() {
-        teacherView.setTabLayout(bean.getTags());
+        teacherView.setTabLayout();
     }
 
     public void onShow(){
         teacherView.onShow();
     }
 
-    public void getNetData(String URL){
-
-        netBean.startRequest(URL, NetBean.class, new MyCallBack<NetBean>() {
-                    @Override
-                    public void success(NetBean respomse) {
-                        teacherView.setNetData(respomse);
-                    }
-
-                    @Override
-                    public void error(Throwable throwable) {
-
-            }
-        });
-    }
 /**
     public void popTagList(View btn) {
         View popView = LayoutInflater.from(context).inflate(R.layout.fragment_teacher_taglist, null);

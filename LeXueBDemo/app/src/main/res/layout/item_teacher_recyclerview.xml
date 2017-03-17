@@ -45,17 +45,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/item_teacher_rv_headimg"
                 android:layout_centerHorizontal="true"
-                android:text="teacherName"
+                android:text="哈哈"
                 android:textColor="@color/white"/>
             <!--名师性别-->
             <ImageView
                 android:id="@+id/item_teacher_rv_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="@dimen/margin5"
                 android:layout_alignBottom="@id/item_teacher_rv_name"
-                android:padding="@dimen/padding3"
-                android:layout_toEndOf="@id/item_teacher_rv_name"
-                android:src="@mipmap/sex_man"
+                android:layout_toRightOf="@id/item_teacher_rv_name"
                 />
         </RelativeLayout>
 
@@ -195,6 +195,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:text="百题狂练之化学与生活"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textColor="#000"
                     android:textSize="12dp" />
 
@@ -213,6 +215,7 @@
                     android:layout_below="@id/item_teacher_rv_movie_left_title"
                     android:drawableStart="@mipmap/money_icon"
                     android:text="30"
+                    android:textSize="@dimen/tvsize12"
                     android:visibility="gone" />
 
                 <TextView
@@ -257,6 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/item_teacher_rv_movie_right_title"
                     android:text="免费"
+                    android:textSize="@dimen/tvsize12"
                     android:visibility="gone" />
 
                 <TextView

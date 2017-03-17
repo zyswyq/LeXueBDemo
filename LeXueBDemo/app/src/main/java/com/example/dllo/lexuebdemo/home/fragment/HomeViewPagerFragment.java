@@ -2,13 +2,17 @@ package com.example.dllo.lexuebdemo.home.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.home.HomeBinner;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewClassifyAdapter;
+import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewConciseAdapter;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewFreeAdapter;
+import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewReviseAdapter;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeClassifyBean;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
@@ -22,22 +26,27 @@ import java.util.List;
 
 /**
  * ✎﹏﹏﹏.₯㎕*﹏﹏﹏
- *
- *
+ * <p>
+ * <p>
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
 //这是志愿界面
-public class HomeViewPagerFragment extends BaseFragment{
-    private RecyclerView mRecyclerView ,freeRecycleview;
+public class HomeViewPagerFragment extends BaseFragment {
+    private RecyclerView mRecyclerView, freeRecyclerview, conciseRecyclerview,recommedRecyclerview
+
+           ,refreshRecyclerview ,reviseRecyclerview;
 
     private static final String url = "http://api.lexue.com/layout/entry ";
     private static final String freeurl = "http://api.lexue.com/video/list_v3?subject_id=100 ";
 
-    private  List<HomeClassifyBean.EntriesBean>  datas;
-    private  List<HomeBean.VideosBean.ContentListBean> mContentListBeen;
+    private List<HomeClassifyBean.EntriesBean> datas;
+
+    private List<HomeBean.VideosBean> mListBeen;
 
     private HomeViewClassifyAdapter mViewClassifyAdapter;
     private HomeViewFreeAdapter mHomeViewFreeAdapter;
+    private HomeViewConciseAdapter mViewConciseAdapter;
+    private HomeViewReviseAdapter mViewReviseAdapter;
 
 
     private Banner mBanner;
@@ -58,11 +67,11 @@ public class HomeViewPagerFragment extends BaseFragment{
         mBanner = (Banner) view.
                 findViewById(R.id.fragment_home_viewpager_banner);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_rv);
-        freeRecycleview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_first_rv);
-
-
-
-
+        freeRecyclerview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_first_rv);
+        conciseRecyclerview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_second_rv);
+        reviseRecyclerview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_three_rv);
+        recommedRecyclerview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_four_rv);
+//        refreshRecyclerview = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_five_rv);
     }
 
     @Override
@@ -87,12 +96,17 @@ public class HomeViewPagerFragment extends BaseFragment{
         mBanner.setIndicatorGravity(BannerConfig.CENTER);
 
         mBanner.start();
-//        homeClassify();
-        homeFree();
-    }
 
-    public  void homeClassify(){
-        GridLayoutManager manager = new GridLayoutManager(context,4);
+        homeClassify();
+        homeConcise();
+        homeRefresh();
+
+
+
+    }
+//八个图标
+    public void homeClassify() {
+        GridLayoutManager manager = new GridLayoutManager(context, 4);
         mViewClassifyAdapter = new HomeViewClassifyAdapter(context);
 
         mRecyclerView.setLayoutManager(manager);
@@ -111,18 +125,52 @@ public class HomeViewPagerFragment extends BaseFragment{
             }
         });
     }
+//9分钟
+    public void homeFree() {
+        GridLayoutManager freemanager = new GridLayoutManager(context, 2);
 
-    public void homeFree(){
-        GridLayoutManager freemanager = new GridLayoutManager(context,2);
         mHomeViewFreeAdapter = new HomeViewFreeAdapter(context);
 
-        freeRecycleview.setLayoutManager(freemanager);
-        freeRecycleview.setAdapter(mHomeViewFreeAdapter);
-        NetTools.getInstance().startRequest(freeurl, HomeBean.VideosBean.class, new MyCallBack<HomeBean.VideosBean>() {
+        freeRecyclerview.setLayoutManager(freemanager);
+        freeRecyclerview.setAdapter(mHomeViewFreeAdapter);
+
+        mHomeViewFreeAdapter.setDatas(mListBeen, 0);
+        homeRevise();
+//        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
+//            @Override
+//            public void success(HomeBean respomse) {
+//                mListBeen = respomse.getVideos();
+//                mHomeViewFreeAdapter.setDatas(mListBeen, 0);
+//                Log.e("homeFree", "success: ");
+//
+//
+//            }
+//
+//            @Override
+//            public void error(Throwable throwable) {
+//
+//            }
+//        });
+    }
+
+    //精讲
+    public void homeConcise() {
+        GridLayoutManager concisemanager = new GridLayoutManager(context, 2);
+
+
+        mViewConciseAdapter = new HomeViewConciseAdapter(context);
+
+        conciseRecyclerview.setLayoutManager(concisemanager);
+        conciseRecyclerview.setAdapter(mViewConciseAdapter);
+
+        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
             @Override
-            public void success(HomeBean.VideosBean respomse) {
-                mContentListBeen = respomse.getContent_list();
-                mHomeViewFreeAdapter.setDatas(mContentListBeen);
+            public void success(HomeBean respomse) {
+                mListBeen = respomse.getVideos();
+                mViewConciseAdapter.setDatas(mListBeen, 1);
+                Log.e("homeConcise", "success: ");
+
+                homeFree();
             }
 
             @Override
@@ -131,11 +179,54 @@ public class HomeViewPagerFragment extends BaseFragment{
             }
         });
     }
+    //精彩专题
+    public void homeRevise() {
+        LinearLayoutManager revisemanager = new LinearLayoutManager(context);
 
+
+        mViewReviseAdapter = new HomeViewReviseAdapter(context);
+
+        reviseRecyclerview.setLayoutManager(revisemanager);
+        reviseRecyclerview.setAdapter(mViewReviseAdapter);
+        mViewReviseAdapter.setDatas(mListBeen, 2);
+
+//        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
+//            @Override
+//            public void success(HomeBean respomse) {
+//                mListBeen = respomse.getVideos();
+//
+//
+//            }
+//
+//            @Override
+//            public void error(Throwable throwable) {
+//
+//            }
+//        });
+        homeRecommed();
+    }
+    //推荐
+    public void homeRecommed(){
+     GridLayoutManager recommed = new GridLayoutManager(context,2);
+        mHomeViewFreeAdapter =  new HomeViewFreeAdapter(context);
+        recommedRecyclerview.setLayoutManager(recommed);
+        recommedRecyclerview.setAdapter(mHomeViewFreeAdapter);
+        mHomeViewFreeAdapter.setDatas(mListBeen,3);
+        homeRefresh();
+    }
+    //刷新
+public void homeRefresh(){
+  GridLayoutManager refresh = new GridLayoutManager(context,2);
+    mHomeViewFreeAdapter = new HomeViewFreeAdapter(context);
+    recommedRecyclerview.setLayoutManager(refresh);
+    recommedRecyclerview.setAdapter(mHomeViewFreeAdapter);
+    mHomeViewFreeAdapter.setDatas(mListBeen,4);
+}
     @Override
     protected void initListener() {
 
     }
+
     public static HomeViewPagerFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -144,4 +235,5 @@ public class HomeViewPagerFragment extends BaseFragment{
         fragment.setArguments(args);
         return fragment;
     }
+
 }
