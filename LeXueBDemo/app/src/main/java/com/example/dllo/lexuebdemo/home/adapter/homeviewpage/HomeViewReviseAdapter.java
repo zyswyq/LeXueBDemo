@@ -12,16 +12,16 @@ import java.util.List;
 
 /**
  * ✎﹏﹏﹏.₯㎕*﹏﹏﹏
- * <p>
- * <p>
+ *
+ *
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
-public class HomeViewFreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class HomeViewReviseAdapter extends RecyclerView.Adapter<BaseViewHolder>{
     private Context context;
     private List<HomeBean.VideosBean> datas;
-    private int modePosition;
+   private int modePosition;
 
-    public HomeViewFreeAdapter(Context context) {
+    public HomeViewReviseAdapter(Context context) {
         this.context = context;
     }
 
@@ -33,17 +33,12 @@ public class HomeViewFreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return BaseViewHolder.createRvViewHolder(context, parent, R.layout.item_home_free);
+        return BaseViewHolder.createRvViewHolder(context,parent, R.layout.item_home_revise);
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        holder.setText(R.id.item_home_free_content, datas.get(modePosition).getContent_list().get(position).getVideo_title());
-        holder.setText(R.id.item_home_free_author, datas.get(modePosition).getContent_list().get(position).getTeacher_name());
-        holder.setText(R.id.item_home_free_subject, datas.get(modePosition).getContent_list().get(position).getVideo_subject_name());
-        holder.setImg(R.id.item_home_free_imageview, datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
-
-
+     holder.setImg(R.id.item_home_revise_iv,datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
     }
 
     @Override

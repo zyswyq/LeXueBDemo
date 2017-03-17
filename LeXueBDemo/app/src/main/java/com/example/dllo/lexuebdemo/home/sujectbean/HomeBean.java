@@ -1,5 +1,7 @@
 package com.example.dllo.lexuebdemo.home.sujectbean;
 
+import android.support.v7.view.ActionBarPolicy;
+
 import java.util.List;
 
 /**
@@ -204,6 +206,8 @@ public class HomeBean {
             public void setVideo_title(String video_title) {
                 this.video_title = video_title;
             }
+
+
 
             public static class VideoCoverBean {
                 /**

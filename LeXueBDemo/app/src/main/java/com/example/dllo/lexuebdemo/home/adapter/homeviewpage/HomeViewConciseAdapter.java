@@ -16,16 +16,16 @@ import java.util.List;
  * <p>
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
-public class HomeViewFreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class HomeViewConciseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Context context;
+    int modePosition;
     private List<HomeBean.VideosBean> datas;
-    private int modePosition;
 
-    public HomeViewFreeAdapter(Context context) {
+    public HomeViewConciseAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<HomeBean.VideosBean> datas,int modePosition) {
+    public void setDatas(List<HomeBean.VideosBean> datas, int modePosition) {
         this.datas = datas;
         this.modePosition = modePosition;
         notifyDataSetChanged();
@@ -33,21 +33,22 @@ public class HomeViewFreeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return BaseViewHolder.createRvViewHolder(context, parent, R.layout.item_home_free);
+        return BaseViewHolder.createRvViewHolder(context, parent, R.layout.item_home_system);
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        holder.setText(R.id.item_home_free_content, datas.get(modePosition).getContent_list().get(position).getVideo_title());
-        holder.setText(R.id.item_home_free_author, datas.get(modePosition).getContent_list().get(position).getTeacher_name());
-        holder.setText(R.id.item_home_free_subject, datas.get(modePosition).getContent_list().get(position).getVideo_subject_name());
-        holder.setImg(R.id.item_home_free_imageview, datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
-
+        holder.setText(R.id.item_home_system_content, datas.get(modePosition).getContent_list().get(position).getVideo_title());
+        holder.setText(R.id.item_home_system_author, datas.get(modePosition).getContent_list().get(position).getTeacher_name());
+        holder.setText(R.id.item_home_system_subject, datas.get(modePosition).getContent_list().get(position).getVideo_subject_name());
+        holder.setImg(R.id.item_home_system_imageview, datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
 
     }
 
     @Override
     public int getItemCount() {
         return datas != null ? datas.get(modePosition).getContent_list().size() : 0;
+
+
     }
 }
