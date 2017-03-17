@@ -83,13 +83,17 @@ public class HomeViewPagerFragment extends BaseFragment {
         pic.add(url4);
 
         //显示圆形指示器和标题（垂直显示）
+
         mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+
         //        设置图片加载器
         mBanner.setImageLoader(new HomeBinner());
         //        设置轮播图片
         mBanner.setImages(pic);
         //        ()里动画常量类
-        mBanner.setBannerAnimation(Transformer.DepthPage);
+        mBanner.setBannerAnimation(Transformer.ZoomOut);
+//        mBanner.setBannerAnimation(Transformer.BackgroundToForeground);
+//        mBanner.setBannerAnimation(Transformer.DepthPage);
         //        是否自动轮播
         mBanner.setDelayTime(3000);
         //设置指示器位置（没有标题默认为右边,有标题时默认左边）
