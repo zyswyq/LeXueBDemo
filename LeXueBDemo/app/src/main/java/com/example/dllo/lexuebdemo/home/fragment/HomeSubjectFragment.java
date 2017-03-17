@@ -28,6 +28,7 @@ import java.util.List;
 //这是学科界面
 public class HomeSubjectFragment extends BaseFragment{
      private RecyclerView mRecyclerView;
+    
     public static final String url = "http://api.lexue.com/video/list_v3?" +
             "pagesize=10&point_id=0&sub_point_id=0&phase=0&video_type=0&sort" +
             "=0&subject_id=3 HTTP";

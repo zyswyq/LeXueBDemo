@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin10"
-            android:text="全国"
             android:textColor="@color/white"
             android:background="@color/lightBlue"
             android:textSize="@dimen/tvsize12"
@@ -35,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin10"
-            android:text="生物"
             android:textColor="@color/white"
             android:background="@color/mainblue"
             android:textSize="@dimen/tvsize12"
@@ -48,17 +46,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin10"
-            android:text="水瓶座"
             android:textColor="@color/white"
             android:background="@color/purple"
             android:textSize="@dimen/tvsize12"
             android:padding="@dimen/padding5"/>
         <TextView
+            android:id="@+id/item_teacher_detail_rv_dataframe_description"
             android:layout_below="@id/item_teacher_detail_rv_dataframe_allcountry"
             android:layout_marginTop="@dimen/margin10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="高中生物高级项目主管，13年高中教学经验，任教于国内知名"/>
+            />
     </RelativeLayout>
 
     <LinearLayout
@@ -81,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/all_course"/>
             <TextView
+                android:id="@+id/tv_teacher_detail_info_dataframe_course_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="38"
@@ -93,21 +92,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/iv_course_video1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="60dp"
-                android:background="#f9d1e7"
                 android:layout_marginEnd="@dimen/margin10"/>
             <ImageView
+                android:id="@+id/iv_course_video2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="60dp"
-                android:background="#f9d1e7"
                 android:layout_marginEnd="@dimen/margin10"/>
             <ImageView
+                android:id="@+id/iv_course_video3"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="#f9d1e7"
                 android:layout_height="60dp"/>
         </LinearLayout>
 
@@ -136,7 +135,7 @@
             android:layout_below="@id/layout_teacher_detail_info_dataframe_gift_sum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:touchscreenBlocksFocus="false">
+            android:layout_marginTop="@dimen/margin10">
 
         </android.support.v7.widget.RecyclerView>
 

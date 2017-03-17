@@ -111,7 +111,7 @@
         android:layout_marginRight="15dp"
         android:background="@color/grayText" />
     <Button
-        android:id="@+id/btn_logon"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

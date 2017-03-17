@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.dllo.lexuebdemo.teacher.model.TeacherTagBean;
 import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectFragment;
 
 /*
@@ -14,6 +15,11 @@ import com.example.dllo.lexuebdemo.teacher.view.TeacherSubjectFragment;
 */
 public class TeacherVpAdapter extends FragmentPagerAdapter {
     private Context context;
+    private TeacherTagBean teacherTagBean;
+
+    public void setTeacherTagBean(TeacherTagBean teacherTagBean) {
+        this.teacherTagBean = teacherTagBean;
+    }
 
     public TeacherVpAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -22,11 +28,11 @@ public class TeacherVpAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return TeacherSubjectFragment.instanceFragment();
+        return TeacherSubjectFragment.instanceFragment(teacherTagBean.getSubjects().get(position));
     }
 
     @Override
     public int getCount() {
-        return 15;
+        return teacherTagBean.getSubjects().size();
     }
 }
