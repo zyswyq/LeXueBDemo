@@ -28,6 +28,7 @@ import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherInfoFansRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherInfoGiftRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.model.Constant;
+import com.example.dllo.lexuebdemo.teacher.model.CourseAllBean;
 import com.example.dllo.lexuebdemo.teacher.model.TeacherInfoBean;
 import com.example.dllo.lexuebdemo.utils.NumberFormat;
 
@@ -207,20 +208,49 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
             int count = teacherInfoBean.getVideo_count() > 3 ? 3 : teacherInfoBean.getVideo_count();
             switch (count) {
                 case 3:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(2).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean3 = teacherInfoBean.getVideos().get(2);
+                    Glide.with(this).load(videosBean3.getVideo_cover().getUrl())
                             .into(video3);
+                    video3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean3.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                 case 2:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(1).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean2 = teacherInfoBean.getVideos().get(1);
+                    Glide.with(this).load(videosBean2.getVideo_cover().getUrl())
                             .into(video2);
+                    video2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean2.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                 case 1:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(0).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean1 = teacherInfoBean.getVideos().get(0);
+                    Glide.with(this).load(videosBean1.getVideo_cover().getUrl())
                             .into(video1);
+                    video1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean1.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                     break;
             }
             //设置礼物的数量
             TextView giftCount = (TextView) findViewById(R.id.layout_teacher_detail_info_dataframe_gift_sum);
             giftCount.setText(NumberFormat.formatNum(teacherInfoBean.getGift_num()));
         }
+
+
     }
 
     @Override

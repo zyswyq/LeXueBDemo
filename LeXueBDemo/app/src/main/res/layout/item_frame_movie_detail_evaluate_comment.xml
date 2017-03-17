@@ -6,7 +6,6 @@
         android:id="@+id/iv_item_comment_head"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="#a7deb6"
         android:layout_margin="@dimen/margin10"/>
     <TextView
         android:id="@+id/tv_item_comment_nickname"
