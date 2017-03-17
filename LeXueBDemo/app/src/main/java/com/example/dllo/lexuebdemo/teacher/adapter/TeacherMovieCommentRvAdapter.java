@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
+import com.example.dllo.lexuebdemo.teacher.model.VideoInfoBean;
 
 /*
     by Mr.L
@@ -14,6 +15,11 @@ import com.example.dllo.lexuebdemo.base.BaseViewHolder;
 */
 public class TeacherMovieCommentRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Context context;
+    private VideoInfoBean videoInfoBean;
+
+    public void setVideoInfoBean(VideoInfoBean videoInfoBean) {
+        this.videoInfoBean = videoInfoBean;
+    }
 
     public void setContext(Context context) {
         this.context = context;

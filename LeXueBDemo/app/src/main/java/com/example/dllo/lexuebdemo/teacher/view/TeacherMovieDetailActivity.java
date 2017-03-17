@@ -3,6 +3,7 @@ package com.example.dllo.lexuebdemo.teacher.view;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -10,7 +11,14 @@ import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
+import com.example.dllo.lexuebdemo.nettools.NetTools;
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherMovieCommentRvAdapter;
+import com.example.dllo.lexuebdemo.teacher.model.Constant;
+import com.example.dllo.lexuebdemo.teacher.model.VideoInfoBean;
+
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /*
     by Mr.L
@@ -18,6 +26,7 @@ import com.example.dllo.lexuebdemo.teacher.adapter.TeacherMovieCommentRvAdapter;
     desc 描述
 */
 public class TeacherMovieDetailActivity extends BaseActivity implements View.OnClickListener {
+    private static final String TAG = "TeacherMovieDetailActiv";
     private RecyclerView commentRv;
     private TeacherMovieCommentRvAdapter adapter;
 
@@ -27,6 +36,15 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
     private RadioButton radioButton;
     private ImageView backBtn;
+
+    private JCVideoPlayerStandard jcVideoPlayerStandard;
+    private int movieId;
+    private String realMovieId;
+    private VideoInfoBean videoInfoBean;
+
+    private ImageView videoPlay;
+    private ImageView videoBg;
+    private boolean playerIsPrepared;
 
 
     @Override
@@ -53,20 +71,63 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         radioButton = bindView(R.id.rb_all);
 
         backBtn = bindView(R.id.iv_teacher_movie_detail_back);
+
+        jcVideoPlayerStandard = bindView(R.id.jc_video);
+
+        videoPlay = bindView(R.id.video_play);
+        videoBg = bindView(R.id.iv_teacher_movie_detail_bg);
     }
 
     @Override
     protected void initData() {
-        adapter = new TeacherMovieCommentRvAdapter();
-        adapter.setContext(this);
-        commentRv.setLayoutManager(new LinearLayoutManager(this));
-        commentRv.setAdapter(adapter);
+        movieId = getIntent().getIntExtra("movieId", -1);
+        if(movieId == -1){
+            return;
+        }
+        getNetData();
+
 
         initFrame();
 
         radioButton.setChecked(true);
 
 
+    }
+
+    private void getNetData() {
+        NetTools.getInstance().startRequest(Constant.TEACHER_VIDEO_DETAIL_BASE_URL + movieId,
+                VideoInfoBean.class, new MyCallBack<VideoInfoBean>() {
+                    @Override
+                    public void success(VideoInfoBean respomse) {
+                        videoInfoBean = respomse;
+                        realMovieId = respomse.getFlv_real_id();
+
+
+                        setNetData();
+                    }
+
+                    @Override
+                    public void error(Throwable throwable) {
+
+                    }
+                });
+
+    }
+
+    private void setNetData() {
+        adapter = new TeacherMovieCommentRvAdapter();
+        adapter.setContext(TeacherMovieDetailActivity.this);
+        adapter.setVideoInfoBean(videoInfoBean);
+        commentRv.setLayoutManager(new LinearLayoutManager(TeacherMovieDetailActivity.this));
+        commentRv.setAdapter(adapter);
+
+        setJcPlayer();
+    }
+
+    private void setJcPlayer() {
+        jcVideoPlayerStandard.setUp(Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId,
+                JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
+        Log.e(TAG, "setJcPlayer: " + realMovieId);
     }
 
     private void initFrame() {
@@ -82,6 +143,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         evaluateBtn.setOnClickListener(this);
 
         backBtn.setOnClickListener(this);
+
+        videoPlay.setOnClickListener(this);
     }
 
     private void detailFrameClick() {
@@ -141,6 +204,16 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                 break;
             case R.id.iv_teacher_movie_detail_back:
                 finish();
+                break;
+
+            case R.id.video_play:
+//                if(playerIsPrepared){
+                    Log.e(TAG, "onClick: ");
+//                    jcVideoPlayerStandard.startVideo();
+                    videoBg.setVisibility(View.GONE);
+                    videoPlay.setVisibility(View.GONE);
+
+//                }
                 break;
         }
     }
