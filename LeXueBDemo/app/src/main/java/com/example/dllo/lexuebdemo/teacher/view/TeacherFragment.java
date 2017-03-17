@@ -11,6 +11,7 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.nettools.NetBean;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.model.TeacherTagBean;
 import com.example.dllo.lexuebdemo.teacher.presenter.TeacherPresenter;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherVpAdapter;
 
@@ -36,6 +37,8 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
     private int currentPage;
     private boolean isFirst = true;
 
+    private TeacherTagBean teacherTagBean;
+
 
     @Override
     protected int getLayout() {
@@ -53,9 +56,9 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
 
     @Override
     protected void initData() {
-        teacherPresenter.setAdapter();
-        teacherPresenter.setTabLayout();
-        initTagListFrgamnet();
+//        teacherPresenter.setAdapter();
+//        teacherPresenter.setTabLayout();
+//        initTagListFrgamnet();
 
     }
 
@@ -88,16 +91,18 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
     @Override
     public void setAdapter() {
         adapter = new TeacherVpAdapter(getChildFragmentManager(), context);
+        adapter.setTeacherTagBean(teacherTagBean);
         viewPager.setAdapter(adapter);
     }
 
     @Override
-    public void setTabLayout(List<String> tagList) {
+    public void setTabLayout() {
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
+
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
-            tab.setText(tagList.get(i));
+            tab.setText(teacherTagBean.getSubjects().get(i).getTeacher_subject_name());
         }
     }
 
@@ -111,8 +116,19 @@ public class TeacherFragment extends BaseFragment implements ITeacherView, View.
     }
 
     @Override
-    public <T> void setNetData(T data) {
+    public void setNetData(TeacherTagBean data) {
+        teacherTagBean = data;
+        initAdapter();
+        initTabLayout();
+        initTagListFrgamnet();
+    }
 
+    private void initTabLayout() {
+        teacherPresenter.setTabLayout();
+    }
+
+    private void initAdapter() {
+        teacherPresenter.setAdapter();
     }
 
 

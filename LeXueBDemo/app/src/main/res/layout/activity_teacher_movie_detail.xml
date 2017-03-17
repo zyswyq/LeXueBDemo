@@ -16,15 +16,15 @@
             android:layout_alignParentStart="true" />
         <ImageView
             android:id="@+id/iv_teacher_movie_detail_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="#de9af9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_backbtn_black_pressed"
             android:layout_margin="@dimen/margin15"/>
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="#b7e9e4"/>
+            android:src="@mipmap/video_details_play_btn_normal"/>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/layout_teacher_movie_detail_tag"

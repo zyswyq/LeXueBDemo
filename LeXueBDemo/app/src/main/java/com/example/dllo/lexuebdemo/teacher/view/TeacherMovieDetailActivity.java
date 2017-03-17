@@ -26,6 +26,7 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     private ImageView detailDiv, testDiv, evaluateDiv;
 
     private RadioButton radioButton;
+    private ImageView backBtn;
 
 
     @Override
@@ -50,6 +51,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         evaluateDiv = bindView(R.id.tv_teacher_movie_detail_evaluate_div);
 
         radioButton = bindView(R.id.rb_all);
+
+        backBtn = bindView(R.id.iv_teacher_movie_detail_back);
     }
 
     @Override
@@ -77,6 +80,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         detailBtn.setOnClickListener(this);
         testBtn.setOnClickListener(this);
         evaluateBtn.setOnClickListener(this);
+
+        backBtn.setOnClickListener(this);
     }
 
     private void detailFrameClick() {
@@ -133,6 +138,9 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                 break;
             case R.id.tv_teacher_movie_detail_evaluate:
                 evaluateFrameClick();
+                break;
+            case R.id.iv_teacher_movie_detail_back:
+                finish();
                 break;
         }
     }

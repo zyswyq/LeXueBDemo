@@ -1,5 +1,7 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import com.example.dllo.lexuebdemo.teacher.model.SubjectBean;
+
 /*
     by Mr.L
     data 2017-03-09
@@ -8,4 +10,6 @@ package com.example.dllo.lexuebdemo.teacher.view;
 public interface ITeacherSubjectView {
     void setAdapter();
     void setRecyclerView();
+
+    void setNetData(SubjectBean subjectBean);
 }

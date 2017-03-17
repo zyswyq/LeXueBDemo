@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.model.TeacherTagBean;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 */
 public interface ITeacherView {
     void setAdapter();
-    void setTabLayout(List<String> tagList);
+    void setTabLayout();
     void onShow();
-   <T> void  setNetData(T data);
+    void  setNetData(TeacherTagBean data);
 }
