@@ -1,5 +1,6 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +11,13 @@ import android.widget.TextView;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.find.model.CafeModel;
+import com.example.dllo.lexuebdemo.nettools.NetTools;
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.adapter.CourseAllRvAdapter;
+import com.example.dllo.lexuebdemo.teacher.model.CourseAllBean;
+
+import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_ALL_COURSE_BASE1_URL;
+import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_ALL_COURSE_BASE2_URL;
 
 /*
     by Mr.L
@@ -25,6 +32,11 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
     private ImageView allDiv, freeDiv, unfreeDiv;
 
     private ImageView backBtn;
+
+    private int teacherId;
+
+    private CourseAllBean courseAllBean;
+    private TextView title;
 
 
     @Override
@@ -44,16 +56,48 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
         unfreeDiv = bindView(R.id.iv_course_detail_unfree_div);
 
         backBtn = bindView(R.id.topbar_course_all_back);
+        title = bindView(R.id.topbar_course_title);
     }
 
     @Override
     protected void initData() {
-        adapter = new CourseAllRvAdapter();
-        adapter.setContext(this);
-        courseRv.setLayoutManager(new LinearLayoutManager(this));
-        courseRv.setAdapter(adapter);
+        getNetData();
+
+
 
         initCourseSelect();
+    }
+
+    private void getNetData() {
+        Intent intent = getIntent();
+        teacherId = intent.getIntExtra("teacherId", -1);
+        title.setText(intent.getStringExtra("teacherName"+"的课程"));
+
+        if(teacherId == -1){
+            return;
+        }
+        NetTools.getInstance().startRequest(TEACHER_ALL_COURSE_BASE1_URL + teacherId + TEACHER_ALL_COURSE_BASE2_URL,
+                CourseAllBean.class, new MyCallBack<CourseAllBean>() {
+                    @Override
+                    public void success(CourseAllBean respomse) {
+                        courseAllBean = respomse;
+                        setNetData();
+                    }
+
+                    @Override
+                    public void error(Throwable throwable) {
+
+                    }
+                });
+    }
+
+    private void setNetData() {
+
+        adapter = new CourseAllRvAdapter();
+        adapter.setContext(CourseAllActivity.this);
+        adapter.setVideosBeanList(courseAllBean.getVideos());
+        courseRv.setLayoutManager(new LinearLayoutManager(CourseAllActivity.this));
+        courseRv.setAdapter(adapter);
     }
 
     private void initCourseSelect() {

@@ -28,6 +28,7 @@ import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherInfoFansRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherInfoGiftRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.model.Constant;
+import com.example.dllo.lexuebdemo.teacher.model.CourseAllBean;
 import com.example.dllo.lexuebdemo.teacher.model.TeacherInfoBean;
 import com.example.dllo.lexuebdemo.utils.NumberFormat;
 
@@ -100,9 +101,11 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
         Intent intent = getIntent();
         //未获取到id值就设置默认-1
         teacherId = intent.getIntExtra("teacherId", -1);
+        if(teacherId == -1){
+            return;
+        }
 
-
-        NetTools.getInstance().startRequest(Constant.TEACHER_INFO_BASE_URL+teacherId, TeacherInfoBean.class, new MyCallBack<TeacherInfoBean>() {
+        NetTools.getInstance().startRequest(Constant.TEACHER_INFO_BASE_URL + teacherId, TeacherInfoBean.class, new MyCallBack<TeacherInfoBean>() {
             @Override
             public void success(TeacherInfoBean respomse) {
                 teacherInfoBean = respomse;
@@ -137,9 +140,10 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
 
     }
 
+
     private void setData() {
         //设置头像
-        if(teacherInfoBean.getTeacher_icon() != null){
+        if (teacherInfoBean.getTeacher_icon() != null) {
             String headUrl = teacherInfoBean.getTeacher_icon().getUrl();
             final ImageView head = (ImageView) findViewById(R.id.item_teacher_detail_rv_head);
             Glide.with(this).load(headUrl).asBitmap().centerCrop().into(new BitmapImageViewTarget(head) {
@@ -194,31 +198,59 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
         description.setText(teacherInfoBean.getTeacher_description());
         //设置所有课程数量
         TextView courseCount = (TextView) findViewById(R.id.tv_teacher_detail_info_dataframe_course_count);
-        courseCount.setText(teacherInfoBean.getVideo_count()+"");
+        courseCount.setText(teacherInfoBean.getVideo_count() + "");
 
         //设置前三课程视频图片
         ImageView video1 = (ImageView) findViewById(R.id.iv_course_video1);
         ImageView video2 = (ImageView) findViewById(R.id.iv_course_video2);
         ImageView video3 = (ImageView) findViewById(R.id.iv_course_video3);
-        if(teacherInfoBean.getVideos() != null){
+        if (teacherInfoBean.getVideos() != null) {
             int count = teacherInfoBean.getVideo_count() > 3 ? 3 : teacherInfoBean.getVideo_count();
-            switch (count){
+            switch (count) {
                 case 3:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(2).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean3 = teacherInfoBean.getVideos().get(2);
+                    Glide.with(this).load(videosBean3.getVideo_cover().getUrl())
                             .into(video3);
+                    video3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean3.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                 case 2:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(1).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean2 = teacherInfoBean.getVideos().get(1);
+                    Glide.with(this).load(videosBean2.getVideo_cover().getUrl())
                             .into(video2);
+                    video2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean2.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                 case 1:
-                    Glide.with(this).load(teacherInfoBean.getVideos().get(0).getVideo_cover().getUrl())
+                    final TeacherInfoBean.VideosBean videosBean1 = teacherInfoBean.getVideos().get(0);
+                    Glide.with(this).load(videosBean1.getVideo_cover().getUrl())
                             .into(video1);
+                    video1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
+                            intent.putExtra("movieId", videosBean1.getVideo_id());
+                            startActivity(intent);
+                        }
+                    });
                     break;
             }
+            //设置礼物的数量
+            TextView giftCount = (TextView) findViewById(R.id.layout_teacher_detail_info_dataframe_gift_sum);
+            giftCount.setText(NumberFormat.formatNum(teacherInfoBean.getGift_num()));
         }
 
-        //设置礼物的数量
-        TextView giftCount = (TextView) findViewById(R.id.layout_teacher_detail_info_dataframe_gift_sum);
-        giftCount.setText(NumberFormat.formatNum(teacherInfoBean.getGift_num()));
+
     }
 
     @Override
@@ -239,6 +271,7 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
         infotagFans.setOnClickListener(this);
         infotagFansDiv.setOnClickListener(this);
     }
+
 
     //控制顶部bar的显示和隐藏
     private void tooBarHideOrShow(int scrollY) {

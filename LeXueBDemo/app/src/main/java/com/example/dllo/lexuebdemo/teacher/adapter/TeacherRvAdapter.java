@@ -174,7 +174,7 @@ public class TeacherRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         holder.getView(R.id.item_teacher_rv_movie_more).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                detailInfo.showMoreMovie(teachersBean.getTeacher_id());
+                detailInfo.showMoreMovie(teachersBean.getTeacher_id(), teachersBean.getTeacher_name());
             }
         });
 
@@ -195,7 +195,7 @@ public class TeacherRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         void showMovieInfo(int movieId);
 
-        void showMoreMovie(int teacherId);
+        void showMoreMovie(int teacherId, String teacherName);
     }
 }
 

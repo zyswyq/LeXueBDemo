@@ -19,6 +19,7 @@
             android:src="@mipmap/nav_back_blue_normal" />
 
         <TextView
+            android:id="@+id/topbar_course_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
