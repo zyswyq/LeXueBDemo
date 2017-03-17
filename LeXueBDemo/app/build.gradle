@@ -41,10 +41,9 @@ dependencies {
     compile files('libs/Msc.jar')
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-<<<<<<< HEAD
+
     compile name:'SMSSDK-2.1.3',ext:'aar'
-=======
->>>>>>> 0ec14834565c7b48847c2d4a181f63ecdee3e8f2
+
     compile 'com.youth.banner:banner:1.4.4'
     compile files('libs/Amap_2DMap_V4.2.0_20170209.jar')
 }
