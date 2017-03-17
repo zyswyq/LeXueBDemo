@@ -40,6 +40,11 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     private JCVideoPlayerStandard jcVideoPlayerStandard;
     private int movieId;
     private String realMovieId;
+    private VideoInfoBean videoInfoBean;
+
+    private ImageView videoPlay;
+    private ImageView videoBg;
+    private boolean playerIsPrepared;
 
 
     @Override
@@ -68,6 +73,9 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         backBtn = bindView(R.id.iv_teacher_movie_detail_back);
 
         jcVideoPlayerStandard = bindView(R.id.jc_video);
+
+        videoPlay = bindView(R.id.video_play);
+        videoBg = bindView(R.id.iv_teacher_movie_detail_bg);
     }
 
     @Override
@@ -91,13 +99,11 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                 VideoInfoBean.class, new MyCallBack<VideoInfoBean>() {
                     @Override
                     public void success(VideoInfoBean respomse) {
-
+                        videoInfoBean = respomse;
                         realMovieId = respomse.getFlv_real_id();
-                        adapter = new TeacherMovieCommentRvAdapter();
-                        adapter.setContext(TeacherMovieDetailActivity.this);
-                        adapter.setVideoInfoBean(respomse);
-                        commentRv.setLayoutManager(new LinearLayoutManager(TeacherMovieDetailActivity.this));
-                        commentRv.setAdapter(adapter);
+
+
+                        setNetData();
                     }
 
                     @Override
@@ -106,6 +112,22 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                     }
                 });
 
+    }
+
+    private void setNetData() {
+        adapter = new TeacherMovieCommentRvAdapter();
+        adapter.setContext(TeacherMovieDetailActivity.this);
+        adapter.setVideoInfoBean(videoInfoBean);
+        commentRv.setLayoutManager(new LinearLayoutManager(TeacherMovieDetailActivity.this));
+        commentRv.setAdapter(adapter);
+
+        setJcPlayer();
+    }
+
+    private void setJcPlayer() {
+        jcVideoPlayerStandard.setUp(Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId,
+                JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
+        Log.e(TAG, "setJcPlayer: " + realMovieId);
     }
 
     private void initFrame() {
@@ -121,6 +143,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         evaluateBtn.setOnClickListener(this);
 
         backBtn.setOnClickListener(this);
+
+        videoPlay.setOnClickListener(this);
     }
 
     private void detailFrameClick() {
@@ -180,6 +204,16 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                 break;
             case R.id.iv_teacher_movie_detail_back:
                 finish();
+                break;
+
+            case R.id.video_play:
+//                if(playerIsPrepared){
+                    Log.e(TAG, "onClick: ");
+//                    jcVideoPlayerStandard.startVideo();
+                    videoBg.setVisibility(View.GONE);
+                    videoPlay.setVisibility(View.GONE);
+
+//                }
                 break;
         }
     }

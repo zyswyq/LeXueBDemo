@@ -57,7 +57,11 @@
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
 
-        <activity android:name=".teacher.view.TeacherMovieDetailActivity" />
+        <activity android:name=".teacher.view.TeacherMovieDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".teacher.view.CourseAllActivity"
             android:hardwareAccelerated="false" />

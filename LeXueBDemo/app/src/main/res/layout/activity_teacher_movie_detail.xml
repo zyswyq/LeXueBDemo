@@ -27,6 +27,7 @@
             android:src="@mipmap/nav_backbtn_black_pressed"
             android:layout_margin="@dimen/margin15"/>
         <ImageView
+            android:id="@+id/video_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
