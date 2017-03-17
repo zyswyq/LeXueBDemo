@@ -18,4 +18,6 @@ public class Constant {
     //所有课程界面,拼接teacher_id
     public static final String TEACHER_ALL_COURSE_BASE1_URL = "http://api.lexue.com/teacher/video/list?teacher_id=";
     public static final String TEACHER_ALL_COURSE_BASE2_URL = "&pagesize=10&condition=0&sort=0&TeacherVideoListModel";
+    //视频详情界面
+    public static final String TEACHER_VIDEO_DETAIL_BASE_URL = "http://api.lexue.com/video/detail?vid=";
 }

@@ -100,7 +100,9 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
         Intent intent = getIntent();
         //未获取到id值就设置默认-1
         teacherId = intent.getIntExtra("teacherId", -1);
-
+        if(teacherId == -1){
+            return;
+        }
 
         NetTools.getInstance().startRequest(Constant.TEACHER_INFO_BASE_URL + teacherId, TeacherInfoBean.class, new MyCallBack<TeacherInfoBean>() {
             @Override

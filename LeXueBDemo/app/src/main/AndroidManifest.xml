@@ -68,7 +68,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity android:name=".find.findview.activity.FuliActivity" />
-        <activity android:name=".find.findview.activity.FindMapActivity"></activity>
+        <activity android:name=".find.findview.activity.FindMapActivity"/>
 
     </application>
 

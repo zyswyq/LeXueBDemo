@@ -73,6 +73,9 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
         teacherId = intent.getIntExtra("teacherId", -1);
         title.setText(intent.getStringExtra("teacherName"+"的课程"));
 
+        if(teacherId == -1){
+            return;
+        }
         NetTools.getInstance().startRequest(TEACHER_ALL_COURSE_BASE1_URL + teacherId + TEACHER_ALL_COURSE_BASE2_URL,
                 CourseAllBean.class, new MyCallBack<CourseAllBean>() {
                     @Override
