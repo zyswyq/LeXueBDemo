@@ -76,10 +76,6 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2765622c20ea8ddb069a77890df450d06681c663
         <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
         <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
         <activity android:name=".find.findview.activity.FindWebView" />
@@ -109,19 +105,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-<<<<<<< HEAD
-        <activity android:name=".teacher.view.TestActivity"/>
-        <activity android:name=".find.findview.activity.FindRobotActivity" />
-        <activity android:name=".myself.activity.LogonActivity" />
-        <activity android:name=".myself.activity.ClauseActivity" />
-        <activity android:name=".myself.activity.LoginActivity" />
-        <activity android:name=".teacher.view.TeacherMovieDetailActivity" />
         <activity android:name=".find.findview.activity.FuliActivity" />
-        <activity android:name=".teacher.view.CourseAllActivity"
-            android:hardwareAccelerated="false" />
-=======
-        <activity android:name=".find.findview.activity.FuliActivity" />
->>>>>>> 2765622c20ea8ddb069a77890df450d06681c663
+
         <activity android:name=".find.findview.activity.FindMapActivity"/>
 
     </application>

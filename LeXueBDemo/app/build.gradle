@@ -41,12 +41,10 @@ dependencies {
     compile files('libs/Msc.jar')
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-<<<<<<< HEAD
+
 
     compile name:'SMSSDK-2.1.3',ext:'aar'
 
-=======
->>>>>>> 2765622c20ea8ddb069a77890df450d06681c663
     compile 'com.youth.banner:banner:1.4.4'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
