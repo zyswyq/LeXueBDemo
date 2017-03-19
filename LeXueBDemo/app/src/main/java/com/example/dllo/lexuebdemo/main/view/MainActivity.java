@@ -13,16 +13,14 @@ import android.widget.Toast;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
+import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.find.findview.fragment.FindFragment;
 import com.example.dllo.lexuebdemo.home.fragment.HomeTabFragment;
-import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
-
 import com.example.dllo.lexuebdemo.myself.activity.LogonActivity;
-import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
 import com.example.dllo.lexuebdemo.myself.fragment.MyselfFragment;
-
+import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +69,6 @@ public class MainActivity extends BaseActivity implements MainView {
         myPage = bindView(R.id.radiobtn_my);
         teacherPage = bindView(R.id.radiobtn_teacher);
         findPage = bindView(R.id.radiobtn_find);
-        myPage = bindView(R.id.radiobtn_my);
         mainRagioGroup=bindView(R.id.radiogroup_main);
         mainVP=bindView(R.id.vp_main);
         presenter=new MainPresenter(this);
@@ -89,6 +86,10 @@ public class MainActivity extends BaseActivity implements MainView {
         adapter.setFragments(fragments);
         mainVP.setAdapter(adapter);
         mainVP.setOffscreenPageLimit(4);
+        if (getIntent().getIntExtra("fragment",0)==4) {
+            mainVP.setCurrentItem(4);
+            myPage.setChecked(true);
+        }
     }
 
 
