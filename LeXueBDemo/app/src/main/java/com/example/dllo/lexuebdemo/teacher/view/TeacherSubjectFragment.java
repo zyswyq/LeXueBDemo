@@ -98,24 +98,17 @@ public class TeacherSubjectFragment extends BaseFragment implements ITeacherSubj
 
     @Override
     public void showTeacherInfo(int teacherId) {
-        Intent intent = new Intent(context, TeacherDetailInfoActivity.class);
-        intent.putExtra("teacherId", teacherId);
-        context.startActivity(intent);
+        TeacherDetailInfoActivity.actionStart(context, teacherId);
     }
 
     @Override
     public void showMovieInfo(int movieId) {
-        Intent intent = new Intent(context, TeacherMovieDetailActivity.class);
-        intent.putExtra("movieId", movieId);
-        context.startActivity(intent);
+        TeacherMovieDetailActivity.actionStart(context, movieId);
     }
 
     @Override
     public void showMoreMovie(int teacherId, String teacherName) {
-        Intent intent = new Intent(context, CourseAllActivity.class);
-        intent.putExtra("teacherId", teacherId);
-        intent.putExtra("teacherName", teacherName);
-        context.startActivity(intent);
+        CourseAllActivity.actionStart(context, teacherId, teacherName);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -71,6 +72,12 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
     private int teacherId;
 
     private TeacherInfoBean teacherInfoBean;
+
+    public static void actionStart(Context context, int teacherId){
+        Intent intent = new Intent(context, TeacherDetailInfoActivity.class);
+        intent.putExtra("teacherId", teacherId);
+        context.startActivity(intent);
+    }
 
     @Override
     protected int getLayout() {
@@ -214,9 +221,7 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
                     video3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
-                            intent.putExtra("movieId", videosBean3.getVideo_id());
-                            startActivity(intent);
+                            TeacherMovieDetailActivity.actionStart(TeacherDetailInfoActivity.this, videosBean3.getVideo_id());
                         }
                     });
                 case 2:
@@ -226,9 +231,7 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
                     video2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
-                            intent.putExtra("movieId", videosBean2.getVideo_id());
-                            startActivity(intent);
+                            TeacherMovieDetailActivity.actionStart(TeacherDetailInfoActivity.this, videosBean2.getVideo_id());
                         }
                     });
                 case 1:
@@ -238,9 +241,7 @@ public class TeacherDetailInfoActivity extends BaseActivity implements View.OnCl
                     video1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(TeacherDetailInfoActivity.this, TeacherMovieDetailActivity.class);
-                            intent.putExtra("movieId", videosBean1.getVideo_id());
-                            startActivity(intent);
+                            TeacherMovieDetailActivity.actionStart(TeacherDetailInfoActivity.this, videosBean1.getVideo_id());
                         }
                     });
                     break;

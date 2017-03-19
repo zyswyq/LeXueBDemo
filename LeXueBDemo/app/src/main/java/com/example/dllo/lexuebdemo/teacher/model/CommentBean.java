@@ -18,7 +18,7 @@ public class CommentBean {
      */
 
     private int comment_display;
-    private int comment_rate;
+    private double comment_rate;
     private String error_info;
     private int status;
     private int total;
@@ -32,13 +32,13 @@ public class CommentBean {
         this.comment_display = comment_display;
     }
 
-    public int getComment_rate() {
+    public double getComment_rate() {
         return comment_rate;
     }
-
-    public void setComment_rate(int comment_rate) {
+    public void setComment_rate(double comment_rate){
         this.comment_rate = comment_rate;
     }
+
 
     public String getError_info() {
         return error_info;

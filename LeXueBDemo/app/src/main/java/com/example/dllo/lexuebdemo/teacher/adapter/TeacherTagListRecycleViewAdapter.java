@@ -1,4 +1,4 @@
-package com.example.dllo.lexuebdemo.adapter;
+package com.example.dllo.lexuebdemo.teacher.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

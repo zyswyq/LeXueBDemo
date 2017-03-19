@@ -1,9 +1,11 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
 import com.example.dllo.lexuebdemo.teacher.adapter.CourseAllRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.model.CourseAllBean;
+import com.example.dllo.lexuebdemo.utils.ActivityCollector;
 
 import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_ALL_COURSE_BASE1_URL;
 import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_ALL_COURSE_BASE2_URL;
@@ -38,6 +41,13 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
     private CourseAllBean courseAllBean;
     private TextView title;
 
+    //向此页面跳转调用的方法，以及已经定义好的所需参数
+    public static void actionStart(Context context, int teacherId, String teacherName){
+        Intent intent = new Intent(context, CourseAllActivity.class);
+        intent.putExtra("teacherId", teacherId);
+        intent.putExtra("teacherName", teacherName);
+        context.startActivity(intent);
+    }
 
     @Override
     protected int getLayout() {
@@ -71,7 +81,7 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
     private void getNetData() {
         Intent intent = getIntent();
         teacherId = intent.getIntExtra("teacherId", -1);
-        title.setText(intent.getStringExtra("teacherName"+"的课程"));
+        title.setText(intent.getStringExtra("teacherName")+"的课程");
 
         if(teacherId == -1){
             return;
@@ -112,6 +122,17 @@ public class CourseAllActivity extends BaseActivity implements View.OnClickListe
         unfreeBtn.setOnClickListener(this);
 
         backBtn.setOnClickListener(this);
+
+        findViewById(R.id.iv_course_detail_newandhot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用工具类，将所有activity结束
+                ActivityCollector.finishAll();
+                //杀掉当前程序的进程
+                android.os.Process.killProcess(android.os.Process.myPid());
+
+            }
+        });
     }
 
     private void onAllCourseSelected() {
