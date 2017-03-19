@@ -14,6 +14,7 @@ import com.example.dllo.lexuebdemo.utils.ActivityCollector;
     desc activity基类
 */
 public abstract class BaseActivity extends AppCompatActivity{
+    private static final String TAG = "BaseActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
