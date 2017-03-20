@@ -1,15 +1,18 @@
 package com.example.dllo.lexuebdemo.teacher.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
 import com.example.dllo.lexuebdemo.teacher.model.CourseAllBean;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 import com.example.dllo.lexuebdemo.utils.NumberFormat;
 
 import java.util.List;
@@ -38,9 +41,19 @@ public class CourseAllRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        CourseAllBean.VideosBean videosBean = videosBeanList.get(position);
+        final CourseAllBean.VideosBean videosBean = videosBeanList.get(position);
         //设置视频预览图、标题、老师名字
-        holder.setImg(R.id.iv_course_bg, videosBean.getVideo_cover().getUrl());
+        ImageView headImg = holder.getView(R.id.iv_course_bg);
+        Glide.with(context).load(videosBean.getVideo_cover().getUrl()).into(headImg);
+        headImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TeacherMovieDetailActivity.class);
+                intent.putExtra("movieId", videosBean.getVideo_id());
+                context.startActivity(intent);
+            }
+        });
+
         holder.setText(R.id.tv_course_title, videosBean.getVideo_title());
         holder.setText(R.id.tv_course_auther, videosBean.getTeacher_name());
         int liveState = videosBean.getLive_status();

@@ -69,21 +69,14 @@
         <service android:name="com.amap.api.location.APSService"/>
 
         <activity android:name=".main.view.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
         <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
         <activity android:name=".find.findview.activity.FindWebView" />
-        <activity android:name=".teacher.view.TeacherDetailInfoActivity" />
-
-        <activity android:name=".teacher.view.TestActivity">
-
-        </activity>
+        <activity android:name=".teacher.view.TeacherDetailInfoActivity"
+            android:launchMode="singleTask"/>
 
         <activity android:name=".find.findview.activity.FindRobotActivity" />
 
@@ -106,7 +99,16 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity android:name=".find.findview.activity.FuliActivity" />
+
         <activity android:name=".find.findview.activity.FindMapActivity"/>
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
 
     </application>
 

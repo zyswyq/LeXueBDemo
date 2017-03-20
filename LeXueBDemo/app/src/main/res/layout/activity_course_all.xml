@@ -22,10 +22,11 @@
             android:id="@+id/topbar_course_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="的课程"
             android:textColor="@color/pureBlack"
-            android:textSize="@dimen/tvsize15" />
+            android:textSize="@dimen/tvsize15"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 
@@ -120,6 +121,7 @@
                 android:src="@mipmap/tag_bottom_div" />
         </RelativeLayout>
         <ImageView
+            android:id="@+id/iv_course_detail_newandhot"
             android:paddingStart="@dimen/padding10"
             android:paddingEnd="@dimen/padding10"
             android:layout_width="wrap_content"

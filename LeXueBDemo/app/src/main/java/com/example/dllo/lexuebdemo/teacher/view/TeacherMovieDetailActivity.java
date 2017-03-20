@@ -1,5 +1,6 @@
 package com.example.dllo.lexuebdemo.teacher.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -60,6 +61,12 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
     private View courseBottombar;
 
+    public static void actionStart(Context context, int movieId){
+        Intent intent = new Intent(context, TeacherMovieDetailActivity.class);
+        intent.putExtra("movieId", movieId);
+        context.startActivity(intent);
+    }
+
 
     @Override
     protected int getLayout() {
@@ -112,7 +119,6 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
     private void getNetData() {
         String videoUrl = Constant.TEACHER_VIDEO_DETAIL_BASE_URL + movieId;
-        Log.e(TAG, "getNetData: " + videoUrl);
         NetTools.getInstance().startRequest(videoUrl,
                 VideoInfoBean.class, new MyCallBack<VideoInfoBean>() {
                     @Override
@@ -139,6 +145,14 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                         adapter = new TeacherMovieCommentRvAdapter();
                         adapter.setContext(TeacherMovieDetailActivity.this);
                         adapter.setVideoInfoBean(respomse.getComments());
+
+                        //设置好评率
+                        /**
+                         * CommentBean中的好评率，修改为了double类型
+                         */
+                        TextView goodPercent = (TextView) findViewById(R.id.tv_evaluate_good_persent);
+                        goodPercent.setText((int)(respomse.getComment_rate()*100)+"%");
+
                         commentRv.setLayoutManager(new LinearLayoutManager(TeacherMovieDetailActivity.this));
                         commentRv.setAdapter(adapter);
                     }
@@ -198,13 +212,14 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         TextView videoCount = (TextView) findViewById(R.id.course_video_count);
         videoCount.setText("视频数: " + teacherBean.getVideo_count());
 
+
+
         setJcPlayer();
     }
 
     private void setJcPlayer() {
         jcVideoPlayerStandard.setUp(Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId,
                 JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
-        Log.e(TAG, "setJcPlayer: " + realMovieId);
     }
 
     private void initFrame() {
@@ -297,9 +312,7 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
             case R.id.course_bottombar:
                 //TODO 跳转名师界面
-                Intent intent = new Intent(this, TeacherDetailInfoActivity.class);
-                intent.putExtra("teacherId", videoInfoBean.getTeacher().getTeacher_id());
-                startActivity(intent);
+                TeacherDetailInfoActivity.actionStart(this, videoInfoBean.getTeacher().getTeacher_id());
                 break;
         }
     }

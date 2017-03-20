@@ -20,6 +20,7 @@
             android:layout_marginBottom="@dimen/margin15"
             android:layout_marginStart="@dimen/margin10"/>
         <TextView
+            android:id="@+id/tv_evaluate_good_persent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="91%"
