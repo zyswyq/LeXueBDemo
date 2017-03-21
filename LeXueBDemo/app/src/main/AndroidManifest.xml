@@ -83,6 +83,7 @@
         <activity android:name=".myself.activity.LogonActivity" />
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
+        <activity android:name=".myself.activity.IdeaActivitty"/>
 
         <activity android:name=".teacher.view.TeacherMovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"

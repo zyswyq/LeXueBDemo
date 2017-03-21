@@ -74,8 +74,6 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initData() {
         checkBox.setChecked(true);
-
-
         pwdEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -89,19 +87,68 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                String number = numberEt.getText().toString();
                 String pwd = pwdEt.getText().toString();
                 String captcha = captchaEt.getText().toString();
-                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(captcha)) {
-
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
                     logonBtn.setBackground(getDrawable(R.color.mainblue));
                     logonBtn.setTextColor(0xffffffff);
                 } else {
-                    logonBtn.setBackground(getDrawable(R.color.gray));
+                    logonBtn.setBackground(getDrawable(R.color.alpBlack));
                     logonBtn.setTextColor(0xffe3e3e3);
                 }
             }
 
+        });
+        numberEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String number = numberEt.getText().toString();
+                String pwd = pwdEt.getText().toString();
+                String captcha = captchaEt.getText().toString();
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
+                    logonBtn.setBackground(getDrawable(R.color.mainblue));
+                    logonBtn.setTextColor(0xffffffff);
+                } else {
+                    logonBtn.setBackground(getDrawable(R.color.alpBlack));
+                    logonBtn.setTextColor(0xffe3e3e3);
+                }
+            }
+        });
+        captchaEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String number = numberEt.getText().toString();
+                String pwd = pwdEt.getText().toString();
+                String captcha = captchaEt.getText().toString();
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
+                    logonBtn.setBackground(getDrawable(R.color.mainblue));
+                    logonBtn.setTextColor(0xffffffff);
+                } else {
+                    logonBtn.setBackground(getDrawable(R.color.alpBlack));
+                    logonBtn.setTextColor(0xffe3e3e3);
+                }
+            }
         });
     }
 
