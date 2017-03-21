@@ -76,10 +76,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
-        <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
-        <activity android:name=".find.findview.activity.FindWebView" />
-        <activity android:name=".teacher.view.TeacherDetailInfoActivity" />
+        <activity android:name=".find.findview.activity.FindDetilCafeActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".find.findview.activity.FindDetilVideoActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".find.findview.activity.FindWebView"
+            android:launchMode="singleTask"/>
+        <activity android:name=".teacher.view.TeacherDetailInfoActivity"
+            android:launchMode="singleTask"/>
 
         <activity android:name=".teacher.view.TestActivity">
 
