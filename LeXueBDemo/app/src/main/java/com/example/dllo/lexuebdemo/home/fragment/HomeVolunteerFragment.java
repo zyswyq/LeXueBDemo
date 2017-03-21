@@ -1,6 +1,7 @@
 package com.example.dllo.lexuebdemo.home.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,10 +12,12 @@ import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.adapter.HomeVolunteerAdapter;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeVolunteerBean;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 
 import java.util.List;
 
@@ -62,7 +65,13 @@ public class HomeVolunteerFragment extends BaseFragment {
     protected void initData() {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(manager);
-
+        mVolunteerAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), TeacherMovieDetailActivity.class);
+                startActivity(intent);
+            }
+        });
 
         NetTools.getInstance().startRequest(url, HomeVolunteerBean.class, new MyCallBack<HomeVolunteerBean>() {
             @Override

@@ -2,10 +2,12 @@ package com.example.dllo.lexuebdemo.home.adapter.homeviewpage;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
+import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 
 import java.util.List;
@@ -20,6 +22,11 @@ public class HomeViewConciseAdapter extends RecyclerView.Adapter<BaseViewHolder>
     private Context context;
     int modePosition;
     private List<HomeBean.VideosBean> datas;
+    private RecycleViewItemClick mRecycleViewItemClick;
+
+    public void setRecycleViewItemClick(RecycleViewItemClick recycleViewItemClick) {
+        mRecycleViewItemClick = recycleViewItemClick;
+    }
 
     public HomeViewConciseAdapter(Context context) {
         this.context = context;
@@ -37,12 +44,18 @@ public class HomeViewConciseAdapter extends RecyclerView.Adapter<BaseViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, final int position) {
         holder.setText(R.id.item_home_system_content, datas.get(modePosition).getContent_list().get(position).getVideo_title());
         holder.setText(R.id.item_home_system_author, datas.get(modePosition).getContent_list().get(position).getTeacher_name());
         holder.setText(R.id.item_home_system_subject, datas.get(modePosition).getContent_list().get(position).getVideo_subject_name());
         holder.setImg(R.id.item_home_system_imageview, datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
-
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            mRecycleViewItemClick.onClick(position);
+        }
+    });
+        holder.itemView.setTag(datas);
     }
 
     @Override

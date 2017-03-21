@@ -160,6 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@color/alpBlack"
         android:textColor="@color/grayWhite2"
         android:text="注    册" />
 

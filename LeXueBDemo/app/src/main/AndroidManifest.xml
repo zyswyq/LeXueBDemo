@@ -72,17 +72,26 @@
 
         </activity>
 
-        <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
-        <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
-        <activity android:name=".find.findview.activity.FindWebView" />
+
+        <activity android:name=".find.findview.activity.FindDetilCafeActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".find.findview.activity.FindDetilVideoActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".find.findview.activity.FindWebView"
+            android:launchMode="singleTask"/>
         <activity android:name=".teacher.view.TeacherDetailInfoActivity"
             android:launchMode="singleTask"/>
+
+
+
+
 
         <activity android:name=".find.findview.activity.FindRobotActivity" />
 
         <activity android:name=".myself.activity.LogonActivity" />
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
+        <activity android:name=".myself.activity.IdeaActivitty"/>
 
         <activity android:name=".teacher.view.TeacherMovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"

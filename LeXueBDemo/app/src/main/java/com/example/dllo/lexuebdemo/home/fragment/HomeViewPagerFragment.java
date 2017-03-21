@@ -1,5 +1,6 @@
 package com.example.dllo.lexuebdemo.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +9,11 @@ import android.util.Log;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.find.findview.FindCafeView;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 import com.example.dllo.lexuebdemo.home.HomeBinner;
+import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewClassifyAdapter;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewConciseAdapter;
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewFreeAdapter;
@@ -35,6 +40,8 @@ public class HomeViewPagerFragment extends BaseFragment {
     private RecyclerView mRecyclerView, freeRecyclerview, conciseRecyclerview,recommedRecyclerview
 
            ,refreshRecyclerview ,reviseRecyclerview;
+    private RecycleViewItemClick mRecycleViewItemClick;
+
 
     private static final String url = "http://api.lexue.com/layout/entry ";
     private static final String freeurl = "http://api.lexue.com/video/list_v3?subject_id=100 ";
@@ -56,6 +63,9 @@ public class HomeViewPagerFragment extends BaseFragment {
     String url3 = "https://esfile.lexue.com/file/T17txTBgbT1RCvBVdK.jpg";
     String url4 = "https://esfile.lexue.com/file/T17RxTB_dT1RCvBVdK.jpg";
 
+    public void setRecycleViewItemClick(RecycleViewItemClick recycleViewItemClick) {
+        mRecycleViewItemClick = recycleViewItemClick;
+    }
 
     @Override
     protected int getLayout() {
@@ -83,13 +93,17 @@ public class HomeViewPagerFragment extends BaseFragment {
         pic.add(url4);
 
         //显示圆形指示器和标题（垂直显示）
+
         mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+
         //        设置图片加载器
         mBanner.setImageLoader(new HomeBinner());
         //        设置轮播图片
         mBanner.setImages(pic);
         //        ()里动画常量类
-        mBanner.setBannerAnimation(Transformer.DepthPage);
+        mBanner.setBannerAnimation(Transformer.ZoomOut);
+//        mBanner.setBannerAnimation(Transformer.BackgroundToForeground);
+//        mBanner.setBannerAnimation(Transformer.DepthPage);
         //        是否自动轮播
         mBanner.setDelayTime(3000);
         //设置指示器位置（没有标题默认为右边,有标题时默认左边）
@@ -111,6 +125,22 @@ public class HomeViewPagerFragment extends BaseFragment {
 
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mViewClassifyAdapter);
+      mViewClassifyAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+          @Override
+          public void onClick(int position) {
+              if (0 == position){
+
+                  Intent intent = new Intent(getActivity(), FindWebView.class);
+                  startActivity(intent);
+              }
+              if (1 == position){
+                  Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+                  startActivity(intent);
+              }
+
+          }
+      });
+
         NetTools.getInstance().startRequest(url, HomeClassifyBean.class, new MyCallBack<HomeClassifyBean>() {
             @Override
             public void success(HomeClassifyBean respomse) {
