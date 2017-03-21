@@ -69,12 +69,9 @@
         <service android:name="com.amap.api.location.APSService"/>
 
         <activity android:name=".main.view.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
 
         <activity android:name=".find.findview.activity.FindDetilCafeActivity"
             android:launchMode="singleTask"/>
@@ -85,15 +82,16 @@
         <activity android:name=".teacher.view.TeacherDetailInfoActivity"
             android:launchMode="singleTask"/>
 
-        <activity android:name=".teacher.view.TestActivity">
 
-        </activity>
+
+
 
         <activity android:name=".find.findview.activity.FindRobotActivity" />
 
         <activity android:name=".myself.activity.LogonActivity" />
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
+        <activity android:name=".myself.activity.IdeaActivitty"/>
 
         <activity android:name=".teacher.view.TeacherMovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -112,6 +110,14 @@
         <activity android:name=".find.findview.activity.FuliActivity" />
 
         <activity android:name=".find.findview.activity.FindMapActivity"/>
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
 
     </application>
 

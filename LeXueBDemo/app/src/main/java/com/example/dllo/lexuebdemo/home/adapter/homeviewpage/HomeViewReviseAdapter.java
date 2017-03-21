@@ -2,10 +2,12 @@ package com.example.dllo.lexuebdemo.home.adapter.homeviewpage;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
+import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 
 import java.util.List;
@@ -20,6 +22,11 @@ public class HomeViewReviseAdapter extends RecyclerView.Adapter<BaseViewHolder>{
     private Context context;
     private List<HomeBean.VideosBean> datas;
    private int modePosition;
+    private RecycleViewItemClick mRecycleViewItemClick;
+
+    public void setRecycleViewItemClick(RecycleViewItemClick recycleViewItemClick) {
+        mRecycleViewItemClick = recycleViewItemClick;
+    }
 
     public HomeViewReviseAdapter(Context context) {
         this.context = context;
@@ -37,8 +44,15 @@ public class HomeViewReviseAdapter extends RecyclerView.Adapter<BaseViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, final int position) {
      holder.setImg(R.id.item_home_revise_iv,datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRecycleViewItemClick.onClick(position);
+            }
+        });
+        holder.itemView.setTag(datas);
     }
 
     @Override

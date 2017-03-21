@@ -3,7 +3,10 @@ package com.example.dllo.lexuebdemo.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+
+import com.example.dllo.lexuebdemo.utils.ActivityCollector;
 
 /*
     by Mr.L
@@ -11,9 +14,12 @@ import android.view.View;
     desc activity基类
 */
 public abstract class BaseActivity extends AppCompatActivity{
+    private static final String TAG = "BaseActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("BaseActivity", getClass().getSimpleName());
+        ActivityCollector.addActivity(this);
         setContentView(getLayout());
 
         initView();
@@ -34,4 +40,12 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected <T extends View> T bindView(int resId){
         return (T)findViewById(resId);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
+    }
+
+
 }

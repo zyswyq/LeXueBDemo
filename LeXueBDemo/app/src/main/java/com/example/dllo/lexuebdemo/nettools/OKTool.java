@@ -21,6 +21,7 @@ package com.example.dllo.lexuebdemo.nettools;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.example.dllo.lexuebdemo.nettools.inter.InternetRequest;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
@@ -36,6 +37,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class OKTool implements InternetRequest {
+    private static final String TAG = "OKTool";
     private Gson gson;
     private OkHttpClient okHttpClient;
     private Handler handler = new Handler(Looper.getMainLooper());

@@ -1,11 +1,17 @@
 package com.example.dllo.lexuebdemo.main.view;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
@@ -16,6 +22,7 @@ import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
 import com.example.dllo.lexuebdemo.main.presenter.MainPresenter;
 import com.example.dllo.lexuebdemo.myself.activity.LogonActivity;
 import com.example.dllo.lexuebdemo.myself.fragment.MyselfFragment;
+import com.example.dllo.lexuebdemo.receiver.NetWorkReceiver;
 import com.example.dllo.lexuebdemo.teacher.view.TeacherFragment;
 
 import java.util.ArrayList;
@@ -27,6 +34,7 @@ import java.util.List;
  */
 
 public class MainActivity extends BaseActivity implements MainView {
+    private static final String TAG = "MainActivity";
 
     private RadioButton mainPage,teacherPage,findPage,myPage;
     private RadioGroup mainRagioGroup;
@@ -34,6 +42,24 @@ public class MainActivity extends BaseActivity implements MainView {
     private NoMoveViewPager mainVP;
     private List<Fragment> fragments;
     private MainVPAdapter adapter;
+
+    private boolean confirmExit = false;
+    private Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    //还原boolean值状态
+                    confirmExit = false;
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    });
+
+    private NetWorkReceiver netWorkReceiver;
 
     @Override
     protected int getLayout() {
@@ -69,6 +95,11 @@ public class MainActivity extends BaseActivity implements MainView {
             mainVP.setCurrentItem(4);
             myPage.setChecked(true);
         }
+
+        netWorkReceiver = new NetWorkReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(netWorkReceiver, filter);
     }
 
 
@@ -101,10 +132,21 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
 
+    //延时发送消息，控制一定时间内点击两次返回，退出程序
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if(confirmExit){
+            finish();
+        }else{
+            confirmExit = true;
+            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).show();
+            handler.sendEmptyMessageDelayed(0, 2000);
+        }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(netWorkReceiver);
+    }
 }
