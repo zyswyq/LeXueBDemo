@@ -1,6 +1,10 @@
 package com.example.dllo.lexuebdemo.myself.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -17,9 +21,12 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.main.view.MainActivity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
 /*
@@ -49,6 +56,7 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
     private EditText pwdEt, captchaEt, numberEt;
     private Button captchaBtn, logonBtn;
     private CheckBox checkBox;
+    private Handler handler;
 
 
     @Override
@@ -90,7 +98,7 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
                 String number = numberEt.getText().toString();
                 String pwd = pwdEt.getText().toString();
                 String captcha = captchaEt.getText().toString();
-                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number) && !TextUtils.isEmpty(captcha)) {
                     logonBtn.setBackground(getDrawable(R.color.mainblue));
                     logonBtn.setTextColor(0xffffffff);
                 } else {
@@ -116,7 +124,7 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
                 String number = numberEt.getText().toString();
                 String pwd = pwdEt.getText().toString();
                 String captcha = captchaEt.getText().toString();
-                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number) && !TextUtils.isEmpty(captcha)) {
                     logonBtn.setBackground(getDrawable(R.color.mainblue));
                     logonBtn.setTextColor(0xffffffff);
                 } else {
@@ -141,7 +149,7 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
                 String number = numberEt.getText().toString();
                 String pwd = pwdEt.getText().toString();
                 String captcha = captchaEt.getText().toString();
-                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number)&&!TextUtils.isEmpty(captcha)) {
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(number) && !TextUtils.isEmpty(captcha)) {
                     logonBtn.setBackground(getDrawable(R.color.mainblue));
                     logonBtn.setTextColor(0xffffffff);
                 } else {
@@ -203,7 +211,6 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
                 } else {
                     Toast.makeText(this, "请输入正确手机号", Toast.LENGTH_SHORT).show();
                 }
-//                SMSSDK.registerEventHandler(eventHandler);
                 break;
             case R.id.btn_logon:
                 if (checkBox.isChecked()) {
@@ -211,10 +218,37 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
                     int ID = 4;
                     intent.putExtra("fragment", ID);
                     startActivity(intent);
+                    //完成回调
+                    //提交验证码成功
+                    //获取验证码成功
+                    //返回支持的国家列表
+                    handler = new Handler(new Handler.Callback() {
+                        @Override
+                        public boolean handleMessage(Message msg) {
+                            if (msg.arg2 == SMSSDK.RESULT_COMPLETE) {
+                                //完成回调
+                                if (msg.arg1 == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                                    Toast.makeText(LogonActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                    //提交验证码成功
+                                } else if (msg.arg1 == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                                    Toast.makeText(LogonActivity.this, "获取验证码成功", Toast.LENGTH_SHORT).show();
+                                    //获取验证码成功
+                                } else if (msg.arg1 == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+                                    //返回支持的国家列表
+                                    ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) msg.obj;
+                                }
+                            }
+                            return false;
+                        }
+                    });
                     finish();
                 } else {
                     Toast.makeText(this, "你需要同意用户协议", Toast.LENGTH_SHORT).show();
                 }
+                SharedPreferences sharedPreferences = getSharedPreferences("register",this.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("register",true);
+                editor.commit();
                 break;
         }
 
@@ -229,20 +263,21 @@ public class LogonActivity extends BaseActivity implements View.OnClickListener 
         return m.matches();
 
     }
-//    private EventHandler eventHandler = new EventHandler() {
-//        @Override
-//        public void afterEvent(int event, int result, Object data) {
-//            if (result == SMSSDK.RESULT_COMPLETE) {
-//                if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-//
-//                } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-//                } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
-//
-//                }
-//
-//            } else {
-//                ((Throwable) data).printStackTrace();
-//            }
-//        }
-//    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    private EventHandler eventHandler = new EventHandler() {
+        @Override
+        public void afterEvent(int i, int i1, Object o) {
+            super.afterEvent(i, i1, o);
+            Message msg = Message.obtain();
+            msg.arg1 = i;
+            msg.arg2 = i1;
+            msg.obj = o;
+            handler.sendMessage(msg);
+        }
+    };
 }

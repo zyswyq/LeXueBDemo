@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dllo.lexuebdemo">
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -67,34 +68,29 @@
             android:name="com.amap.api.v2.apikey"
             android:value="a8aef207cb56828e38fe77c8d8c39c20" />
         <!--声明定位service-->
-        <service android:name="com.amap.api.location.APSService"/>
+        <service android:name="com.amap.api.location.APSService" />
 
         <activity android:name=".main.view.MainActivity">
 
         </activity>
 
-
-        <activity android:name=".find.findview.activity.FindDetilCafeActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".find.findview.activity.FindDetilVideoActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".find.findview.activity.FindWebView"
-            android:launchMode="singleTask"/>
-        <activity android:name=".teacher.view.TeacherDetailInfoActivity"
-            android:launchMode="singleTask"/>
-
-
-
-
+        <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
+        <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
+        <activity android:name=".find.findview.activity.FindWebView" />
+        <activity
+            android:name=".teacher.view.TeacherDetailInfoActivity"
+            android:launchMode="singleTask" />
 
         <activity android:name=".find.findview.activity.FindRobotActivity" />
 
         <activity android:name=".myself.activity.LogonActivity" />
         <activity android:name=".myself.activity.ClauseActivity" />
         <activity android:name=".myself.activity.LoginActivity" />
-        <activity android:name=".myself.activity.IdeaActivitty"/>
+        <activity android:name=".myself.activity.IdeaActivitty" />
+        <activity android:name=".myself.activity.SetActivity" />
 
-        <activity android:name=".teacher.view.TeacherMovieDetailActivity"
+        <activity
+            android:name=".teacher.view.TeacherMovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait">
 
@@ -110,7 +106,7 @@
 
         <activity android:name=".find.findview.activity.FuliActivity" />
 
-        <activity android:name=".find.findview.activity.FindMapActivity"/>
+        <activity android:name=".find.findview.activity.FindMapActivity" />
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -118,7 +114,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
 
     </application>
 
