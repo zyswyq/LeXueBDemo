@@ -47,7 +47,7 @@ public class Toast {
     }
 
     public void xieShow(){
-        android.widget.Toast toast = android.widget.Toast.makeText(context, str, duraiton);
+        android.widget.Toast toast = new android.widget.Toast(context);
         View view = LayoutInflater.from(context).inflate(R.layout.toast_view, null);
         ((TextView)view.findViewById(R.id.my_toast_content)).setText(str);
         toast.setView(view);

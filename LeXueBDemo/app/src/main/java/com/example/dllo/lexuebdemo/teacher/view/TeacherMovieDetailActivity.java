@@ -218,7 +218,9 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     }
 
     private void setJcPlayer() {
-        jcVideoPlayerStandard.setUp(Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId,
+        String url = Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId;
+        Log.e(TAG, "setJcPlayer: " + url);
+        jcVideoPlayerStandard.setUp(url,
                 JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
     }
 

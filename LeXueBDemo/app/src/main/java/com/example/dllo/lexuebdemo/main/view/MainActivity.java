@@ -2,6 +2,7 @@ package com.example.dllo.lexuebdemo.main.view;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -11,11 +12,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
+import com.example.dllo.lexuebdemo.customview.Toast;
 import com.example.dllo.lexuebdemo.find.findview.fragment.FindFragment;
 import com.example.dllo.lexuebdemo.home.fragment.HomeTabFragment;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
@@ -36,7 +38,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements MainView {
     private static final String TAG = "MainActivity";
 
-    private RadioButton mainPage,teacherPage,findPage,myPage;
+    private RadioButton mainPage, teacherPage, findPage, myPage;
     private RadioGroup mainRagioGroup;
     private MainPresenter presenter;
     private NoMoveViewPager mainVP;
@@ -47,7 +49,7 @@ public class MainActivity extends BaseActivity implements MainView {
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case 0:
                     //还原boolean值状态
                     confirmExit = false;
@@ -61,6 +63,11 @@ public class MainActivity extends BaseActivity implements MainView {
 
     private NetWorkReceiver netWorkReceiver;
 
+    private boolean register() {
+        SharedPreferences sharedPreferences = getSharedPreferences("register", this.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("register", false);
+    }
+
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
@@ -69,16 +76,16 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     protected void initView() {
-        fragments=new ArrayList<>();
+        fragments = new ArrayList<>();
         mainPage = bindView(R.id.radiobtn_main);
         myPage = bindView(R.id.radiobtn_my);
         teacherPage = bindView(R.id.radiobtn_teacher);
         findPage = bindView(R.id.radiobtn_find);
-        mainRagioGroup=bindView(R.id.radiogroup_main);
-        mainVP=bindView(R.id.vp_main);
-        presenter=new MainPresenter(this);
+        mainRagioGroup = bindView(R.id.radiogroup_main);
+        mainVP = bindView(R.id.vp_main);
+        presenter = new MainPresenter(this);
         mainPage.setChecked(true);
-        adapter=new MainVPAdapter(getSupportFragmentManager());
+        adapter = new MainVPAdapter(getSupportFragmentManager());
     }
 
 
@@ -91,7 +98,7 @@ public class MainActivity extends BaseActivity implements MainView {
         adapter.setFragments(fragments);
         mainVP.setAdapter(adapter);
         mainVP.setOffscreenPageLimit(4);
-        if (getIntent().getIntExtra("fragment",0)==4) {
+        if (getIntent().getIntExtra("fragment", 0) == 4) {
             mainVP.setCurrentItem(4);
             myPage.setChecked(true);
         }
@@ -108,14 +115,16 @@ public class MainActivity extends BaseActivity implements MainView {
         mainRagioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-               presenter.selectPage(i);
+                presenter.selectPage(i);
             }
         });
         myPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LogonActivity.class);
-                startActivity(intent);
+                if (!register()) {
+                    Intent intent = new Intent(MainActivity.this, LogonActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -135,11 +144,11 @@ public class MainActivity extends BaseActivity implements MainView {
     //延时发送消息，控制一定时间内点击两次返回，退出程序
     @Override
     public void onBackPressed() {
-        if(confirmExit){
+        if (confirmExit) {
             finish();
-        }else{
+        } else {
             confirmExit = true;
-            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).xieShow();
             handler.sendEmptyMessageDelayed(0, 2000);
         }
     }

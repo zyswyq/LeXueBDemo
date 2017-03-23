@@ -393,6 +393,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/ll_fg_myself_idea"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white">
@@ -453,6 +454,7 @@
                     android:background="@color/grayText" />
 
                 <RelativeLayout
+                    android:id="@+id/rl_idea_set"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white">
