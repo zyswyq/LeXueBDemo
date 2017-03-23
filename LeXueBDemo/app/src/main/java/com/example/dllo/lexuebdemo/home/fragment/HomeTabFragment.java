@@ -8,6 +8,7 @@ import com.example.dllo.lexuebdemo.home.adapter.HomeTabAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,9 +24,8 @@ public class HomeTabFragment extends BaseFragment{
     private List<String> fragments;
 
 
-//    public static final String [] tabTitle = new String[]{"推荐","数学","语文","化学"
-//            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理",
-//            "自招物理","自招数学"};
+    public static final String [] tabTitle = new String[]{"推荐","数学","语文","化学"
+            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理","自招数学"};
     @Override
     protected int getLayout() {
         return R.layout.fragment_home_tablayout;
@@ -43,8 +43,9 @@ public class HomeTabFragment extends BaseFragment{
         mTabLayout.setSelectedTabIndicatorColor(0);
 
         fragments = new ArrayList<>();
-        for (int i = 1; i <= 15 ; i++) {
-            fragments.add("课程" + i);
+        for (int i = 1; i <= 14 ; i++) {
+            Collections.addAll(fragments, tabTitle);
+//                    .add("学科" + i );
         }
     mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
         mViewPager.setAdapter(mHomeTabAdapter);

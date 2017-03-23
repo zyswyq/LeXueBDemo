@@ -22,6 +22,8 @@ public class HomeTabAdapter extends FragmentPagerAdapter{
     private List <Fragment> mFragments;
     private Context context;
 
+
+
     public HomeTabAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
@@ -33,14 +35,17 @@ public class HomeTabAdapter extends FragmentPagerAdapter{
         if (0 == position) {
             return HomeViewPagerFragment.newInstance();
         } else if (0 < position && 7 > position) {
+
             return HomeSubjectFragment.newInstance(position + 1);
+
         } else
             return HomeVolunteerFragment.newInstance(position + 1);
+
     }
 
     @Override
     public int getCount() {
-        return 15;
+        return 14;
     }
 
 
