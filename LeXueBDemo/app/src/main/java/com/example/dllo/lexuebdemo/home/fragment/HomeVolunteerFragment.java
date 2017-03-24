@@ -17,6 +17,7 @@ import com.example.dllo.lexuebdemo.home.adapter.HomeVolunteerAdapter;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeVolunteerBean;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.model.Constant;
 import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 
 import java.util.List;
@@ -30,18 +31,19 @@ public class HomeVolunteerFragment extends BaseFragment {
     private HomeVolunteerAdapter mVolunteerAdapter;
     public static final String url = "http://api.lexue.com/video/list_v3?pagesize=10&point_id=0&sub_point_id=0&phase=0&video_type=0&sort=0&subject_id=11";
     private List<HomeVolunteerBean.VideosBean>  datas;
-    private List<HomeVolunteerBean.VideosBean.TagListBean> mTagListBeen;
+
 
     private Handler mHandler = new Handler(Looper.myLooper());
 
     private TextView mTestTv;
+    private int mId;
 
-    public static HomeVolunteerFragment newInstance(int position) {
+    public static HomeVolunteerFragment newInstance(int id) {
 
         Bundle args = new Bundle();
 
         HomeVolunteerFragment fragment = new HomeVolunteerFragment();
-        args.putInt("positionFrag",position);
+        args.putInt("idFrag",id);
 
         fragment.setArguments(args);
         return fragment;
@@ -63,6 +65,7 @@ public class HomeVolunteerFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        mId = getArguments().getInt("idFrag");
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(manager);
         mVolunteerAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
@@ -73,7 +76,7 @@ public class HomeVolunteerFragment extends BaseFragment {
             }
         });
 
-        NetTools.getInstance().startRequest(url, HomeVolunteerBean.class, new MyCallBack<HomeVolunteerBean>() {
+        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT_URL + mId, HomeVolunteerBean.class, new MyCallBack<HomeVolunteerBean>() {
             @Override
             public void success(HomeVolunteerBean respomse) {
                 datas = respomse.getVideos();

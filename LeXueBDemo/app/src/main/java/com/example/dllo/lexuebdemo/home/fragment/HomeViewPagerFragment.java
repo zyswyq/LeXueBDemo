@@ -45,7 +45,7 @@ public class HomeViewPagerFragment extends BaseFragment {
     private RecycleViewItemClick mRecycleViewItemClick;
 
 
-    private static final String url = "http://api.lexue.com/layout/entry ";
+    private static final String url = "http://api.lexue.com/layout/entry";
     private static final String freeurl = "http://api.lexue.com/video/list_v3?subject_id=100 ";
 
     private List<HomeClassifyBean.EntriesBean> datas;
