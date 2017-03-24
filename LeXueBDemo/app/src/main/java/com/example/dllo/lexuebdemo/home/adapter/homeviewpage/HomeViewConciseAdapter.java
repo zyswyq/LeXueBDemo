@@ -49,7 +49,7 @@ public class HomeViewConciseAdapter extends RecyclerView.Adapter<BaseViewHolder>
         holder.setText(R.id.item_home_system_author, datas.get(modePosition).getContent_list().get(position).getTeacher_name());
         holder.setText(R.id.item_home_system_subject, datas.get(modePosition).getContent_list().get(position).getVideo_subject_name());
         holder.setImg(R.id.item_home_system_imageview, datas.get(modePosition).getContent_list().get(position).getVideo_cover().getUrl());
-    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             mRecycleViewItemClick.onClick(position);

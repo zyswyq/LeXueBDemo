@@ -20,8 +20,10 @@ import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewFreeAdapter
 import com.example.dllo.lexuebdemo.home.adapter.homeviewpage.HomeViewReviseAdapter;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeClassifyBean;
+import com.example.dllo.lexuebdemo.myself.activity.LogonActivity;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -125,19 +127,50 @@ public class HomeViewPagerFragment extends BaseFragment {
 
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mViewClassifyAdapter);
-      mViewClassifyAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+        mViewClassifyAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
           @Override
           public void onClick(int position) {
               if (0 == position){
 
                   Intent intent = new Intent(getActivity(), FindWebView.class);
+
                   startActivity(intent);
               }
               if (1 == position){
                   Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+
                   startActivity(intent);
               }
+              if (2 == position){
+                  Intent intent = new Intent(getActivity(), FindCafeView.class);
 
+                  startActivity(intent);
+              }
+              if (3 == position){
+                  Intent intent = new Intent(getActivity(), LogonActivity.class);
+
+                  startActivity(intent);
+              }
+              if (4 == position){
+                  Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+
+                  startActivity(intent);
+              }
+              if (5 == position){
+                  Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+
+                  startActivity(intent);
+              }
+              if (6 == position){
+                  Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+
+                  startActivity(intent);
+              }
+              if (7 == position){
+                  Intent intent = new Intent(getActivity(), FindDetilVideoActivity.class);
+
+                  startActivity(intent);
+              }
           }
       });
 
@@ -165,6 +198,15 @@ public class HomeViewPagerFragment extends BaseFragment {
         freeRecyclerview.setAdapter(mHomeViewFreeAdapter);
 
         mHomeViewFreeAdapter.setDatas(mListBeen, 0);
+        mHomeViewFreeAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), TeacherMovieDetailActivity.class);
+//                intent.putExtra("")
+                startActivity(intent);
+            }
+        });
+
         homeRevise();
 //        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
 //            @Override
@@ -192,6 +234,12 @@ public class HomeViewPagerFragment extends BaseFragment {
 
         conciseRecyclerview.setLayoutManager(concisemanager);
         conciseRecyclerview.setAdapter(mViewConciseAdapter);
+        mViewConciseAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+            @Override
+            public void onClick(int position) {
+
+            }
+        });
 
         NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
             @Override
@@ -219,6 +267,12 @@ public class HomeViewPagerFragment extends BaseFragment {
         reviseRecyclerview.setLayoutManager(revisemanager);
         reviseRecyclerview.setAdapter(mViewReviseAdapter);
         mViewReviseAdapter.setDatas(mListBeen, 2);
+        mViewReviseAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+            @Override
+            public void onClick(int position) {
+
+            }
+        });
 
 //        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
 //            @Override
@@ -242,6 +296,12 @@ public class HomeViewPagerFragment extends BaseFragment {
         recommedRecyclerview.setLayoutManager(recommed);
         recommedRecyclerview.setAdapter(mHomeViewFreeAdapter);
         mHomeViewFreeAdapter.setDatas(mListBeen,3);
+        mHomeViewFreeAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+            @Override
+            public void onClick(int position) {
+
+            }
+        });
         homeRefresh();
     }
     //刷新
@@ -251,6 +311,12 @@ public void homeRefresh(){
     recommedRecyclerview.setLayoutManager(refresh);
     recommedRecyclerview.setAdapter(mHomeViewFreeAdapter);
     mHomeViewFreeAdapter.setDatas(mListBeen,4);
+    mHomeViewFreeAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+        @Override
+        public void onClick(int position) {
+
+        }
+    });
 }
     @Override
     protected void initListener() {
@@ -265,5 +331,6 @@ public void homeRefresh(){
         fragment.setArguments(args);
         return fragment;
     }
+
 
 }

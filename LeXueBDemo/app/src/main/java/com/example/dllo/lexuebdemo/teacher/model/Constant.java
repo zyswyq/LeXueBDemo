@@ -6,6 +6,9 @@ package com.example.dllo.lexuebdemo.teacher.model;
     desc 描述
 */
 public class Constant {
+
+    //学科界面
+    public static final String HOME_SUBJECT_URL = "http://api.lexue.com/video/list_v3?pagesize=10&point_id=0&sub_point_id=0&phase=0&video_type=0&sort=0&subject_id=";
     //teacher界面的学科标签
     public static final String TEACHER_ALLDATA_URL = "http://api.lexue.com/teacher/subject_list";
     //根据学科的标签拼接，找到相应的学科界面数据

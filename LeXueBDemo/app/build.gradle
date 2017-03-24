@@ -50,4 +50,5 @@ dependencies {
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
     compile files('libs/AMap_Location_V3.3.0_20170118.jar')
     compile files('libs/universal-image-loader-1.9.0.jar')
+
 }
