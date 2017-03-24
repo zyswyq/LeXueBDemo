@@ -40,7 +40,9 @@ public class FindMapActivity extends Activity implements LocationSource, AMapLoc
         mapView = (MapView) findViewById(R.id.map_find);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，实现地图生命周期管理
         mapView.onCreate(savedInstanceState);
+
         if (aMap == null) {
+            Log.d("wwwwwwwww", "savedInstanceState:" + savedInstanceState);
             aMap = mapView.getMap();
             //设置显示定位按钮 并且可以点击
             UiSettings settings = aMap.getUiSettings();
@@ -112,7 +114,6 @@ public class FindMapActivity extends Activity implements LocationSource, AMapLoc
     @Override
     public void deactivate() {
         mListener = null;
-
     }
 
     @Override
@@ -136,7 +137,6 @@ public class FindMapActivity extends Activity implements LocationSource, AMapLoc
                 aMapLocation.getStreetNum();//街道门牌号信息
                 aMapLocation.getCityCode();//城市编码
                 aMapLocation.getAdCode();//地区编码
-
                 // 如果不设置标志位，此时再拖动地图时，它会不断将地图移动到当前的位置
                 if (isFirstLoc) {
                     //设置缩放级别
@@ -159,8 +159,6 @@ public class FindMapActivity extends Activity implements LocationSource, AMapLoc
                     Toast.makeText(getApplicationContext(), buffer.toString(), Toast.LENGTH_LONG).show();
                     isFirstLoc = false;
                 }
-
-
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                 Log.e("AmapError", "location Error, ErrCode:"
