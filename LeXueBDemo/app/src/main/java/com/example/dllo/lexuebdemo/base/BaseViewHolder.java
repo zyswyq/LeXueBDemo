@@ -77,6 +77,11 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public ImageView getImg(int id){
+        ImageView imageView=getView(id);
+        return imageView;
+    }
+
     public BaseViewHolder setViewVisiable(int id, int type) {
         View view = getView(id);
         if (type == View.INVISIBLE) {

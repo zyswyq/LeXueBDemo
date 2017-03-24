@@ -15,6 +15,7 @@ import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.home.sujectbean.Physics;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.model.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 //这是学科界面
 public class HomeSubjectFragment extends BaseFragment{
      private RecyclerView mRecyclerView;
-    int page = 1;
+    int page = 0;
 
     public static final String url = "http://api.lexue.com/video/list_v3?" +
             "pagesize=10&point_id=0&sub_point_id=0&phase=0&video_type=0&sort" +
@@ -37,18 +38,10 @@ public class HomeSubjectFragment extends BaseFragment{
     private List<Physics.VideosBean> datas;
     private Physics.VideosBean beans;
 
+
+
     private Handler handler = new Handler(Looper.getMainLooper());
-    //fragment之间的传值
-    public static HomeSubjectFragment newInstance(int position) {
 
-        Bundle args = new Bundle();
-
-        HomeSubjectFragment fragment = new HomeSubjectFragment();
-
-        args.putInt("positionFrag",position);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     protected int getLayout() {
@@ -69,19 +62,23 @@ public class HomeSubjectFragment extends BaseFragment{
     protected void initData() {
         Bundle bundle = getArguments();
         if (null != bundle) {
-            int position = bundle.getInt("positionFrag");
-        }
+             int id = bundle.getInt("idFrag");
+
 
 
         datas = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(manager);
 
-        NetTools.getInstance().startRequest(url, Physics.class, new MyCallBack<Physics>() {
+        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT_URL + id, Physics.class, new MyCallBack<Physics>() {
+
             @Override
             public void success(Physics respomse) {
-                datas  = respomse.getVideos();
-                mSubjectRecycleAdapter.setDatas(respomse.getVideos());
+
+                    datas  = respomse.getVideos();
+                    mSubjectRecycleAdapter.setDatas(respomse.getVideos());
+
+
             }
 
             @Override
@@ -89,11 +86,24 @@ public class HomeSubjectFragment extends BaseFragment{
 
             }
         });
+        }
 
 //        Bundle bundle = getArguments();
 //        int positionFrag = bundle.getInt("positionFrag");
 //        mTestTv.setText("第"+positionFrag+"个");
 //        mTestTv.setTextSize(50);
+    }
+    //fragment之间的传值
+    public static HomeSubjectFragment newInstance(int id) {
+
+        Bundle args = new Bundle();
+
+        HomeSubjectFragment fragment = new HomeSubjectFragment();
+
+        args.putInt("idFrag",id);
+
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override

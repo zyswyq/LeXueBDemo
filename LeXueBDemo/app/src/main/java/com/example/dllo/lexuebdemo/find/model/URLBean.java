@@ -15,4 +15,6 @@ public class URLBean {
 
     public static String FINDCAFE="http://post.lexue.com/post/pub/post_list?page_size=10&page=";
 
+
+
 }

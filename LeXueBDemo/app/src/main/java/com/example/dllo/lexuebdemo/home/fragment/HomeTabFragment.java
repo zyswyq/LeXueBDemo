@@ -2,12 +2,19 @@ package com.example.dllo.lexuebdemo.home.fragment;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.home.adapter.HomeTabAdapter;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
+import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
+import com.example.dllo.lexuebdemo.home.sujectbean.HomeSubject;
+import com.example.dllo.lexuebdemo.nettools.NetTools;
+import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.model.Constant;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,15 +24,16 @@ import java.util.List;
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
 public class HomeTabFragment extends BaseFragment{
+    private static final String TAG = "HomeTabFragment";
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private HomeTabAdapter mHomeTabAdapter;
-    private List<String> fragments;
+//    private List<HomeSubject.VideoSubjectsBean> fragments;
+    private int[] ids;
 
 
-//    public static final String [] tabTitle = new String[]{"推荐","数学","语文","化学"
-//            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理",
-//            "自招物理","自招数学"};
+    public static final String [] tabTitle = new String[]{"推荐","数学","语文","化学"
+            ,"物理","生物","英语","政治","历史","地理","志愿","政策面试","自招物理","自招数学"};
     @Override
     protected int getLayout() {
         return R.layout.fragment_home_tablayout;
@@ -39,14 +47,67 @@ public class HomeTabFragment extends BaseFragment{
 
     @Override
     protected void initData() {
+        ids = new int[]{100, 1, 5, 2, 3, 4, 6, 103, 102, 104, 11, 302, 303, 301};
+        HomeSubject();
+//        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT, HomeSubject.class, new MyCallBack<HomeSubject>() {
+//            @Override
+//            public void success(HomeSubject respomse) {
+//                fragments = respomse.getVideo_subjects();
+//                HomeSubject();
+//
+//            }
+//
+//            @Override
+//            public void error(Throwable throwable) {
+//
+//            }
+//        });
         //字体底部下划线消失方法
+
+
+//        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT, HomeBean.class, new MyCallBack<HomeBean>() {
+//            @Override
+//            public void success(HomeBean respomse) {
+//                fragments = respomse.getVideos();
+//
+//            }
+//
+//            @Override
+//            public void error(Throwable throwable) {
+//
+//            }
+//        });
+//        for (int i = 1; i <= 14 ; i++) {
+//            Collections.addAll(fragments);
+////                    .add("学科" + i );
+//        }
+//    mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
+//        mViewPager.setAdapter(mHomeTabAdapter);
+//        mViewPager.setOffscreenPageLimit(7);
+//        mTabLayout.setupWithViewPager(mViewPager);
+//        //可以滑动的方法
+//        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+//        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
+//            TabLayout.Tab tab = mTabLayout.getTabAt(i);
+//
+//
+//                        tab.setText(fragments.get());
+        }
+
+
+
+    public void HomeSubject(){
+
         mTabLayout.setSelectedTabIndicatorColor(0);
 
-        fragments = new ArrayList<>();
-        for (int i = 1; i <= 15 ; i++) {
-            fragments.add("课程" + i);
-        }
-    mHomeTabAdapter = new HomeTabAdapter(getFragmentManager(),context);
+//        fragments = new ArrayList<>();
+//        for (int i = 1; i <= 14 ; i++) {
+//            Collections.addAll(fragments);
+////                    .add("学科" + i );
+//        }
+        mHomeTabAdapter = new HomeTabAdapter(getFragmentManager());
+//        mHomeTabAdapter.setFragments(fragments);
+        mHomeTabAdapter.setIds(ids);
         mViewPager.setAdapter(mHomeTabAdapter);
         mViewPager.setOffscreenPageLimit(7);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -54,10 +115,11 @@ public class HomeTabFragment extends BaseFragment{
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mTabLayout.getTabAt(i);
-            tab.setText(fragments.get(i));
+            Log.e(TAG, "HomeSubject: "+tabTitle[i]);
+            tab.setText(tabTitle[i]);
         }
-
     }
+
 
     @Override
     protected void initListener() {
