@@ -333,13 +333,10 @@ public void homeRefresh(){
         return fragment;
     }
 
-<<<<<<< HEAD
     @Override
     public void onClick(int position) {
         //TODO 具体item点击事件的处理
         return;
     }
-=======
 
->>>>>>> bae265c8fdb5c520abf100a8d3d41cad0ac04e87
 }
