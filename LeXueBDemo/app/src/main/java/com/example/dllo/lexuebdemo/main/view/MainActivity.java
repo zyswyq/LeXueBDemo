@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
@@ -148,7 +146,7 @@ public class MainActivity extends BaseActivity implements MainView {
             finish();
         } else {
             confirmExit = true;
-            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).xieShow();
+            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).myShow();
             handler.sendEmptyMessageDelayed(0, 2000);
         }
     }

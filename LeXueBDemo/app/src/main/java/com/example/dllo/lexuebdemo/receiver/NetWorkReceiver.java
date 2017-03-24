@@ -5,10 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import com.example.dllo.lexuebdemo.R;
+
 import com.example.dllo.lexuebdemo.customview.Toast;
 
 /*
@@ -26,7 +23,7 @@ public class NetWorkReceiver extends BroadcastReceiver{
 
 
         if(networkInfo != null && networkInfo.isAvailable()){
-            Toast.makeText(context, "网络已连接", Toast.LENGTH_SHORT).xieShow();
+            Toast.makeText(context, "网络已连接", Toast.LENGTH_SHORT).myShow();
 //            Toast toast = new Toast(context);
 //            View view = LayoutInflater.from(context).inflate(R.layout.toast_view, null);
 //            TextView content = (TextView) view.findViewById(R.id.my_toast_content);
@@ -34,7 +31,7 @@ public class NetWorkReceiver extends BroadcastReceiver{
 //            toast.setView(view);
 //            toast.show();
         }else{
-            Toast.makeText(context, "未连接到网络，请检查网络设置", Toast.LENGTH_SHORT).xieShow();
+            Toast.makeText(context, "未连接到网络，请检查网络设置", Toast.LENGTH_SHORT).myShow();
 //            Toast toast = new Toast(context);
 //            View view = LayoutInflater.from(context).inflate(R.layout.toast_view, null);
 //            TextView content = (TextView) view.findViewById(R.id.my_toast_content);

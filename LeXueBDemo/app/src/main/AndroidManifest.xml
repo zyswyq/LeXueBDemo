@@ -107,6 +107,7 @@
         <activity android:name=".find.findview.activity.FuliActivity" />
 
         <activity android:name=".find.findview.activity.FindMapActivity" />
+        <!--闪屏页-->
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -114,6 +115,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--更多功能界面-->
+        <activity android:name=".teacher.view.MoreActivity">
+
+        </activity>
+
+        <provider
+            android:authorities="com.example.dllo.lexuebdemo.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+
+        </provider>
 
 
     </application>
