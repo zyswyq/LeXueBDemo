@@ -9,6 +9,8 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
 import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.sujectbean.Physics;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherDetailInfoActivity;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 
 import java.util.List;
 
@@ -60,6 +62,12 @@ public class HomeSubjectRecycleAdapter extends RecyclerView.Adapter<BaseViewHold
             }
         });
         holder.itemView.setTag(datas);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TeacherMovieDetailActivity.actionStart(context,datas.get(position).getVideo_id());
+            }
+        });
     }
 
     @Override

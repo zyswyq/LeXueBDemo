@@ -6,6 +6,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
@@ -41,8 +43,11 @@ import java.util.List;
 public class HomeViewPagerFragment extends BaseFragment {
     private RecyclerView mRecyclerView, freeRecyclerview, conciseRecyclerview,recommedRecyclerview
 
-           ,refreshRecyclerview ,reviseRecyclerview;
+            ,reviseRecyclerview;
     private RecycleViewItemClick mRecycleViewItemClick;
+    private TextView mTextView;
+    int moveiId = 1 ;
+
 
 
     private static final String url = "http://api.lexue.com/layout/entry";
@@ -76,6 +81,7 @@ public class HomeViewPagerFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        mTextView = (TextView) view.findViewById(R.id.fragment_home_viewpager_first_free);
         mBanner = (Banner) view.
                 findViewById(R.id.fragment_home_viewpager_banner);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_home_viewpager_rv);
@@ -104,8 +110,7 @@ public class HomeViewPagerFragment extends BaseFragment {
         mBanner.setImages(pic);
         //        ()里动画常量类
         mBanner.setBannerAnimation(Transformer.ZoomOut);
-//        mBanner.setBannerAnimation(Transformer.BackgroundToForeground);
-//        mBanner.setBannerAnimation(Transformer.DepthPage);
+
         //        是否自动轮播
         mBanner.setDelayTime(3000);
         //设置指示器位置（没有标题默认为右边,有标题时默认左边）
@@ -198,14 +203,39 @@ public class HomeViewPagerFragment extends BaseFragment {
         freeRecyclerview.setAdapter(mHomeViewFreeAdapter);
 
         mHomeViewFreeAdapter.setDatas(mListBeen, 0);
-        mHomeViewFreeAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+        mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(int position) {
-                Intent intent = new Intent(getActivity(), TeacherMovieDetailActivity.class);
-//                intent.putExtra("")
+            public void onClick(View view) {
+               Intent intent = new Intent(getActivity(),TeacherMovieDetailActivity.class);
                 startActivity(intent);
             }
         });
+//        mHomeViewFreeAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
+//            @Override
+//            public void onClick(int position) {
+//
+////                Intent intent = new Intent(getActivity(), TeacherMovieDetailActivity.class);
+//
+//
+//                if (position == 0) {
+//                    moveiId = 88;
+//                    TeacherMovieDetailActivity.actionStart(context, moveiId);
+//                }  if (position == 1) {
+//                    moveiId = 335;
+//                    TeacherMovieDetailActivity.actionStart(context, moveiId);
+//                }  if (position == 2) {
+//                    moveiId = 205;
+//                    TeacherMovieDetailActivity.actionStart(context, moveiId);
+//                }  if (position == 3) {
+//                    moveiId = 104;
+//
+//                    TeacherMovieDetailActivity.actionStart(context, moveiId);
+//                }
+//
+////                intent.putExtra("")
+////                startActivity(intent);
+//            }
+//        });
 
         homeRevise();
 //        NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
@@ -237,6 +267,7 @@ public class HomeViewPagerFragment extends BaseFragment {
         mViewConciseAdapter.setRecycleViewItemClick(new RecycleViewItemClick() {
             @Override
             public void onClick(int position) {
+
 
             }
         });

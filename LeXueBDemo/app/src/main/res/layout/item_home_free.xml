@@ -18,6 +18,7 @@
       android:layout_marginLeft="@dimen/margin5"
       android:textColor="@color/white"
       android:text="数学"
+      android:textSize="10sp"
       android:background="@drawable/home_home_text_border"/>
   <TextView
       android:id="@+id/item_home_free_content"

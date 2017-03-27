@@ -28,7 +28,7 @@ public class HomeTabFragment extends BaseFragment{
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private HomeTabAdapter mHomeTabAdapter;
-//    private List<HomeSubject.VideoSubjectsBean> fragments;
+
     private int[] ids;
 
 
@@ -125,6 +125,7 @@ public class HomeTabFragment extends BaseFragment{
     protected void initListener() {
 
     }
+
 
 
 }

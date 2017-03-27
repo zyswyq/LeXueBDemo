@@ -6,6 +6,7 @@
             android:layout_height="match_parent">
     <!--这是第一界面的布局-->
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

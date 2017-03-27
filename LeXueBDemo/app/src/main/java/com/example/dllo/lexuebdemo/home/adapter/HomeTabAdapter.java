@@ -10,10 +10,7 @@ import com.example.dllo.lexuebdemo.home.fragment.HomeSubjectFragment;
 
 import com.example.dllo.lexuebdemo.home.fragment.HomeViewPagerFragment;
 import com.example.dllo.lexuebdemo.home.fragment.HomeVolunteerFragment;
-import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
-import com.example.dllo.lexuebdemo.home.sujectbean.HomeSubject;
 
-import java.util.List;
 
 /**
  * ✎﹏﹏﹏.₯㎕*﹏﹏﹏
@@ -23,7 +20,7 @@ import java.util.List;
  */
 public class HomeTabAdapter extends FragmentPagerAdapter{
     private static final String TAG = "HomeTabAdapter";
-//    private List <HomeSubject.VideoSubjectsBean> mFragments;
+
     private int[] ids;
 
     public void setIds(int[] ids) {
@@ -43,7 +40,7 @@ public class HomeTabAdapter extends FragmentPagerAdapter{
         if (0 == position) {
 
             return HomeViewPagerFragment.newInstance();
-        } else if (0 < position && 9 > position) {
+        } else if (0 < position && 10 > position) {
 
             return HomeSubjectFragment.newInstance(ids[position]);
 

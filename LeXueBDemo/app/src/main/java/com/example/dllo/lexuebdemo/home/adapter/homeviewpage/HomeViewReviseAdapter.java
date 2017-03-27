@@ -9,6 +9,7 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
 import com.example.dllo.lexuebdemo.home.RecycleViewItemClick;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
+import com.example.dllo.lexuebdemo.teacher.view.TeacherMovieDetailActivity;
 
 import java.util.List;
 
@@ -53,6 +54,12 @@ public class HomeViewReviseAdapter extends RecyclerView.Adapter<BaseViewHolder>{
             }
         });
         holder.itemView.setTag(datas);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TeacherMovieDetailActivity.actionStart(context,datas.get(modePosition).getContent_list().get(position).getVideo_id());
+            }
+        });
     }
 
     @Override
