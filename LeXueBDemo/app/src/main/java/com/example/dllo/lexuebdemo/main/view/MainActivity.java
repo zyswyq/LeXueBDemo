@@ -1,13 +1,13 @@
 package com.example.dllo.lexuebdemo.main.view;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
@@ -69,6 +69,12 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    @Override
     protected int getLayout() {
         return R.layout.activity_main;
     }
@@ -88,13 +94,14 @@ public class MainActivity extends BaseActivity implements MainView {
         adapter = new MainVPAdapter(getSupportFragmentManager());
     }
 
-
     @Override
     protected void initData() {
         fragments.add(new HomeTabFragment());
         fragments.add(new TeacherFragment());
         fragments.add(new FindFragment());
-        fragments.add(new MyselfFragment());
+        if (register()) {
+            fragments.add(new MyselfFragment());
+        }
         adapter.setFragments(fragments);
         mainVP.setAdapter(adapter);
         mainVP.setOffscreenPageLimit(4);
@@ -102,13 +109,11 @@ public class MainActivity extends BaseActivity implements MainView {
             mainVP.setCurrentItem(4);
             myPage.setChecked(true);
         }
-
         netWorkReceiver = new NetWorkReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(netWorkReceiver, filter);
     }
-
 
     @Override
     protected void initListener() {
@@ -116,17 +121,23 @@ public class MainActivity extends BaseActivity implements MainView {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 presenter.selectPage(i);
-            }
-        });
-        myPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 if (!register()) {
-                    Intent intent = new Intent(MainActivity.this, LogonActivity.class);
-                    startActivity(intent);
+                    if (i == R.id.radiobtn_my) {
+                        Intent intent = new Intent(MainActivity.this, LogonActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
+    }
+
+
+    class RefreshReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            initData();
+        }
     }
 
 
@@ -148,7 +159,7 @@ public class MainActivity extends BaseActivity implements MainView {
             finish();
         } else {
             confirmExit = true;
-            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).xieShow();
+            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).myShow();
             handler.sendEmptyMessageDelayed(0, 2000);
         }
     }

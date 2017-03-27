@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.myself.activity.IdeaActivitty;
+import com.example.dllo.lexuebdemo.myself.activity.SetActivity;
 
 /*
          |              |
@@ -61,6 +62,8 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.rl_idea_set:
+                intent = new Intent(getActivity(),SetActivity.class);
+                startActivity(intent);
                 break;
         }
     }
