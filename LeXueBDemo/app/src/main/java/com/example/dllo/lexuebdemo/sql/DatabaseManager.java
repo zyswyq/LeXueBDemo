@@ -93,7 +93,7 @@ public class DatabaseManager {
         });
         return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value).limit(start, length));
     }
->>>>>>> 98416f36d1fa6a1c1e9216d2c78e7ae0628cbd15
+
 
     public <T> int update(Class<T> tClass, String where, String[] args, String[] args2, String[]args3){
         return liteOrm.update(new WhereBuilder(tClass, where, args),
