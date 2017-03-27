@@ -16,6 +16,11 @@ import com.example.dllo.lexuebdemo.R;
 */
 public class MoreLvAdapter extends BaseAdapter {
     private Context context;
+    private String[] titles;
+
+    public void setTitles(String[] titles) {
+        this.titles = titles;
+    }
 
     public void setContext(Context context) {
         this.context = context;
@@ -23,7 +28,7 @@ public class MoreLvAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return titles.length;
     }
 
     @Override
@@ -43,7 +48,7 @@ public class MoreLvAdapter extends BaseAdapter {
                     parent, false);
         }
         TextView text = (TextView) convertView.findViewById(R.id.item_lv_more_text);
-        text.setText("功能"+(position+1));
+        text.setText(titles[position]);
         return convertView;
     }
 

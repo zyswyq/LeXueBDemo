@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +33,7 @@ import com.example.dllo.lexuebdemo.utils.NumberFormat;
 import java.util.List;
 
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_INFO_FANS_BASE1_URL;
@@ -271,8 +273,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     private void setJcPlayer() {
         String url = Constant.TEACHER_VIDEO_PLAY_BASE_URL + realMovieId;
         Log.e(TAG, "setJcPlayer: " + url);
-        jcVideoPlayerStandard.setUp(url,
-                JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
+        jcVideoPlayerStandard.setUp("http://172.16.16.185:8080/0001.mp4",
+                JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "极乐净土");
     }
 
     private void initFrame() {
@@ -360,6 +362,7 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 //                    jcVideoPlayerStandard.startVideo();
                 videoBg.setVisibility(View.GONE);
                 videoPlay.setVisibility(View.GONE);
+                jcVideoPlayerStandard.startVideo();
 
 //                }
                 break;
@@ -413,4 +416,19 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if (JCVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
+    }
+
+
 }

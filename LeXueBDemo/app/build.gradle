@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -19,8 +20,8 @@ android {
         }
     }
 }
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs'
     }
 }
@@ -29,26 +30,27 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile files('libs/Msc.jar')
+    compile name: 'SMSSDK-2.1.3', ext: 'aar'
+    compile name: 'SMSSDK-2.1.3', ext: 'aar'
+    compile files('libs/Amap_2DMap_V4.2.0_20170209.jar')
+    compile files('libs/AMap_Location_V3.3.0_20170118.jar')
+    compile files('libs/universal-image-loader-1.9.0.jar')
+
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:cardview-v7:25.2.0'
     compile 'com.android.support:support-v4:25.2.0'
-    testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
-    compile files('libs/Msc.jar')
     compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile name: 'SMSSDK-2.1.3', ext: 'aar'
     compile 'com.youth.banner:banner:1.4.4'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile name: 'SMSSDK-2.1.3', ext: 'aar'
-    compile files('libs/Amap_2DMap_V4.2.0_20170209.jar')
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
-    compile files('libs/AMap_Location_V3.3.0_20170118.jar')
-    compile files('libs/universal-image-loader-1.9.0.jar')
-
+    compile 'com.android.support:support-vector-drawable:25.2.0'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

@@ -17,6 +17,7 @@ import com.example.dllo.lexuebdemo.teacher.adapter.MoreLvAdapter;
 public class MoreActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     private ListView listView;
     private MoreLvAdapter adapter;
+    private String[] titles;
 
     @Override
     protected int getLayout() {
@@ -30,7 +31,9 @@ public class MoreActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     protected void initData() {
+        titles = new String[]{"获取图片", "听音乐", "看视频"};
         adapter = new MoreLvAdapter();
+        adapter.setTitles(titles);
         adapter.setContext(this);
         listView.setAdapter(adapter);
     }
@@ -44,8 +47,13 @@ public class MoreActivity extends BaseActivity implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position){
             case 0:
-                //startActivity(new Intent(MoreActivity.this, MoreCameraAlbumActivity.class));
+                startActivity(new Intent(MoreActivity.this, MoreCameraAlbumActivity.class));
                 break;
+            case 1:
+                startActivity(new Intent(MoreActivity.this, MoreMusicPlayerActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(MoreActivity.this, MoreMoviePlayerActivity.class));
             default:
                 break;
         }
