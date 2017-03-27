@@ -20,14 +20,18 @@ import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.sql.DatabaseManager;
+import com.example.dllo.lexuebdemo.sql.MyThreadPool;
 import com.example.dllo.lexuebdemo.teacher.adapter.TeacherMovieCommentRvAdapter;
 import com.example.dllo.lexuebdemo.teacher.model.CommentBean;
 import com.example.dllo.lexuebdemo.teacher.model.Constant;
-import com.example.dllo.lexuebdemo.teacher.model.SubjectBean;
 import com.example.dllo.lexuebdemo.teacher.model.VideoInfoBean;
+import com.example.dllo.lexuebdemo.teacher.sql.CourseBean;
 import com.example.dllo.lexuebdemo.utils.NumberFormat;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import java.util.List;
+
+
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 import static com.example.dllo.lexuebdemo.teacher.model.Constant.TEACHER_INFO_FANS_BASE1_URL;
@@ -61,7 +65,13 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
     private View courseBottombar;
 
-    public static void actionStart(Context context, int movieId){
+    private ImageView collectImg;
+    private boolean isCollected;
+
+    //TODO 最好将其放在sp里存储
+    private static boolean isFirst = true;
+
+    public static void actionStart(Context context, int movieId) {
         Intent intent = new Intent(context, TeacherMovieDetailActivity.class);
         intent.putExtra("movieId", movieId);
         context.startActivity(intent);
@@ -99,12 +109,14 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         videoBg = bindView(R.id.iv_teacher_movie_detail_bg);
 
         courseBottombar = bindView(R.id.course_bottombar);
+
+        collectImg = bindView(R.id.course_collect);
     }
 
     @Override
     protected void initData() {
         movieId = getIntent().getIntExtra("movieId", -1);
-        if(movieId == -1){
+        if (movieId == -1) {
             return;
         }
         getNetData();
@@ -113,6 +125,47 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         initFrame();
 
         radioButton.setChecked(true);
+
+        //使用封装的线程池
+        MyThreadPool.getInstance().getThreadPoolExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                //查询表中所有数据
+                List<CourseBean> courseBeanArrayList = DatabaseManager.getInstance()
+                        .getQueryAll(CourseBean.class);
+                CourseBean nowBean = null;
+                //遍历数据，找到此次的movieId就保存到nowBean中
+                for (CourseBean courseBean : courseBeanArrayList) {
+
+                    if (courseBean.getMovieId() == movieId) {
+                        nowBean = courseBean;
+                        Log.e(TAG, "run: i find it");
+                    }
+                }
+
+                Log.e(TAG, "run: " + courseBeanArrayList.size());
+                //如果为null或者被收藏属性为false，设置相应的变化
+                if (nowBean == null || !nowBean.isCollected()) {
+                    isCollected = false;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            collectImg.setImageResource(R.mipmap.toolbar_collection_btn_normal);
+                        }
+                    });
+                } else {
+                    isCollected = true;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            collectImg.setImageResource(R.mipmap.toolbar_collection_btn_pressed);
+                        }
+                    });
+                }
+
+
+            }
+        });
 
 
     }
@@ -151,7 +204,7 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
                          * CommentBean中的好评率，修改为了double类型
                          */
                         TextView goodPercent = (TextView) findViewById(R.id.tv_evaluate_good_persent);
-                        goodPercent.setText((int)(respomse.getComment_rate()*100)+"%");
+                        goodPercent.setText((int) (respomse.getComment_rate() * 100) + "%");
 
                         commentRv.setLayoutManager(new LinearLayoutManager(TeacherMovieDetailActivity.this));
                         commentRv.setAdapter(adapter);
@@ -162,7 +215,6 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
                     }
                 });
-
 
 
         //设置课程的标题
@@ -177,12 +229,12 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         int price = videoInfoBean.getReal_diamond_price();
         TextView priceFree = (TextView) findViewById(R.id.tv_course_real_free);
         TextView priceState = (TextView) findViewById(R.id.tv_course_real_state);
-        if(price == 0){
+        if (price == 0) {
             priceTv.setVisibility(View.GONE);
             priceFree.setVisibility(View.VISIBLE);
             priceState.setText("已购买");
-        }else {
-            priceTv.setText(price+"");
+        } else {
+            priceTv.setText(price + "");
         }
         TextView watcherCount = (TextView) findViewById(R.id.tv_course_real_playtimes);
         watcherCount.setText(NumberFormat.formatNum(videoInfoBean.getWatcher_count()));
@@ -213,12 +265,11 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         videoCount.setText("视频数: " + teacherBean.getVideo_count());
 
 
-
         setJcPlayer();
     }
 
     private void setJcPlayer() {
-        String url = Constant.TEACHER_VIDEO_PLAY_BASE_URL+realMovieId;
+        String url = Constant.TEACHER_VIDEO_PLAY_BASE_URL + realMovieId;
         Log.e(TAG, "setJcPlayer: " + url);
         jcVideoPlayerStandard.setUp(url,
                 JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, "");
@@ -227,7 +278,6 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
     private void initFrame() {
         detailFrameClick();
     }
-
 
 
     @Override
@@ -241,6 +291,8 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
         videoPlay.setOnClickListener(this);
 
         courseBottombar.setOnClickListener(this);
+
+        collectImg.setOnClickListener(this);
     }
 
     private void detailFrameClick() {
@@ -288,7 +340,7 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_teacher_movie_detail_detail:
                 detailFrameClick();
                 break;
@@ -304,17 +356,60 @@ public class TeacherMovieDetailActivity extends BaseActivity implements View.OnC
 
             case R.id.video_play:
 //                if(playerIsPrepared){
-                    Log.e(TAG, "onClick: ");
+                Log.e(TAG, "onClick: ");
 //                    jcVideoPlayerStandard.startVideo();
-                    videoBg.setVisibility(View.GONE);
-                    videoPlay.setVisibility(View.GONE);
+                videoBg.setVisibility(View.GONE);
+                videoPlay.setVisibility(View.GONE);
 
 //                }
                 break;
 
             case R.id.course_bottombar:
-                //TODO 跳转名师界面
                 TeacherDetailInfoActivity.actionStart(this, videoInfoBean.getTeacher().getTeacher_id());
+                break;
+
+            case R.id.course_collect:
+                //判断是否被收藏
+                if (isCollected) {
+                    //判断是是否为第一次创建数据库，是的话，需要先进行insert操作，数据库才会被创建
+                    if (isFirst) {
+                        isFirst = false;
+                        CourseBean courseBean = new CourseBean(movieId, false);
+                        DatabaseManager.getInstance().insert(courseBean);
+                        Log.e(TAG, "onClick: addnew false first" + movieId);
+                    }else{
+                        //先进行更新操作，如果获得的更新行数为0，则代表该movieId数据尚未被录入，需要insert
+                        int rows = DatabaseManager.getInstance().update(CourseBean.class, "movieId=?",
+                                new String[]{"" + movieId}, new String[]{"isCollected"}, new String[]{"false"});
+                        Log.e(TAG, "onClick: update false");
+                        if(rows == 0){
+                            CourseBean courseBean = new CourseBean(movieId, false);
+                            DatabaseManager.getInstance().insert(courseBean);
+                            Log.e(TAG, "onClick: addnew false 0" + movieId);
+                        }
+                    }
+                    collectImg.setImageResource(R.mipmap.toolbar_collection_btn_normal);
+                    isCollected = false;
+                } else {
+                    if (isFirst) {
+                        isFirst = false;
+                        CourseBean courseBean = new CourseBean(movieId, true);
+                        DatabaseManager.getInstance().insert(courseBean);
+                        Log.e(TAG, "onClick: addnew true first" + movieId);
+                    }else{
+                        int rows = DatabaseManager.getInstance().update(CourseBean.class, "movieId=?",
+                                new String[]{"" + movieId}, new String[]{"isCollected"}, new String[]{"true"});
+                        Log.e(TAG, "onClick: update true");
+                        if(rows == 0){
+                            CourseBean courseBean = new CourseBean(movieId, true);
+                            DatabaseManager.getInstance().insert(courseBean);
+                            Log.e(TAG, "onClick: addnew true 0" + movieId);
+                        }
+                    }
+                    collectImg.setImageResource(R.mipmap.toolbar_collection_btn_pressed);
+                    isCollected = true;
+                }
+
                 break;
         }
     }

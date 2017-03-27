@@ -39,14 +39,14 @@ import java.util.List;
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
 //这是志愿界面
-public class HomeViewPagerFragment extends BaseFragment {
+public class HomeViewPagerFragment extends BaseFragment implements RecycleViewItemClick{
     private RecyclerView mRecyclerView, freeRecyclerview, conciseRecyclerview,recommedRecyclerview
 
            ,refreshRecyclerview ,reviseRecyclerview;
     private RecycleViewItemClick mRecycleViewItemClick;
 
 
-    private static final String url = "http://api.lexue.com/layout/entry ";
+    private static final String url = "http://api.lexue.com/layout/entry";
     private static final String freeurl = "http://api.lexue.com/video/list_v3?subject_id=100 ";
 
     private List<HomeClassifyBean.EntriesBean> datas;
@@ -242,6 +242,7 @@ public class HomeViewPagerFragment extends BaseFragment {
             }
         });
 
+
         NetTools.getInstance().startRequest(freeurl, HomeBean.class, new MyCallBack<HomeBean>() {
             @Override
             public void success(HomeBean respomse) {
@@ -333,5 +334,10 @@ public void homeRefresh(){
         return fragment;
     }
 
+    @Override
+    public void onClick(int position) {
+        //TODO 具体item点击事件的处理
+        return;
+    }
 
 }

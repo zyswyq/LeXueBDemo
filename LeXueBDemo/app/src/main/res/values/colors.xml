@@ -37,4 +37,6 @@
 
     <!--橙色-->
     <color name="orange">#E7460F</color>
+    <color name="transparent">#50000000</color>
+    <color name="bg_dialog">#FAFAFA</color>
 </resources>

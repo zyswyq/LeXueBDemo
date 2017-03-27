@@ -62,16 +62,15 @@ public class HomeSubjectFragment extends BaseFragment{
     protected void initData() {
         Bundle bundle = getArguments();
         if (null != bundle) {
-            int position = bundle.getInt("positionFrag");
-        }
+             int id = bundle.getInt("idFrag");
+
 
 
         datas = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(manager);
-        page++;
 
-        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT_URL + page, Physics.class, new MyCallBack<Physics>() {
+        NetTools.getInstance().startRequest(Constant.HOME_SUBJECT_URL + id, Physics.class, new MyCallBack<Physics>() {
 
             @Override
             public void success(Physics respomse) {
@@ -87,6 +86,7 @@ public class HomeSubjectFragment extends BaseFragment{
 
             }
         });
+        }
 
 //        Bundle bundle = getArguments();
 //        int positionFrag = bundle.getInt("positionFrag");
@@ -94,13 +94,13 @@ public class HomeSubjectFragment extends BaseFragment{
 //        mTestTv.setTextSize(50);
     }
     //fragment之间的传值
-    public static HomeSubjectFragment newInstance(int position) {
+    public static HomeSubjectFragment newInstance(int id) {
 
         Bundle args = new Bundle();
 
         HomeSubjectFragment fragment = new HomeSubjectFragment();
 
-        args.putInt("positionFrag",position);
+        args.putInt("idFrag",id);
 
         fragment.setArguments(args);
         return fragment;
