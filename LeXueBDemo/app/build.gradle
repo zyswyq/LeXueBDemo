@@ -50,5 +50,10 @@ dependencies {
     compile files('libs/Amap_2DMap_V4.2.0_20170209.jar')
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
     compile files('libs/AMap_Location_V3.3.0_20170118.jar')
+<<<<<<< HEAD
     compile 'org.greenrobot:eventbus:3.0.0'
+=======
+    compile files('libs/universal-image-loader-1.9.0.jar')
+
+>>>>>>> 2c4e2db5f1d49708e31a1266b72fc29011471465
 }

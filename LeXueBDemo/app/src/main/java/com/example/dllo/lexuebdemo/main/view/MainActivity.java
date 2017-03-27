@@ -8,17 +8,16 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseActivity;
 import com.example.dllo.lexuebdemo.customview.NoMoveViewPager;
+import com.example.dllo.lexuebdemo.customview.Toast;
 import com.example.dllo.lexuebdemo.find.findview.fragment.FindFragment;
 import com.example.dllo.lexuebdemo.home.fragment.HomeTabFragment;
 import com.example.dllo.lexuebdemo.main.adapter.MainVPAdapter;
@@ -160,7 +159,7 @@ public class MainActivity extends BaseActivity implements MainView {
             finish();
         } else {
             confirmExit = true;
-            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "再次返回，退出程序", Toast.LENGTH_SHORT).myShow();
             handler.sendEmptyMessageDelayed(0, 2000);
         }
     }
