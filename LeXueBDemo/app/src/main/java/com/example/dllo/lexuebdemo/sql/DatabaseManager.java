@@ -61,9 +61,9 @@ public class DatabaseManager {
      * @param value
      * @return
      */
-    public <T> List<T> getQueryByWhere(Class<T> cla, String field, String[] value) {
-        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value));
-    }
+//    public <T> List<T> getQueryByWhere(Class<T> cla, String field, String[] value) {
+//        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?",   value));
+//    }
 
     /**
      * 查询  某字段 等于 Value的值  可以指定从1-20，就是分页
@@ -75,9 +75,9 @@ public class DatabaseManager {
      * @param length
      * @return
      */
-    public <T> List<T> getQueryByWhereLength(Class<T> cla, String field, String[] value, int start, int length) {
-        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value).limit(start, length));
-    }
+//    public <T> List<T> getQueryByWhereLength(Class<T> cla, String field, String[] value, int start, int length) {
+//        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value).limit(start, length));
+//    }
 
     /**
      * 删除一个数据

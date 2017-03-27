@@ -76,6 +76,7 @@
 
         <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
         <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
+        <activity android:name=".find.findview.activity.FindWeatherActivity"/>
         <activity android:name=".find.findview.activity.FindWebView" />
         <activity
             android:name=".teacher.view.TeacherDetailInfoActivity"

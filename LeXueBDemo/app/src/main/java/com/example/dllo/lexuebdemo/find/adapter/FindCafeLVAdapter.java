@@ -3,17 +3,14 @@ package com.example.dllo.lexuebdemo.find.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseViewHolder;
 import com.example.dllo.lexuebdemo.find.findview.activity.SpaceImageDetailActivity;
 import com.example.dllo.lexuebdemo.find.model.FindCafeBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +24,8 @@ public class FindCafeLVAdapter extends BaseAdapter {
     private Context context;
     private ImageView imageView, imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8;
     private int[] location1;
+    private List<Integer> img;
+    private List<Integer> type;
 
 
     public List<FindCafeBean.PostsBean> getData() {
@@ -36,7 +35,20 @@ public class FindCafeLVAdapter extends BaseAdapter {
     public void setData(List<FindCafeBean.PostsBean> data) {
         this.data = data;
         notifyDataSetChanged();
-
+        img=new ArrayList<>();
+        type=new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            type.add(View.VISIBLE);
+        }
+        img.add(R.id.img_cafe_img1);
+        img.add(R.id.img_cafe_img2);
+        img.add(R.id.img_cafe_img3);
+        img.add(R.id.img_cafe_img4);
+        img.add(R.id.img_cafe_img5);
+        img.add(R.id.img_cafe_img6);
+        img.add(R.id.img_cafe_img7);
+        img.add(R.id.img_cafe_img8);
+        img.add(R.id.img_cafe_img9);
     }
 
     public Context getContext() {
@@ -101,15 +113,7 @@ public class FindCafeLVAdapter extends BaseAdapter {
 
         switch (data.get(position).getImage_content().size()) {
             case 9:
-                holder.setViewVisiable(R.id.linear_cafe_img1, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img2, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img3, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img1, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img2, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img3, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img6, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img8, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img9, View.VISIBLE);
+                holder=setVisable(type,holder);
                 holder.setImg(R.id.img_cafe_img1, data.get(position).getImage_content().get(0).getUrl());
                 holder.setImg(R.id.img_cafe_img2, data.get(position).getImage_content().get(1).getUrl());
                 holder.setImg(R.id.img_cafe_img3, data.get(position).getImage_content().get(2).getUrl());
@@ -121,9 +125,13 @@ public class FindCafeLVAdapter extends BaseAdapter {
                 holder.setImg(R.id.img_cafe_img9, data.get(position).getImage_content().get(8).getUrl());
                 break;
             case 8:
-                holder.setViewVisiable(R.id.linear_cafe_img1, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img2, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img3, View.VISIBLE);
+                for (int i = 0; i < 9; i++) {
+                    type.set(i,View.VISIBLE);
+                }
+                type.set(4,View.INVISIBLE);
+                type.set(5,View.INVISIBLE);
+                type.set(7,View.INVISIBLE);
+                holder=setVisable(type,holder);
                 holder.setImg(R.id.img_cafe_img1, data.get(position).getImage_content().get(0).getUrl());
                 holder.setImg(R.id.img_cafe_img2, data.get(position).getImage_content().get(1).getUrl());
                 holder.setImg(R.id.img_cafe_img3, data.get(position).getImage_content().get(2).getUrl());
@@ -132,17 +140,14 @@ public class FindCafeLVAdapter extends BaseAdapter {
                 holder.setImg(R.id.img_cafe_img6, data.get(position).getImage_content().get(5).getUrl());
                 holder.setImg(R.id.img_cafe_img7, data.get(position).getImage_content().get(6).getUrl());
                 holder.setImg(R.id.img_cafe_img8, data.get(position).getImage_content().get(7).getUrl());
-                holder.setViewVisiable(R.id.img_cafe_img1, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img2, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img3, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img6, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img8, View.VISIBLE);
-                holder.setViewVisiable(R.id.img_cafe_img9, View.INVISIBLE);
                 break;
             case 7:
-                holder.setViewVisiable(R.id.linear_cafe_img1, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img2, View.VISIBLE);
-                holder.setViewVisiable(R.id.linear_cafe_img3, View.VISIBLE);
+                for (int i = 0; i < 9; i++) {
+                    type.set(i,View.VISIBLE);
+                }
+                type.set(8,View.INVISIBLE);
+                type.set(9,View.INVISIBLE);
+                holder=setVisable(type,holder);
                 holder.setImg(R.id.img_cafe_img1, data.get(position).getImage_content().get(0).getUrl());
                 holder.setImg(R.id.img_cafe_img2, data.get(position).getImage_content().get(1).getUrl());
                 holder.setImg(R.id.img_cafe_img3, data.get(position).getImage_content().get(2).getUrl());
@@ -416,5 +421,12 @@ public class FindCafeLVAdapter extends BaseAdapter {
         return holder.getMview();
     }
 
+
+    private BaseViewHolder setVisable(List<Integer> data, BaseViewHolder holder){
+        for (int i = 0; i < data.size(); i++) {
+            holder.setViewVisiable(img.get(i),data.get(i));
+        }
+        return holder;
+    }
 
 }

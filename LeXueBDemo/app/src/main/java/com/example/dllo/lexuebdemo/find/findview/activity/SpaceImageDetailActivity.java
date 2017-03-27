@@ -41,21 +41,11 @@ public class SpaceImageDetailActivity extends Activity {
 
 		mNormalImageOptions = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheInMemory(true).cacheOnDisc(true)
 				.resetViewBeforeLoading(true).build();
-
-		// This
-		// This configuration tuning is custom. You can tune every option, you
-		// may tune some of them,
-		// or you can create default configuration by
-		// ImageLoaderConfiguration.createDefault(this);
-		// method.
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(mNormalImageOptions)
 				.denyCacheImageMultipleSizesInMemory().discCache(new UnlimitedDiscCache(new File(IMAGES_FOLDER)))
-				// .discCacheFileNameGenerator(new Md5FileNameGenerator())
 				.memoryCache(memoryCache)
-				// .memoryCacheSize(memoryCacheSize)
 				.tasksProcessingOrder(QueueProcessingType.LIFO).threadPriority(Thread.NORM_PRIORITY - 2).threadPoolSize(3).build();
 
-		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
 	}
 	private String mDatas;
@@ -69,7 +59,6 @@ public class SpaceImageDetailActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.sp_a);
 		initImageLoader(this);
 		mDatas = (String) getIntent().getSerializableExtra("images");
 		mPosition = getIntent().getIntExtra("position", 0);
@@ -79,21 +68,12 @@ public class SpaceImageDetailActivity extends Activity {
 		mHeight = getIntent().getIntExtra("height", 0);
 
 		imageView = new SmoothImageView(this);
-//		imageView = (SmoothImageView) findViewById(R.id.my_img);
 		imageView.setOriginalInfo(mWidth, mHeight, mLocationX, mLocationY);
 		imageView.transformIn();
 		imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
 		imageView.setScaleType(ScaleType.FIT_CENTER);
 		setContentView(imageView);
 		ImageLoader.getInstance().displayImage(mDatas, imageView);
-//		imageView.setImageResource(R.drawable.temp);
-		// ScaleAnimation scaleAnimation = new ScaleAnimation(0.5f, 1.0f, 0.5f,
-		// 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-		// 0.5f);
-		// scaleAnimation.setDuration(300);
-		// scaleAnimation.setInterpolator(new AccelerateInterpolator());
-		// imageView.startAnimation(scaleAnimation);
-
 	}
 
 	@Override
@@ -116,5 +96,4 @@ public class SpaceImageDetailActivity extends Activity {
 			overridePendingTransition(0, 0);
 		}
 	}
-
 }

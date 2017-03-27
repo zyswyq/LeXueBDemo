@@ -49,11 +49,13 @@ public class FindFragment extends BaseFragment implements AdapterView.OnItemClic
         title.add("商城");
         title.add("机器人");
         title.add("高德地图");
+        title.add("天气");
         content.add("在线享受京城名师面对面授课");
         content.add("碎碎念,聊聊天");
         content.add("年卡一轮卡,有卡在手高考我有");
         content.add("机器人在线与您聊天");
         content.add("不用担心在学海中迷路");
+        content.add("今天老天心情是什么样呢");
         presenter.setAdaper();
     }
 

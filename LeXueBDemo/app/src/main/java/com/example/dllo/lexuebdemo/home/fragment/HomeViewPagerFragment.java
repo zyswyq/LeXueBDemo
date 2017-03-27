@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.base.BaseFragment;
 import com.example.dllo.lexuebdemo.find.findview.FindCafeView;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilCafeActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 import com.example.dllo.lexuebdemo.home.HomeBinner;
@@ -142,7 +143,7 @@ public class HomeViewPagerFragment extends BaseFragment {
                   startActivity(intent);
               }
               if (2 == position){
-                  Intent intent = new Intent(getActivity(), FindCafeView.class);
+                  Intent intent = new Intent(getActivity(), FindDetilCafeActivity.class);
 
                   startActivity(intent);
               }
