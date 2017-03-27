@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="40dp"
-                android:background="@color/mainblue"
-              >
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/mainblue">
+
     <ImageView
         android:id="@+id/title_home_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@mipmap/home_logo"
-
-
-
-
-
-
         />
+
     <ImageButton
         android:id="@+id/title_home_ib"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/nav_searchicon_normal"
-
-        android:scaleType="center"
-
-        android:layout_centerVertical="true"
-
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
-        />
+        android:background="@mipmap/nav_searchicon_normal"
+        android:scaleType="center" />
 
 
 </RelativeLayout>

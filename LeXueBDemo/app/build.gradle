@@ -10,6 +10,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -50,7 +51,15 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
+
     compile 'com.android.support:support-vector-drawable:25.2.0'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile files('libs/AMap_Location_V3.3.0_20170118.jar')
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    compile files('libs/universal-image-loader-1.9.0.jar')
+
 }

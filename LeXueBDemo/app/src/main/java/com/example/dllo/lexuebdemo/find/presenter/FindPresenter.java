@@ -8,6 +8,7 @@ import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilCafeActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindDetilVideoActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindMapActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindRobotActivity;
+import com.example.dllo.lexuebdemo.find.findview.activity.FindWeatherActivity;
 import com.example.dllo.lexuebdemo.find.findview.activity.FindWebView;
 
 /**
@@ -48,6 +49,10 @@ public class FindPresenter {
                 break;
             case 4:
                 intent=new Intent(context, FindMapActivity.class);
+                findView.goActivity(intent);
+                break;
+            case 5:
+                intent=new Intent(context, FindWeatherActivity.class);
                 findView.goActivity(intent);
                 break;
 

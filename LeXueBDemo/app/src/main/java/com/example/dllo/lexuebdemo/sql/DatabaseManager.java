@@ -65,14 +65,25 @@ public class DatabaseManager {
      * @param value
      * @return
      */
+
+    public <T> List<T> getQueryByWhere(Class<T> cla, String field, String[] value) {
+        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?",   value));
+    }
+
     public <T> List<T> getQueryByWhere(Class<T> cla, String field, String value) {
         return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value));
     }
+
 
     /**
      * 查询  某字段
      *
      */
+
+    public <T> List<T> getQueryByWhereLength(Class<T> cla, String field, String[] value, int start, int length) {
+        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value).limit(start, length));
+    }
+
     public <T> List<T> getQueryByWhereLength(Class<T> cla, String field, String value, int start, int length) {
         MyThreadPool.getInstance().getThreadPoolExecutor().execute(new Runnable() {
             @Override
@@ -82,6 +93,7 @@ public class DatabaseManager {
         });
         return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", value).limit(start, length));
     }
+>>>>>>> 98416f36d1fa6a1c1e9216d2c78e7ae0628cbd15
 
     public <T> int update(Class<T> tClass, String where, String[] args, String[] args2, String[]args3){
         return liteOrm.update(new WhereBuilder(tClass, where, args),

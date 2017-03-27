@@ -10,7 +10,7 @@
         android:background="@color/mainblue">
 
         <ImageView
-            android:id="@+id/iv_idea_back"
+            android:id="@+id/iv_set_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -39,6 +39,14 @@
             android:drawablePadding="10dp"
             android:gravity="center"
             android:text="清除缓存" />
+        <TextView
+            android:id="@+id/tv_set_deletenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:gravity="center" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -59,7 +67,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white">
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -82,6 +90,7 @@
         android:background="@color/gray" />
 
     <RelativeLayout
+        android:id="@+id/rl_set_pushset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
@@ -93,6 +102,15 @@
             android:drawablePadding="10dp"
             android:gravity="center"
             android:text="推送设置" />
+
+        <TextView
+            android:id="@+id/tv_set_pushsettext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:gravity="center" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -181,6 +199,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/btn_set_nologin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

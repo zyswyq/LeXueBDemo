@@ -71,6 +71,7 @@
         <activity android:name=".main.view.MainActivity"></activity>
         <activity android:name=".find.findview.activity.FindDetilCafeActivity" />
         <activity android:name=".find.findview.activity.FindDetilVideoActivity" />
+        <activity android:name=".find.findview.activity.FindWeatherActivity"/>
         <activity android:name=".find.findview.activity.FindWebView" />
         <activity
             android:name=".teacher.view.TeacherDetailInfoActivity"
@@ -81,6 +82,10 @@
         <activity android:name=".myself.activity.LoginActivity" />
         <activity android:name=".myself.activity.IdeaActivitty" />
         <activity android:name=".myself.activity.SetActivity" />
+
+        <activity android:theme="@style/Theme.ActivityDialogStyle" android:name=".myself.activity.DialogActivity"/>
+        <activity android:theme="@style/Theme.ActivityDialogStyle" android:name=".myself.activity.LoopActivity"/>
+
         <activity
             android:name=".teacher.view.TeacherMovieDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
