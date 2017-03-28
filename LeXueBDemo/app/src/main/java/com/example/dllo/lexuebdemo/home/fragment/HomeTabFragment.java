@@ -1,8 +1,14 @@
 package com.example.dllo.lexuebdemo.home.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.dllo.lexuebdemo.R;
 import com.example.dllo.lexuebdemo.home.adapter.HomeTabAdapter;
@@ -11,6 +17,7 @@ import com.example.dllo.lexuebdemo.home.sujectbean.HomeBean;
 import com.example.dllo.lexuebdemo.home.sujectbean.HomeSubject;
 import com.example.dllo.lexuebdemo.nettools.NetTools;
 import com.example.dllo.lexuebdemo.nettools.inter.MyCallBack;
+import com.example.dllo.lexuebdemo.teacher.customview.DragGridView;
 import com.example.dllo.lexuebdemo.teacher.model.Constant;
 
 import java.util.ArrayList;
@@ -23,11 +30,12 @@ import java.util.List;
  *
  * 　　　　 ﹏﹏﹏♥♥刘延涛✍♥♥﹏﹏
  */
-public class HomeTabFragment extends BaseFragment{
+public class HomeTabFragment extends BaseFragment implements View.OnClickListener {
     private static final String TAG = "HomeTabFragment";
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private HomeTabAdapter mHomeTabAdapter;
+    private TextView mTextView;
 
     private int[] ids;
 
@@ -41,8 +49,10 @@ public class HomeTabFragment extends BaseFragment{
 
     @Override
     protected void initView() {
+        mTextView = (TextView) view.findViewById(R.id.fragment_home_tablayout_tv);
         mTabLayout = (TabLayout) view.findViewById(R.id.fragment_home_tablayout);
         mViewPager = (ViewPager) view.findViewById(R.id.fragment_home_viewpager);
+
     }
 
     @Override
@@ -97,6 +107,7 @@ public class HomeTabFragment extends BaseFragment{
 
 
     public void HomeSubject(){
+        mTextView.setOnClickListener(this);
 
         mTabLayout.setSelectedTabIndicatorColor(0);
 
@@ -119,7 +130,16 @@ public class HomeTabFragment extends BaseFragment{
             tab.setText(tabTitle[i]);
         }
     }
+public void popupwindows(){
+    View popview = LayoutInflater.from(context).inflate(R.layout.pop_findvideo,null);
+    PopupWindow popupWindow = new PopupWindow(popview,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT);
+    popupWindow.setOutsideTouchable(true);
+    popupWindow.setBackgroundDrawable(new BitmapDrawable());
+    popupWindow.showAsDropDown(mTextView,100,0);
 
+}
 
     @Override
     protected void initListener() {
@@ -127,5 +147,8 @@ public class HomeTabFragment extends BaseFragment{
     }
 
 
-
+    @Override
+    public void onClick(View view) {
+        popupwindows();
+    }
 }

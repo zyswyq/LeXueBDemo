@@ -23,6 +23,7 @@
 
     </android.support.design.widget.TabLayout>
     <TextView
+        android:id="@+id/fragment_home_tablayout_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/home_navigation_arrow_down"

@@ -35,7 +35,7 @@ public class HomeVolunteerFragment extends BaseFragment {
 
     private Handler mHandler = new Handler(Looper.myLooper());
 
-    private TextView mTestTv;
+
     private int mId;
 
     public static HomeVolunteerFragment newInstance(int id) {
